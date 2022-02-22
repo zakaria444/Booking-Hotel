@@ -4,11 +4,11 @@ const HotelSchema = new Schema   (
     {
         name: {
             type: String,
-            required: false,
+            required: true,
         },
         description: {
             type: String,
-            required: false
+            required: true
         },
       
         stars: {
@@ -18,7 +18,7 @@ const HotelSchema = new Schema   (
 
         image_cover: {
             type: String,
-            required: false
+            required: true
         },
    
         localisation: {

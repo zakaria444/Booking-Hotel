@@ -30,7 +30,7 @@ function home() {
           <Link className="nav-link active" aria-current="page" to="/owner/create">Ajouter Owner</Link>
  </li> 
   <li className="nav-item">
-  <Link className="nav-link active" aria-current="page" to="/hotel/create">Ajouter Hotel</Link>
+  <Link className="nav-link active" aria-current="page" to="/admin/createhotel">Ajouter Hotel</Link>
 </li> 
 
     </div>

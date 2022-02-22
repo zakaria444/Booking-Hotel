@@ -27,7 +27,7 @@ router.post('/register-admin', async(req,res)=>{
 
 // User Login Route
 
-router.post('/login-user',userSignInValidator, async(req,res)=>{
+router.post('/login-user', async(req,res)=>{
     await userLogin(req.body,"user",res);
 });
 //Owner User Login Route

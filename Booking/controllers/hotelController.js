@@ -25,23 +25,30 @@ const creatHotel = async (req, res) => {
     const name = req.body.name
     const description = req.body.description
     const stars = req.body.stars
-    const { city, country } = req.body.localisation
+    const city  = req.body.localisation[0]
+    const country  = req.body.localisation[1]
+
 
     const newHotel = new Hotel({
       name: name,
       description: description,
       stars: stars,
-      localisation: { city, country }
+      localisation: {city,country}
 
 
     })
     if (req.file) {
       newHotel.image_cover = req.file.path
     }
+    console.log(req.file);
+
+    
     const saveHotel = await newHotel.save()
     res.status(201).json({ success: true, data: saveHotel })
   } catch (error) {
-    res.status(404).json({ success: false, data: [], error: error })
+   
+    console.log(req.file);
+        res.status(404).json({ success: false, data: [], error: error })
   }
 }
 
