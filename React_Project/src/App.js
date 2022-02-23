@@ -22,6 +22,8 @@ import CreateOwner from"./compenent/owner/CreateOwner"
 // Create Hotel Par Admin 
 
 import CreateHotel from"./compenent/admin/CreateHotel"
+import AfficherHotel from"./compenent/admin/AfficherHotel"
+
 
 
 
@@ -49,6 +51,8 @@ function App() {
 {/* Route pour admin CreateHotel */}
 
 <Route path='/admin/createhotel' element={<CreateHotel/> } />
+<Route path='/admin/afficherhotel' element={<AfficherHotel/> } />
+
 
 
 </Routes>
