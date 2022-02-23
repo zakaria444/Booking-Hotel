@@ -37,12 +37,9 @@ function AfficherHotel() {
     const handleDelet = (id) => {
       const url="http://localhost:5000/api/hotel/"+id
   Axios.delete(url).then((res) => {
-    window.location="/admin/afficherhotel"
-
-
-
+    window.location="/admin/afficherhotel";
     })
-     
+    
   
       // event.prevntDefault();
       // setErrors(validation(values));
@@ -85,7 +82,7 @@ function AfficherHotel() {
   <td>  {ListHotel.localisation.country} <img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo"/></td>
 
     <td>  {ListHotel.stars} <img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/></td>
-    <td> <Link to={'/hotel/update'}>Update</Link></td>
+    <td> <button to={'/hotel/update'}>Update</button></td>
     <td> <button  onClick={() => handleDelet(ListHotel._id)}>delete</button></td>
 
 
