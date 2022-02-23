@@ -21,9 +21,11 @@ const BookingSchema = new Schema(
             type: Boolean,
             default: true
         },
-        user_id: [
-            { type: Schema.Types.ObjectId, ref: 'users' }
-        ]
+        user_id: 
+            { 
+                type: Schema.Types.ObjectId, ref: 'users' 
+            }
+        
     }, {
 
 

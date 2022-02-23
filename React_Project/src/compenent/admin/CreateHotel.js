@@ -1,15 +1,23 @@
 import React, { useState } from "react";
 import Axios from "axios"
+import jwtdecode from "jwt-decode";
+import {Link} from"react-router-dom";
+
+
 
 function CreateHotel() {
   const url = "http://localhost:5000/api/hotel/add";
+  const jwt =  localStorage.getItem('token');
+  const JWT1 =jwtdecode(jwt);
+  // console.log('jwt parse',JWT1.user_id);
   const [values, setvalues] = useState({
     name: "",
     description: "",
     stars: "",
     country: "",
     city:"",
-    image:""
+    image:"",
+    user_id:JWT1.user_id
   });
   // const [errors,setErrors]=useState({});
   // const handelChange =(event)=>{
@@ -20,12 +28,15 @@ function CreateHotel() {
   // };
   const submit = (e) => {
     e.preventDefault();
+
     Axios.post(url, {
       name: values.name,
       description: values.description,
       stars: values.stars,
       localisation: [values.city , values.country] ,
-      path:values.image
+      path:values.image,
+      user_id:values.user_id
+
       
     }).then((res) => {
         
@@ -50,9 +61,13 @@ function CreateHotel() {
   };
 
   return (
-       
+
     <section className="vh-100 gradient-custom" >
-      
+     
+    
+    <Link className="nav-link active" aria-current="page" to="/dashbordadmin">Back</Link>
+
+
       <div className="container py-5 h-100">
         <div className="row justify-content-center align-items-center h-100">
           <div className="col-12 col-lg-9 col-xl-7">

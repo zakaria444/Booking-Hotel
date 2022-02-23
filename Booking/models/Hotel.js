@@ -30,7 +30,10 @@ const HotelSchema = new Schema   (
                 type: String,
                 required: [true, 'Hotel must have a coutry']
             }
-             
+        },
+        user_id: 
+        { 
+            type: Schema.Types.ObjectId, ref: 'users' 
         }
     },
 

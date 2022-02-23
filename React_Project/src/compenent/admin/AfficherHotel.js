@@ -1,5 +1,5 @@
 import React from 'react'
-// import {Link} from"react-router-dom"
+import {Link} from"react-router-dom"
 // import jwtDecode from "jwt-decode";
 
 
@@ -19,6 +19,8 @@ function AfficherHotel() {
   
   return (
     <div>
+          <Link className="nav-link active" aria-current="page" to="/dashbordadmin">Back</Link>
+
 <h1>Tout Les Hotel</h1>
 
     </div>
