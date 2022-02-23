@@ -25,15 +25,27 @@ function home() {
 <ul className='nav-admin'>
  <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="/client/create">Ajouter Client</Link>
- </li> </ul>
+ </li> 
  <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="/owner/create">Ajouter Owner</Link>
  </li> 
   <li className="nav-item">
-  <Link className="nav-link active" aria-current="page" to="/hotel/create">Ajouter Hotel</Link>
+  <Link className="nav-link active" aria-current="page" to="/admin/createhotel">Ajouter Hotel</Link>
 </li> 
+</ul>
+
+<h1>Afficher Hotel</h1>
+      <ul className='nav-admin'>
+       <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/admin/afficherhotel">Afficher Hotel</Link>
+       </li> </ul>
+      
 
     </div>
+      
+      
+      
+          
   )
 }
 

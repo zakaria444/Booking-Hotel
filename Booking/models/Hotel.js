@@ -4,11 +4,11 @@ const HotelSchema = new Schema   (
     {
         name: {
             type: String,
-            required: false,
+            required: true,
         },
         description: {
             type: String,
-            required: false
+            required: true
         },
       
         stars: {
@@ -18,7 +18,7 @@ const HotelSchema = new Schema   (
 
         image_cover: {
             type: String,
-            required: false
+            required: true
         },
    
         localisation: {
@@ -30,7 +30,10 @@ const HotelSchema = new Schema   (
                 type: String,
                 required: [true, 'Hotel must have a coutry']
             }
-             
+        },
+        user_id: 
+        { 
+            type: Schema.Types.ObjectId, ref: 'users' 
         }
     },
 
