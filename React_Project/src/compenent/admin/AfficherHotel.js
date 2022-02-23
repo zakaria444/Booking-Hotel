@@ -1,6 +1,11 @@
 import React ,{ useEffect, useState } from 'react'
 import {Link} from"react-router-dom"
 import Axios from 'axios';
+import companyLogo from './img/1828884.png';
+import countryLogo from './img/4830734.png';
+import cityLogo from './img/1068530.png';
+
+
 
 // import jwtDecode from "jwt-decode";
 
@@ -29,7 +34,16 @@ function AfficherHotel() {
     sethotels(res.data.data) ;
 
     })})
+    const handleDelet = (id) => {
+      const url="http://localhost:5000/api/hotel/"+id
+  Axios.delete(url).then((res) => {
+    window.location="/admin/afficherhotel";
+    })
     
+  
+      // event.prevntDefault();
+      // setErrors(validation(values));
+    };
 
 
 
@@ -45,10 +59,10 @@ function AfficherHotel() {
 <tr>
     <th>Name</th>
     <th>description</th>
-    <th>city</th>
-    <th>country</th>
-    <th>stars</th>
-
+    <th ><img id='stars-hotel' src={cityLogo} alt="BigCo Inc. logo"/> city</th>
+    <th><img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo"/> country</th>
+    <th ><img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/> stars </th>
+   
     <th>Action</th>
     <th>Action</th>
 
@@ -64,12 +78,12 @@ function AfficherHotel() {
 {/* {console.log(ListHotel)} */}
   <td>  {ListHotel.name}</td>
   <td>  {ListHotel.description}</td>
-  <td>  {ListHotel.localisation.city}</td>
-  <td>  {ListHotel.localisation.country}</td>
+  <td>  {ListHotel.localisation.city} <img id='stars-hotel' src={cityLogo} alt="BigCo Inc. logo"/></td>
+  <td>  {ListHotel.localisation.country} <img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo"/></td>
 
-    <td>  {ListHotel.stars}</td>
-    <td> <Link to={'/client/create'}>Update</Link></td>
-    <td> <Link to={'/client/create'}>delete</Link></td>
+    <td>  {ListHotel.stars} <img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/></td>
+    <td> <button to={'/hotel/update'}>Update</button></td>
+    <td> <button  onClick={() => handleDelet(ListHotel._id)}>delete</button></td>
 
 
 
