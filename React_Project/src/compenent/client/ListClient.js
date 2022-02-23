@@ -1,35 +1,7 @@
-// import React from 'react'
-// import axios from 'axios'
-// import {useState} from 'react'
-
-// function ListClient() {
-  
-//      axios.get('http://localhost:5000/api/client/getclient').then(res=>{
-       
-//   console.log(res.data.data)
-//      })
-
-     
-//   return (
-//     <div>
-//       <h1>List client</h1>
-
-//     </div>
-//   )
-// }
-
-// export default ListClient
-
-
-
-
-// _________________________________________________
-
 import React, { Component } from 'react'
 import axios from "axios"
 import { Link } from 'react-router-dom'
  class ListClient extends Component {
-
     state = {
         myArray :[]
     }
@@ -42,23 +14,24 @@ import { Link } from 'react-router-dom'
              })
          })
      }
-
-
+     deleteRow(_id, e){  
+      axios.delete(`http://localhost:5000/api/client/deletclient/${_id}`)  
+        .then(res => {  
+          console.log(res);  
+          console.log(res.data);    
+          const myArray = this.state.myArray.filter(ListClient => ListClient._id !== _id);  
+          this.setState({ myArray });  
+        })  
+    }  
   render() {
 
     return (
       <div>
-
-
-
          <h1>Data Clients</h1>
          <button className='btn '>
         <Link to={'/client/create'}>Add Client</Link>
-
-
         </button>
          <table class="table">
-
            <thead>
              <tr>
                <th>Id</th>
@@ -66,7 +39,6 @@ import { Link } from 'react-router-dom'
                <th>Email</th>
                <th>Username</th>
                <th>Action</th>
-
              </tr>
            </thead>
            {this.state.myArray.map(ListClient =>
@@ -77,16 +49,11 @@ import { Link } from 'react-router-dom'
                <td>  {ListClient.email}</td>
                <td>  {ListClient.username}</td>
                <td> <Link to={'/update'}>Update</Link></td>
-               <td> <Link to={'/client/list'}>delete</Link></td>
+               <td> <Link to={'/client/list'}><button className="btn btn-danger" onClick={(e) => this.deleteRow(ListClient._id, e)}>Delete</button>  </Link></td>
              </tr>
            </tbody>
            )}
          </table>
-
-
-
-
-
       </div>
     )
   }
