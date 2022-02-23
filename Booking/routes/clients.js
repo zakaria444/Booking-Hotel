@@ -9,7 +9,8 @@ const {
 const {
     Getallclients,
     updateclient,
-    deletclient
+    deletclient,
+    getClient
   } = require("../controllers/Clientcontrollers");
 
 
@@ -17,6 +18,10 @@ const {
   router.get('/getclient', async(req,res)=>{
     await Getallclients(req,res,"user");
 });
+router.get('/getclient/:clientid', async(req,res)=>{
+  await getClient(req,res,"user");
+});
+
 
 
 

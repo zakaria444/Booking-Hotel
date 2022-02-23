@@ -5,12 +5,15 @@ const {
    
     checkRole
   } = require("../controllers/Auth");
-const {Getallproprietaires,updateproprietaire, deletpropreataire} = require("../controllers/proprietaireController");
+const {Getallproprietaires,updateproprietaire, deletpropreataire,getProprietaire} = require("../controllers/proprietaireController");
 //router.getAllPropratire
 
 
-router.get('/getproprtaire', async(req,res)=>{
+router.get('/Getallproprietaires', async(req,res)=>{
   await Getallproprietaires(req,res,"owner-user");
+});
+router.get('/Getallproprietaires/:propreatairId', async(req,res)=>{
+  await getProprietaire(req,res,"owner-user");
 });
 
 
