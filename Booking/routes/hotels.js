@@ -34,7 +34,7 @@ router.post("/upload", upload.single('image'),  creatHotelImages);
 router.get("/imageByHotel/:HotelId",  getImagesByHotel);
 router.post("/upload", upload.array('image',8), OwnercreatHotelImages);
 
-router.get("/",userAuth,  checkRole(['admin']), getHotels);
+router.get("/",/*userAuth,  checkRole(['admin']),*/ getHotels);
 
 router.get("/etoile/:hoteletoile", async(req,res)=>{
   await getHoteletoiles(req,res);
