@@ -14,15 +14,15 @@ import { Link } from 'react-router-dom'
              })
          })
      }
-     deleteRow(_id, e){  
-      axios.delete(`http://localhost:5000/api/client/deletclient/${_id}`)  
-        .then(res => {  
-          console.log(res);  
-          console.log(res.data);    
-          const myArray = this.state.myArray.filter(ListClient => ListClient._id !== _id);  
-          this.setState({ myArray });  
-        })  
-    }  
+    //  deleteRow(_id, e){  
+    //   axios.delete(`http://localhost:5000/api/client/deletclient/${_id}`)  
+    //     .then(res => {  
+    //       console.log(res);  
+    //       console.log(res.data);    
+    //       const myArray = this.state.myArray.filter(ListClient => ListClient._id !== _id);  
+    //       this.setState({ myArray });  
+    //     })  
+    // }  
   render() {
 
     return (
@@ -49,7 +49,8 @@ import { Link } from 'react-router-dom'
                <td>  {ListClient.email}</td>
                <td>  {ListClient.username}</td>
                <td> <Link to={'/update'}>Update</Link></td>
-               <td> <Link to={'/client/list'}><button className="btn btn-danger" onClick={(e) => this.deleteRow(ListClient._id, e)}>Delete</button>  </Link></td>
+               {/* <td> <Link to={'/client/list'}><button className="btn btn-danger" onClick={(e) => this.deleteRow(ListClient._id, e)}>Delete</button>  </Link></td> */}
+               <td> <Link to={'/client/list'}> Delete  </Link></td>
              </tr>
            </tbody>
            )}

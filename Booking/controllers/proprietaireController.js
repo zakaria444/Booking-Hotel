@@ -4,7 +4,7 @@ const Getallproprietaires = async (req,res,role)=> {
   let proprietaires = await proprietaire.find({role:role});
 
   return res.status(200).json({
-      ...proprietaires,
+      data:proprietaires,
       
       message:"Hurray ! You ar now Get all clients .",
       success:false

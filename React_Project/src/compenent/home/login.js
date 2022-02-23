@@ -29,11 +29,12 @@ const submit = (e) => {
     //   email: values.email,
       password: values.password,
     }).then((res) => {
-      console.log(res.data.token);
       localStorage.setItem('token',res.data.token)
       const jwt =  localStorage.getItem('token');
       const JWT1 =jwtdecode(jwt);
       console.log('jwt parse',JWT1.role);
+
+
 if(JWT1.role==="owner-user"){
     window.location="/dashbordowner"
 }else if(JWT1.role==="user"){

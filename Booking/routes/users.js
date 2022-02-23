@@ -9,7 +9,7 @@ const {
   } = require("../controllers/Auth");
   const {userSignUpValidator, userSignInValidator} = require('../middlewares/userValidator')
 //Users Registration Route
-router.post('/register-user', userSignUpValidator,async(req,res)=>{
+router.post('/register-user',async(req,res)=>{
     console.log(req.body)
     await userRegister(req.body, "user", res);
 });
@@ -27,7 +27,7 @@ router.post('/register-admin', async(req,res)=>{
 
 // User Login Route
 
-router.post('/login-user',userSignInValidator, async(req,res)=>{
+router.post('/login-user', async(req,res)=>{
     await userLogin(req.body,"user",res);
 });
 //Owner User Login Route
