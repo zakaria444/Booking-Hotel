@@ -13,7 +13,7 @@ const Getallclients = async (req,res,role)=> {
   };
   const getClient = async (req, res) => {
     const clientid = req.params.clientid
-    console.log("🚀 ~ file: Clientcontrollers.js ~ line 16 ~ getClient ~ clientid", clientid)
+  
   
     try {
         const Oneclient = await client.find({ _id: clientid })
