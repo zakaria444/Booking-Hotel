@@ -11,6 +11,17 @@ const Getallclients = async (req,res,role)=> {
         success:false
       })
   };
+  const getClient = async (req, res) => {
+    const clientid = req.params.clientid
+    console.log("🚀 ~ file: Clientcontrollers.js ~ line 16 ~ getClient ~ clientid", clientid)
+  
+    try {
+        const Oneclient = await client.find({ _id: clientid })
+        res.status(200).json({ success: true, data: Oneclient })
+    } catch (error) {
+        res.status(404).json({ success: false, data: [], error: error })
+    }
+  }
 
   const updateclient = async (req,res)=> {
       const idclients=req.params.clientid;
@@ -41,7 +52,14 @@ const Getallclients = async (req,res,role)=> {
 
 
   module.exports = {
+
     Getallclients ,
     updateclient  ,
     deletclient
+
+    Getallclients,
+    updateclient,
+    deletclient,
+    getClient,
+    
    };

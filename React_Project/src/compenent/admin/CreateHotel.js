@@ -40,7 +40,7 @@ function CreateHotel() {
       
     }).then((res) => {
         
-      console.log(res.data);
+      window.location="/admin/afficherhotel"
 
     });
   };
@@ -106,15 +106,23 @@ function CreateHotel() {
 
                   <div className="row">
                     <div className="col-md-6 mb-4 pb-2">
-                      <div className="form-outline">
-                        <input
-                          type="text"
+                      <div className="form-outline" id="form-outline">
+                      <label className="form-label">stars
+                        </label>
+                         <select labelId="demo-simple-select-label"   type="text"
                           id="stars"
                           onChange={(event) => handle(event)}
                           name="stars"
-                          className="form-control form-control-lg"
-                        />
-                        <label className="form-label">stars</label>
+                          className="form-control form-control-lg"  label="Age" >
+                        <option value={1}>⭐</option>
+                        <option value={2}>⭐⭐</option>
+                        <option value={3}>⭐⭐⭐</option>
+                        <option value={4}>⭐⭐⭐⭐</option>
+                        <option value={5}>⭐⭐⭐⭐⭐</option>
+                       
+                       
+                      
+                      </select>
                       </div>
                       {/* {errors.email && <p className='error'>{errors.email}</p>} */}
                     </div>
@@ -129,6 +137,7 @@ function CreateHotel() {
                           className="form-control form-control-lg"
                         />
                         <label className="form-label">city</label>
+                        
                       </div>
                       {/* {errors.email && <p className='error'>{errors.email}</p>} */}
                     </div>

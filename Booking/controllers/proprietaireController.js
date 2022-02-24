@@ -11,6 +11,16 @@ const Getallproprietaires = async (req,res,role)=> {
     })
     
 };
+const getProprietaire = async (req, res) => {
+  const propreatairId = req.params.propreatairId
+
+  try {
+      const Oneproprietair = await proprietaire.find({ _id: propreatairId })
+      res.status(200).json({ success: true, data: Oneproprietair })
+  } catch (error) {
+      res.status(404).json({ success: false, data: [], error: error })
+  }
+}
 
 const updateproprietaire= async (req, res) => {
     const propreatairId = req.params.propreatairId
@@ -43,9 +53,10 @@ const updateproprietaire= async (req, res) => {
 
  
   module.exports = {
-    Getallproprietaires,
+Getallproprietaires,
 updateproprietaire,
-deletpropreataire
+deletpropreataire,
+getProprietaire
 
   
     };

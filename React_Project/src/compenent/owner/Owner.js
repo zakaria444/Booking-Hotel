@@ -7,7 +7,7 @@ class Owner extends Component {
     myArray: []
   }
   componentDidMount() {
-    axios.get('http://localhost:5000/api/propreataire/getproprtaire')
+    axios.get('http://localhost:5000/api/propreataire/Getallproprietaires')
       .then(res => {
         console.log(res.data.data)
         this.setState({

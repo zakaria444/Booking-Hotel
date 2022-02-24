@@ -49,3 +49,15 @@
 .nav-admin{
   display: flex;
 }
+#stars-hotel{
+  width: 25px;
+}
+#form-outline{
+  width: 50%;
+  text-align: initial;
+  margin: 10px;
+
+}
+#stars{
+  border: solid 1px;
+}
