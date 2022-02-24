@@ -58,7 +58,7 @@ function AfficherHotel() {
     <div>
           <Link className="nav-link active" aria-current="page" to="/dashbordadmin">Back</Link>
 
-<h1>Tout Les Hotel</h1>
+<h1>Tout UPDATE Hotel</h1>
 <table className="table">
 
 <thead>
