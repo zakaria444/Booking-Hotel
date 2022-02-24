@@ -35,13 +35,19 @@ function AfficherHotel() {
 
     })})
     const handleUpdate = (id) => {
-    window.location="/admin/updatehotel/"+id;
+      const url="http://localhost:5000/api/hotel/"+id
+      Axios.get(url)
+    .then((res)=>{
+      window.location="/admin/updatehotel/"+id
+      // console.log(res.data.data[0]);
+    })
    
   };
 
     const handleDelet = (id) => {
       const url="http://localhost:5000/api/hotel/"+id
   Axios.delete(url).then((res) => {
+
     window.location="/admin/afficherhotel";
     })
    
