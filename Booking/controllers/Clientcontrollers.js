@@ -6,11 +6,22 @@ const client = require('../models/User');
 const Getallclients = async (req,res,role)=> {
     let clients = await client.find({role:role});
     return res.status(200).json({
-        ...clients,
+       data:clients,
         message:"Hurray ! You ar now Get all clients .",
         success:false
       })
   };
+  const getClient = async (req, res) => {
+    const clientid = req.params.clientid
+    console.log("🚀 ~ file: Clientcontrollers.js ~ line 16 ~ getClient ~ clientid", clientid)
+  
+    try {
+        const Oneclient = await client.find({ _id: clientid })
+        res.status(200).json({ success: true, data: Oneclient })
+    } catch (error) {
+        res.status(404).json({ success: false, data: [], error: error })
+    }
+  }
 
   const updateclient = async (req,res)=> {
       const idclients=req.params.clientid;
@@ -28,21 +39,27 @@ const Getallclients = async (req,res,role)=> {
 
   const deletclient = async (req,res)=> {
     const idclients=req.params.clientid;
-   
-  let clients = await client.deleteOne({_id:idclients});
-  return res.status(200).json({
-      ...clients,
-      message:"Hurray ! You ar now Delet client Par ID .",
-      success:false
-    })
+
+    let clients = await client.deleteOne({_id:idclients});
+    return res.status(200).json({
+      data:clients,
+        message:"Hurray ! You ar now Delet client Par ID .",
+        success:false
+      })
 };
 
 
 
 
   module.exports = {
+
+    Getallclients ,
+    updateclient  ,
+    deletclient
+
     Getallclients,
     updateclient,
-    deletclient
+    deletclient,
+    getClient,
     
    };
