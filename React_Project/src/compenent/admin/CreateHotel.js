@@ -22,7 +22,7 @@ function CreateHotel() {
     stars: "",
     country: "",
     city:"",
-    // image:files.imagee,
+    image:"",
     user_id:JWT1.user_id
   });
  
@@ -41,7 +41,7 @@ function CreateHotel() {
       description: values.description,
       stars: values.stars,
       localisation: [values.city , values.country] ,
-      // image_cover:values.image,
+      image_cover:values.image,
       user_id:values.user_id
 
       
@@ -186,7 +186,7 @@ function CreateHotel() {
                           type="file"
                         id="image"
                           onChange={(event) => handle(event)}
-                          name="image"
+                          // name="image"
                           className="form-control form-control-lg"
                         />
                         <label className="form-label">image</label>

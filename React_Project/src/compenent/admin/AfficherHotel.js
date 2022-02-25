@@ -35,14 +35,26 @@ function AfficherHotel() {
 
     })})
     const handleUpdate = (id) => {
+    //   const url="http://localhost:5000/api/hotel/"+id
+    //   Axios.get(url)
+    // .then((res)=>{
+    //   window.location="/admin/updatehotel/"+id
+    //   // console.log(res.data.data[0]);
+    // })
+    
       const url="http://localhost:5000/api/hotel/"+id
-      Axios.get(url)
-    .then((res)=>{
-      window.location="/admin/updatehotel/"+id
-      // console.log(res.data.data[0]);
-    })
+      Axios.patch(url,{
+        name: values.name,
+        description: values.description,
+        stars: values.stars,
+        localisation: [values.city , values.country] ,
+      }).then((res) => {
+        sethotels(res.data.data) ;
+        console.log(res.data.data);
+    
+        
    
-  };
+    })};
 
     const handleDelet = (id) => {
       const url="http://localhost:5000/api/hotel/"+id
@@ -135,7 +147,7 @@ function AfficherHotel() {
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-            <form >
+         
               <div className="row">
                     <div className="col-md-6 mb-4">
                     <div className="form-outline">
@@ -230,9 +242,8 @@ function AfficherHotel() {
                   className="btn btn-primary btn-lg"
                   value="Submit"
                   onClick={() => handleUpdate(ListHotel._id)}
-                  type="submit">  Submit</button>
+                  >  Submit</button>
               </div>
-            </form>
           </div>
         </div>
       </div>
