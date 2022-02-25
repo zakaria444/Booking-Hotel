@@ -9,6 +9,12 @@ function CreateHotel() {
   const url = "http://localhost:5000/api/hotel/add";
   const jwt =  localStorage.getItem('token');
   const JWT1 =jwtdecode(jwt);
+  
+  // const [files, setfiles] = useState({
+  
+  //   imagee:"",
+  
+  // });
   // console.log('jwt parse',JWT1.user_id);
   const [values, setvalues] = useState({
     name: "",
@@ -19,6 +25,7 @@ function CreateHotel() {
     image:"",
     user_id:JWT1.user_id
   });
+ 
   // const [errors,setErrors]=useState({});
   // const handelChange =(event)=>{
   //     setvalues({
@@ -28,13 +35,13 @@ function CreateHotel() {
   // };
   const submit = (e) => {
     e.preventDefault();
-
+ 
     Axios.post(url, {
       name: values.name,
       description: values.description,
       stars: values.stars,
       localisation: [values.city , values.country] ,
-      path:values.image,
+      image_cover:values.image,
       user_id:values.user_id
 
       
@@ -48,12 +55,19 @@ function CreateHotel() {
   const handle = (event) => {
 
     const newdata = { ...values };
+    // const newfile = { files };
+
 
     newdata[event.target.id] = event.target.value;
     setvalues(newdata);
-  
+    // newfile[event.target.id] = event.target.files;
+    
+  //   setfiles(newfile);
+  // const filebrowser = newfile.image[0];
 
     console.log(newdata);
+    // console.log(filebrowser);
+
 
 
     // event.prevntDefault();
@@ -170,9 +184,9 @@ function CreateHotel() {
                       <div className="form-outline">
                         <input
                           type="file"
-                          id="image"
+                        id="image"
                           onChange={(event) => handle(event)}
-                          name="image"
+                          // name="image"
                           className="form-control form-control-lg"
                         />
                         <label className="form-label">image</label>

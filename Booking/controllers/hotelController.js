@@ -41,7 +41,7 @@ const creatHotel = async (req, res) => {
 
     })
     if (req.body) {
-      newHotel.image_cover = req.body.path
+      newHotel.image_cover = req.body.image_cover
     }
     console.log(req.body.user_id);
 
@@ -59,11 +59,20 @@ const updateHotel = async (req, res) => {
   const hotelId = req.params.hotelId
   const { name } = req.body
   const { description } = req.body
+  const { stars } = req.body
+
+  const city = req.body.localisation[0]
+  const country = req.body.localisation[1]
+
   try {
     const updatedHotelData = await Hotel.updateOne({ _id: hotelId }, {
       $set: {
         name: name,
-        description: description
+        description: description,
+        stars: stars,
+        localisation:{city , country },
+
+        
       }
     })
     res.status(201).json({ success: true, data: updatedHotelData })
