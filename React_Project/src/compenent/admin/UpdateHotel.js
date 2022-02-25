@@ -101,7 +101,7 @@ const handle = (event) => {
     <div>
           <Link className="nav-link active" aria-current="page" to="/dashbordadmin">Back</Link>
 
-<h1>Tout UPDATE Hotel</h1>
+<h1>UPDATE Hotel</h1>
 <table className="table">
 
 <thead>
@@ -142,22 +142,18 @@ const handle = (event) => {
  )}
 </table>
 <section className="vh-100 gradient-custom" >
-     
-    
-<Link className="nav-link active" aria-current="page" to="/dashbordadmin">Back</Link>
-
-
   <div className="container py-5 h-100">
     <div className="row justify-content-center align-items-center h-100">
       <div className="col-12 col-lg-9 col-xl-7">
         <div className="card shadow-2-strong card-registration" id="form">
           <div className="card-body p-4 p-md-5">
-            <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Ajouter Hotel</h3>
+            <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Update Hotel</h3>
             <form onSubmit={submit}>
               <div className="row">
                     <div className="col-md-6 mb-4">
                     <div className="form-outline">
                     <input
+                    
                       type="text"
                       id="name"
                       onChange={(event) => handle(event)}

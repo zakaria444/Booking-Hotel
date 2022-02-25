@@ -56,6 +56,36 @@ function AfficherHotel() {
       // event.prevntDefault();
       // setErrors(validation(values));
     };
+    const [values, setvalues] = useState({
+      name: "",
+      description: "",
+      stars: "",
+      country: "",
+      city:"",
+      // image:files.imagee,
+    });
+    const handle = (event) => {
+     
+
+      const newdata = { ...values };
+      // const newfile = { files };
+  
+  
+      newdata[event.target.id] = event.target.value;
+      setvalues(newdata);
+      // newfile[event.target.id] = event.target.files;
+      
+    //   setfiles(newfile);
+    // const filebrowser = newfile.image[0];
+  
+      console.log(newdata);
+      // console.log(filebrowser);
+  
+  
+  
+      // event.prevntDefault();
+      // setErrors(validation(values));
+    };
    
 
 
@@ -96,15 +126,127 @@ function AfficherHotel() {
     <td>  {ListHotel.stars} <img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/></td>
     <td> <button onClick={() => handleUpdate(ListHotel._id)}>Update</button></td>
     <td> <button  onClick={() => handleDelet(ListHotel._id)}>delete</button></td>
+    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Update</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div className="col-12 col-lg-9 col-xl-7">
+        <div className="card shadow-2-strong card-registration" id="form">
+          <div className="card-body p-4 p-md-5">
+            <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Update Hotel</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            <form >
+              <div className="row">
+                    <div className="col-md-6 mb-4">
+                    <div className="form-outline">
+                    <input
+                    
+                      type="text"
+                      id="name"
+                      onChange={(event) => handle(event)}
+                      name="fullname"
+                      className="form-control form-control-lg"
+                    />
+                    <label className="form-label">Name</label>
+                  </div>
+                </div>
+                <div className="col-md-6 mb-4">
+                  <div className="form-outline">
+                    <input
+                      type="text"
+                      id="description"
+                      onChange={(event) => handle(event)}
+                      name="description"
+                      className="form-control form-control-lg"
+                    />
+                    <label className="form-label">description</label>
+                  </div>
+                </div>
+              </div>
 
+              <div className="row">
+                <div className="col-md-6 mb-4 pb-2">
+                  <div className="form-outline" id="form-outline">
+                  <label className="form-label">stars
+                    </label>
+                     <select labelId="demo-simple-select-label"   type="text"
+                      id="stars"
+                      onChange={(event) => handle(event)}
+                      name="stars"
+                      className="form-control form-control-lg"  label="Age" >
+                    <option value={1}>⭐</option>
+                    <option value={2}>⭐⭐</option>
+                    <option value={3}>⭐⭐⭐</option>
+                    <option value={4}>⭐⭐⭐⭐</option>
+                    <option value={5}>⭐⭐⭐⭐⭐</option>
+                   
+                   
+                  
+                  </select>
+                  </div>
+                </div>
+                <div className="row">
+                <div className="col-md-6 mb-4 pb-2">
+                  <div className="form-outline">
+                    <input
+                      type="text"
+                      id="city"
+                      onChange={(event) => handle(event)}
+                      name="city"
+                      className="form-control form-control-lg"
+                    />
+                    <label className="form-label">city</label>
+                    
+                  </div>
+                </div>
+                
+               
+              </div>
+            
+               
+              
+              </div>
+              <div className="row">
+                <div className="col-md-6 mb-4 pb-2">
+                  <div className="form-outline">
+                    <input
+                      type="text"
+                      id="country"
+                      onChange={(event) => handle(event)}
+                      name="country"
+                      className="form-control form-control-lg"
+                    />
+                    <label className="form-label">country</label>
+                  </div>
+                </div>
+                
+               
+              </div>
+             
+              
 
+              <div className="mt-4 pt-2">
+                <button
+                  className="btn btn-primary btn-lg"
+                  value="Submit"
+                  onClick={() => handleUpdate(ListHotel._id)}
+                  type="submit">  Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+</div></td>
 
+    
 
   </tr>
 
  </tbody>
  )}
 </table>
+
+
     
 
     </div>
