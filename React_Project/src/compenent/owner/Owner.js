@@ -1,6 +1,18 @@
 import React, { Component } from 'react'
 import axios from "axios"
 import { Link } from 'react-router-dom'
+const handleDelet = (id) => {
+  const url="http://localhost:5000/api/propreataire/"+id
+axios.delete(url).then((res) => {
+
+window.location="/owner";
+})
+
+
+
+  // event.prevntDefault();
+  // setErrors(validation(values));
+};
 class Owner extends Component {
 
   state = {
@@ -48,8 +60,8 @@ class Owner extends Component {
                 <td>  {owner.name}</td>
                 <td>  {owner.email}</td>
                 <td>  {owner.username}</td>
-                <td> <Link to={'/update'}>Update</Link></td>
-                <td> <Link to={'/delete'}>delete</Link></td>
+                <td> <Link to={`/update/${owner._id}`}>Update</Link></td>
+                <td> <button  onClick={() => handleDelet(owner._id)}>deleted</button></td>
 
 
 
