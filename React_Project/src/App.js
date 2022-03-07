@@ -48,9 +48,6 @@ import UpdateHotel from "./compenent/admin/UpdateHotel"
 
 
 
-import CreateClient from"./compenent/client/CreateClient"
-import CreateHotel from"./compenent/admin/CreateHotel"
-import AfficherHotel from"./compenent/admin/AfficherHotel"
 
 import CreateOwner from"./compenent/owner/CreateOwner"
 import Owner from"./compenent/owner/Owner"
