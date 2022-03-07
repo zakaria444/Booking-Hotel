@@ -12,8 +12,7 @@ function menu() {
     if(jwt){
       
       const JWT1 =jwtdecode(jwt);
-      console.log('jwt parse',JWT1.username);
-      console.log('jwt decode',JWT1);
+
 
       
       return   JWT1;

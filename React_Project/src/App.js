@@ -24,6 +24,8 @@ import AfficherHotel from"./compenent/admin/AfficherHotel"
 import CreateClient from"./compenent/client/CreateClient"
 import CreateOwner from"./compenent/owner/CreateOwner"
 import Owner from"./compenent/owner/Owner"
+import UpdateOwner from"./compenent/owner/Update"
+
 
 
 
@@ -52,6 +54,10 @@ function App() {
 <Route path='/client/create' element={<CreateClient/> } />
 <Route path='/owner/create' element={<CreateOwner/> } />
 <Route path='/owner' element ={<  Owner/> } />
+<Route path='/update/:id' element ={<  UpdateOwner/> } />
+
+
+
 
 
 
