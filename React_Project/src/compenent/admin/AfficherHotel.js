@@ -26,6 +26,8 @@ function AfficherHotel() {
 
 
   const [hotels, sethotels] = useState([]);
+  // const [hotelsid, sethotelsid] = useState([]);
+
 
   useEffect(()=>{
   const url="http://localhost:5000/api/hotel"
@@ -35,12 +37,14 @@ function AfficherHotel() {
 
     })})
     const handleUpdate = (id) => {
+
     //   const url="http://localhost:5000/api/hotel/"+id
     //   Axios.get(url)
     // .then((res)=>{
     //   window.location="/admin/updatehotel/"+id
     //   // console.log(res.data.data[0]);
     // })
+  
     
       const url="http://localhost:5000/api/hotel/"+id
       Axios.patch(url,{
@@ -52,21 +56,25 @@ function AfficherHotel() {
         window.location="/admin/afficherhotel";
         sethotels(res.data.data) ;
         console.log(res.data.data);
-        // if(sethotels){
-        // window.location="/admin/afficherhotel";}
+      
 
     
         
    
-    })};
+    })
+  
+   
+  
+  };
 
     const handleDelet = (id) => {
       const url="http://localhost:5000/api/hotel/"+id
   Axios.delete(url).then((res) => {
 
     window.location="/admin/afficherhotel";
-    })
-   
+    })};
+    const handleupdatid = (id) => {
+    
     
   
       // event.prevntDefault();
@@ -142,16 +150,23 @@ function AfficherHotel() {
     <td>  {ListHotel.stars} <img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/></td>
     {/* <td> <button onClick={() => handleUpdate(ListHotel._id)}>Update</button></td> */}
     <td> <button  onClick={() => handleDelet(ListHotel._id)}>delete</button></td>
-    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Update</button></td>
+    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onClick={() => handleupdatid(ListHotel._id)}>Update</button></td>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   
     <div className="col-12 col-lg-9 col-xl-7">
         <div className="card shadow-2-strong card-registration" id="form">
           <div className="card-body p-4 p-md-5">
+          <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
             <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Update Hotel</h3>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-         
+        </div>
+        </div>
+        </div>
+  
               <div className="row"> 
                     <div className="col-md-6 mb-4">
                     <div className="form-outline">
@@ -248,9 +263,15 @@ function AfficherHotel() {
                   onClick={() => handleUpdate(ListHotel._id)}
                   >  Submit</button>
               </div>
+              
           </div>
+          
         </div>
-</div></div>
+</div>
+</div>
+
+
+
 
 
     
@@ -258,6 +279,7 @@ function AfficherHotel() {
   </tr>
 
  </tbody>
+ 
  )}
 </table>
 

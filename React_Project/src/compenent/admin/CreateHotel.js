@@ -23,7 +23,7 @@ function CreateHotel() {
     country: "",
     city:"",
     image:"",
-    user_id:JWT1.user_id
+    user_id:JWT1.user_id,
   });
  
   // const [errors,setErrors]=useState({});
@@ -43,7 +43,10 @@ function CreateHotel() {
       localisation: [values.city , values.country] ,
       image_cover:values.image,
       user_id:values.user_id
-
+    },{
+      headers: {
+        'Authorization': `Bearer ${jwt}` 
+      }
       
     }).then((res) => {
         
