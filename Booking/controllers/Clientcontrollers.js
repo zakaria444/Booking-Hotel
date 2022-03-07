@@ -55,10 +55,6 @@ const Getallclients = async (req,res,role)=> {
 
     Getallclients ,
     updateclient  ,
-    deletclient
-
-    Getallclients,
-    updateclient,
     deletclient,
     getClient,
     
