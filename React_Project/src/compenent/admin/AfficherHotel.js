@@ -140,7 +140,7 @@ function AfficherHotel() {
   <td>  {ListHotel.localisation.country} <img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo"/></td>
 
     <td>  {ListHotel.stars} <img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/></td>
-    <td> <button onClick={() => handleUpdate(ListHotel._id)}>Update</button></td>
+    {/* <td> <button onClick={() => handleUpdate(ListHotel._id)}>Update</button></td> */}
     <td> <button  onClick={() => handleDelet(ListHotel._id)}>delete</button></td>
     <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Update</button></td>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
