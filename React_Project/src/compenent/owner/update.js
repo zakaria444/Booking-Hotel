@@ -47,7 +47,7 @@ const Update = props => {
     axios.get(`http://localhost:5000/api/propreataire/Getallproprietaires/${id}`)
       .then(response => {
      
-         const data = response.data
+         const data = response.data.data
          console.log("🚀 ~ file: Update.js ~ line 32 ~ data", data)
         
         setOwner(data);
@@ -68,10 +68,8 @@ const Update = props => {
   const handleInputChange = event => {
     const newdata = { ...owner };
     newdata[event.target.id] = event.target.value;
-    setOwner({
-      [event.target.name] : event.target.value,
-    });
-   
+    setOwner(newdata);
+    console.log("🚀 ~ file: Update.js ~ line 53 ~ newdata", newdata)
     
 
 
@@ -84,7 +82,6 @@ const Update = props => {
   return (
     // ...
     <div>
-      
   <section className="vh-100 gradient-custom" >
 
  
@@ -190,10 +187,7 @@ const Update = props => {
             </div>
            
           </form>
-        
         </div>
-         
-         
       </div>
     </div>
   </div>
