@@ -63,3 +63,19 @@
 #stars{
   border: solid 1px;
 }
+.admin-dashb{
+  display: flex;
+  flex-direction: column;
+  background: aliceblue;
+  width: 500px;
+  height: 1000px;
+  justify-content: space-around;
+}
+#nav-admin{
+  display: flex;
+  flex-direction: column;
+    list-style: none;
+    height: 200px;
+    border: solid;
+    justify-content: space-around;
+} 

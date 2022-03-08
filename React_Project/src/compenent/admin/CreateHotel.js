@@ -107,10 +107,7 @@ const filetype=e.target.files[0];
 
     <section className="vh-100 gradient-custom" >
      
-     <div className="App">
-          <input type="file" onChange={saveFile} />
-          <button onClick={uploadFile}>Upload</button>
-        </div>
+   
     
     <Link className="nav-link active" aria-current="page" to="/dashbordadmin">Back</Link>
 

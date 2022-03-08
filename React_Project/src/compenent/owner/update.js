@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"
 import { useParams,Link } from 'react-router-dom'
-import url from './url';
  
 
           
@@ -40,7 +39,7 @@ const Update = props => {
     });
   };
 
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
 
   
   const getOwner = id => {
@@ -183,4 +182,4 @@ const Update = props => {
   );
 };
 export default Update;
-}
+

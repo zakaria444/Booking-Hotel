@@ -20,9 +20,9 @@ function home() {
 
   
   return (
-    <div>
+    <div className='admin-dashb'>
 <h1>dashbordadmin</h1>
-<ul className='nav-admin'>
+<ul className='nav-admin' id='nav-admin' >
  <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="/client/create">Ajouter Client</Link>
  </li> 
@@ -35,7 +35,7 @@ function home() {
 </ul>
 
 <h1>Afficher Hotel</h1>
-      <ul className='nav-admin'>
+      <ul className='nav-admin' id='nav-admin'>
        <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/admin/afficherhotel">Afficher Hotel</Link>
        </li> </ul>
