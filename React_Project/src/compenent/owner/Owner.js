@@ -10,6 +10,7 @@ window.location="/owner";
 
 
 
+
   // event.prevntDefault();
   // setErrors(validation(values));
 };
@@ -21,7 +22,7 @@ class Owner extends Component {
   componentDidMount() {
     axios.get('http://localhost:5000/api/propreataire/Getallproprietaires')
       .then(res => {
-        console.log(res.data.data)
+       
         this.setState({
           myArray: res.data.data
         })
@@ -60,6 +61,7 @@ class Owner extends Component {
                 <td>  {owner.name}</td>
                 <td>  {owner.email}</td>
                 <td>  {owner.username}</td>
+
                 <td> <Link to={`/update/${owner._id}`}>Update</Link></td>
                 <td> <button  onClick={() => handleDelet(owner._id)}>deleted</button></td>
 
