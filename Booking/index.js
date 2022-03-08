@@ -1,6 +1,7 @@
 const cors = require("cors");
 const bp = require("body-parser");
 const exp = require("express");
+const fileupload = require("express-fileupload");
 const expressValidator = require('express-validator');
 const cookieParser = require('cookie-parser')
 
@@ -17,6 +18,8 @@ app.set('view engine', 'handlebars');
 app.set('views', './views');
 app.use(bp.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
+app.use(fileupload());
+app.use(exp.static("files"));
 // parse application/json
 app.use(expressValidator());
 app.use(bp.json());
@@ -24,6 +27,21 @@ app.get('/', (req, res) => {
     res.render('home');
    
 });
+
+
+app.post("/upload", (req, res) => {
+    const newpath = __dirname + "/files/";
+    const file = req.files.file;
+    const filename = file.name;
+   
+    file.mv(`${newpath}${filename}`, (err) => {
+      if (err) {
+        console.log(file)
+        res.status(500).send({ message: "File upload failed", code: 200 });
+      }
+      res.status(200).send({ message: "File Uploaded", code: 200 });
+    });
+  });
 // app.get('/loginUser', (req, res) => {
 //     res.render('loginUser');
    

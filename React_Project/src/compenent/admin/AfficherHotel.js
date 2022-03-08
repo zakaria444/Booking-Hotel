@@ -34,7 +34,6 @@ function AfficherHotel() {
   Axios.get(url).then((res) => {
     
     sethotels(res.data.data) ;
-
     })})
     const handleUpdate = (id) => {
 

@@ -40,8 +40,8 @@ const creatHotel = async (req, res) => {
 
 
     })
-    if (req.file) {
-      newHotel.image_cover = req.file.image_cover
+    if (req.body) {
+      newHotel.image_cover = req.body.image_cover
     }
     console.log(req.body.user_id);
 

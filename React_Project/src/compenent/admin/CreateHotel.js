@@ -10,12 +10,7 @@ function CreateHotel() {
   const jwt =  localStorage.getItem('token');
   const JWT1 =jwtdecode(jwt);
   
-  // const [files, setfiles] = useState({
-  
-  //   imagee:"",
-  
-  // });
-  // console.log('jwt parse',JWT1.user_id);
+
   const [values, setvalues] = useState({
     name: "",
     description: "",
@@ -25,6 +20,29 @@ function CreateHotel() {
     image:"",
     user_id:JWT1.user_id,
   });
+
+  const [file, setFile] = useState({
+    image_cover:''
+  });
+  const [fileName, setFileName] = useState("");
+  
+  const uploadFile = async (e) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("fileName", fileName);
+
+    // try {
+    //   const res = await Axios.post(
+    //     "http://localhost:5000/upload",
+    //     formData
+    //   );
+    //   console.log(formData);
+    // } catch (ex) {
+    //   console.log(ex);
+    // }
+  };
+
+
  
   // const [errors,setErrors]=useState({});
   // const handelChange =(event)=>{
@@ -33,10 +51,14 @@ function CreateHotel() {
   //         [event.target.name]:event.target.value,
   //     })
   // };
-  const submit = (e) => {
+  const submit = async (e) => {
+    console.log(values.description);
+
     e.preventDefault();
- 
-    Axios.post(url, {
+    // const formData = new FormData();
+    // formData.append("file", file);
+    // formData.append("fileName", fileName);
+    await Axios.post(url, {
       name: values.name,
       description: values.description,
       stars: values.stars,
@@ -54,22 +76,26 @@ function CreateHotel() {
 
     });
   };
+const saveFile = (e) => {
+    setFile(e.target.files[0]);
+    setFileName(e.target.files[0].name);
+// const fillname=e.target.files[0].name;
+const filetype=e.target.files[0];
+//     console.log(fillname);
+    console.log(filetype);
 
+  };
   const handle = (event) => {
 
+
     const newdata = { ...values };
-    // const newfile = { files };
 
 
     newdata[event.target.id] = event.target.value;
     setvalues(newdata);
-    // newfile[event.target.id] = event.target.files;
     
-  //   setfiles(newfile);
-  // const filebrowser = newfile.image[0];
 
     console.log(newdata);
-    // console.log(filebrowser);
 
 
 
@@ -81,6 +107,10 @@ function CreateHotel() {
 
     <section className="vh-100 gradient-custom" >
      
+     <div className="App">
+          <input type="file" onChange={saveFile} />
+          <button onClick={uploadFile}>Upload</button>
+        </div>
     
     <Link className="nav-link active" aria-current="page" to="/dashbordadmin">Back</Link>
 
@@ -188,7 +218,7 @@ function CreateHotel() {
                         <input
                           type="file"
                         id="image"
-                          onChange={(event) => handle(event)}
+                        onChange={(event) => handle(event)}
                           // name="image"
                           className="form-control form-control-lg"
                         />
