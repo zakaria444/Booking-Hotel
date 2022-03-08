@@ -36,8 +36,11 @@ const submit = (e) => {
 
 
 if(JWT1.role==="owner-user"){
+    
     window.location="/dashbordowner"
+
 }else if(JWT1.role==="user"){
+
     window.location="/dashborduser"
 }else{
     window.location="/dashbordadmin"
