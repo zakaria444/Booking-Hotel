@@ -6,7 +6,7 @@ const client = require('../models/User');
 const Getallclients = async (req,res,role)=> {
     let clients = await client.find({role:role});
     return res.status(200).json({
-        ...clients,
+       data:clients,
         message:"Hurray ! You ar now Get all clients .",
         success:false
       })
@@ -39,21 +39,22 @@ const Getallclients = async (req,res,role)=> {
 
   const deletclient = async (req,res)=> {
     const idclients=req.params.clientid;
-   
-  let clients = await client.deleteOne({_id:idclients});
-  return res.status(200).json({
-      ...clients,
-      message:"Hurray ! You ar now Delet client Par ID .",
-      success:false
-    })
+
+    let clients = await client.deleteOne({_id:idclients});
+    return res.status(200).json({
+      data:clients,
+        message:"Hurray ! You ar now Delet client Par ID .",
+        success:false
+      })
 };
 
 
 
 
   module.exports = {
-    Getallclients,
-    updateclient,
+
+    Getallclients ,
+    updateclient  ,
     deletclient,
     getClient,
     

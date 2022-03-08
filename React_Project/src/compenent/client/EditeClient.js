@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"
 import { useParams,Link } from 'react-router-dom'
-import url from './url';
+// import url from './url';
  
 
           
 
 
 const Update = props => {
-  const initialOwnerState = {
+  const initialClientState = {
     id:null,
     name: "",
     email: "",
@@ -18,39 +18,39 @@ const Update = props => {
   };
   const { id } = useParams();
  
-  const [owner, setOwner] = useState(initialOwnerState);
+  const [client, setClient] = useState(initialClientState);
 
   const submit = (e) => {
 
   const   url = `http://localhost:5000/api/propreataire/${id}`
     e.preventDefault();
-    const value = owner
+    const value = client
     console.log(value);
     axios.patch(url, {
-      name: owner.name,
-      username: owner.username,
-      email: owner.email,
-      password: owner.password,
+      name: client.name,
+      username: client.username,
+      email: client.email,
+      password: client.password,
     }).then((res) => {
      
       console.log(res.data);
       
 
-      window.location="/owner"
+      window.location="/client/list"
     });
   };
 
   const [message, setMessage] = useState("");
 
   
-  const getOwner = id => {
-    axios.get(`http://localhost:5000/api/propreataire/Getallproprietaires/${id}`)
+  const getClient = id => {
+    axios.get(`http://localhost:5000/api/client/getclient${id}`)
       .then(response => {
      
          const data = response.data.data
          console.log("🚀 ~ file: Update.js ~ line 32 ~ data", data)
         
-        setOwner(data);
+        setClient(data);
         
       })
       .catch(e => {
@@ -58,7 +58,7 @@ const Update = props => {
       });
   };
   useEffect(() => {
-    getOwner(id);
+    getClient(id);
   
    
   
@@ -66,9 +66,9 @@ const Update = props => {
     
   }, [id]);
   const handleInputChange = event => {
-    const newdata = { ...owner };
+    const newdata = { ...client };
     newdata[event.target.id] = event.target.value;
-    setOwner(newdata);
+    setClient(newdata);
     console.log("🚀 ~ file: Update.js ~ line 53 ~ newdata", newdata)
     
 
@@ -80,6 +80,7 @@ const Update = props => {
 
  
   return (
+    // ...
     <div>
   <section className="vh-100 gradient-custom" >
 
@@ -90,7 +91,7 @@ const Update = props => {
     <div className="col-12 col-lg-9 col-xl-7">
     <button className="btn">
 
-<Link  to={'/owner'}>data</Link>
+<Link  to={'/client/list'}>data</Link>
 </button>
       <div className="card shadow-2-strong card-registration" id="form">
         <div className="card-body p-4 p-md-5">
@@ -102,7 +103,7 @@ const Update = props => {
                   <input
                     type="text"
                     id="name"
-                    value={owner.name}
+                    value={client.name}
                     onChange={handleInputChange}
                     name="name"
                     className="form-control form-control-lg"
@@ -116,7 +117,7 @@ const Update = props => {
                   <input
                     type="text"
                     id="username"
-                    value={owner.username}
+                    value={client.username}
                    
                   
            
@@ -136,7 +137,7 @@ const Update = props => {
                   <input
                     type="email"
                     id="email"
-                    value={owner.email}
+                    value={client.email}
                  
                     onChange={handleInputChange}
                     name="email"
@@ -161,6 +162,17 @@ const Update = props => {
               </div>
             </div>
 
+            {/* <div class="row">
+              <div class="col-12">
+              <select class="select form-control-lg">
+                  <option value="1" disabled>Choose Role</option>
+                  <option value="2">Subject 1</option>
+                  <option value="3">Subject 2</option>
+                  <option value="4">Subject 3</option>
+              </select>
+              <label class="form-label select-label">Choose Role</label>
+              </div>
+          </div> */}
  
             <div className="mt-4 pt-2">
             <button
@@ -183,4 +195,3 @@ const Update = props => {
   );
 };
 export default Update;
-}
