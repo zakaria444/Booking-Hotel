@@ -86,7 +86,7 @@ function menu() {
               {isAuthenticated()   && (
               <ul className='nav-admin'>
  <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/dashboard">Dashboard</Link>
+          <Link className="nav-link active" aria-current="page" to="#">Dashboard</Link>
         </li> 
           <li className="nav-item">
 

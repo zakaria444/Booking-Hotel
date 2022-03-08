@@ -18,7 +18,7 @@ const HotelSchema = new Schema   (
 
         image_cover: {
             type: String,
-            required: true
+            required: false
         },
    
         localisation: {
