@@ -33,7 +33,9 @@
 
 #form{
   border: solid;
-  background: linear-gradient(to bottom right, #9999cc, #4e57cb )
+  background: linear-gradient(to bottom right, #9999cc, #4e57cb );
+  width: 1000px;
+  height: 1000px;
 
 }
 .nav__menu {
