@@ -79,8 +79,8 @@ function App() {
 
     <Route path='/client/list' element={<ListClient/>      }/>
     <Route path='/client/create' element={<CreateClient/>  }/>
-    <Route path='/client/edite' element={<EditeClient/>    }/>
-    <Route path='/owner/create' element={<CreateOwner/> } />
+    <Route path='/client/edite/:id' element={<EditeClient/>    }/>
+    <Route path='/owner/create' element={<CreateOwner/>    }/>
 
 <Route path='/admin/createhotel' element={<CreateHotel/> } />
 <Route path='/admin/afficherhotel' element={<AfficherHotel/> } />

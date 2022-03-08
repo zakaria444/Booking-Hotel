@@ -1,6 +1,19 @@
 import React, { Component } from 'react'
 import axios from "axios"
 import { Link } from 'react-router-dom'
+
+
+const handleDelete = (id) => {
+  const url="http://localhost:5000/api/client/deletclient/"+id
+axios.post(url).then((res) => {
+
+window.location="/client/list";
+
+})
+
+};
+
+
  class ListClient extends Component {
     state = {
         myArray :[]
@@ -48,9 +61,10 @@ import { Link } from 'react-router-dom'
                <td>  {ListClient.name}</td>
                <td>  {ListClient.email}</td>
                <td>  {ListClient.username}</td>
-               <td> <Link to={'/update'}>Update</Link></td>
+               <td> <Link to={'/client/edite/'+ListClient._id}>Update</Link></td>
                {/* <td> <Link to={'/client/list'}><button className="btn btn-danger" onClick={(e) => this.deleteRow(ListClient._id, e)}>Delete</button>  </Link></td> */}
-               <td> <Link to={'/client/list'}> Delete  </Link></td>
+               {/* <td> <Link to={'/client/list'}> Delete  </Link></td> */}
+               <td> <button  onClick={() => handleDelete(ListClient._id)}>deleted</button></td>
              </tr>
            </tbody>
            )}
