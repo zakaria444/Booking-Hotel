@@ -19,6 +19,9 @@ const getHotel = async (req, res) => {
 }
 
 const creatHotel = async (req, res) => {
+
+  
+
   //  console.log(req.body.localisation.city);
   //  res.status(201).json({ success: true, data: req.body })
   try {

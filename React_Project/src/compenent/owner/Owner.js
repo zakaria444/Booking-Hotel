@@ -37,7 +37,7 @@ class Owner extends Component {
 
 
         <h1>  Data owner </h1>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button " class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <Link to={'/owner/create'}>Add Owner</Link>
 
         </button>
@@ -62,8 +62,8 @@ class Owner extends Component {
                 <td>  {owner.email}</td>
                 <td>  {owner.username}</td>
 
-                <td> <Link to={`/update/${owner._id}`}>Update</Link></td>
-                <td> <button  onClick={() => handleDelet(owner._id)}>deleted</button></td>
+                <td> <button className='btn btn-warning'> <Link to={`/update/${owner._id}`}>Update</Link></button></td> 
+                <td> <button  className='btn btn-danger' onClick={() => handleDelet(owner._id)}>deleted</button></td>
 
 
 
