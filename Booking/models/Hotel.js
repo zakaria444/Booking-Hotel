@@ -1,4 +1,3 @@
-
 const { Schema,model } = require('mongoose');
 const HotelSchema = new Schema   (
     {
@@ -18,7 +17,7 @@ const HotelSchema = new Schema   (
 
         image_cover: {
             type: String,
-            required: true
+            required: false
         },
    
         localisation: {
@@ -33,7 +32,7 @@ const HotelSchema = new Schema   (
         },
         user_id: 
         { 
-            type: Schema.Types.ObjectId, ref: 'users' 
+            type: Schema.Types.ObjectId, ref:'users' 
         }
     },
 

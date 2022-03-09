@@ -6,10 +6,13 @@ const router = require("express").Router();
 const {
     addhotelproprietair,
     updatehotelproprietair,
-    delethotelproprietair
+    delethotelproprietair,
+    gethotelproprietair
   } = require("../controllers/HotelproprietaiController");
 
-
+  router.get('/gethotelproprietair', async(req,res)=>{
+    await gethotelproprietair(req,res);
+});
 
   router.post('/addhotelproprietair', async(req,res)=>{
     await addhotelproprietair(req.body,res);

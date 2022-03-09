@@ -1,22 +1,69 @@
 const hotelproprietair = require('../models/Hotel');
 
-const addhotelproprietair = async (hotelproprietairs, res) => {
+const gethotelproprietair = async (hotelproprietairs, res) => {
     
-
-    // create a new booking
-    const newBooking = new hotelproprietair({
-       ...hotelproprietairs
-    });
-
-    await newBooking .save();
-    return res.status(201).json({
-        message: "Hurry! now you are successfully Hotel.",
-        success: true
-        });
+    try {
+        const hotels = await hotelproprietair.find()
+        res.status(200).json({ success: true, data: hotels })
+      } catch (error) {
+        res.status(409).json({ success: false, data: [], error: error })
+      }
   
     
   
 };
+const addhotelproprietair = async (hotelproprietairs, res) => {
+
+
+  // create a new booking
+  const newBooking = new hotelproprietair({
+     ...hotelproprietairs
+  });
+
+  await newBooking .save();
+  return res.status(201).json({
+      message: "Hurry! now you are successfully Hotel.",
+      success: true
+      });
+
+
+
+};
+
+// const addhotelproprietair =  (req, res) => {  //  console.log(req.body.localisation.city);
+//   //  res.status(201).json({ success: true, data: req.body })
+//   try {
+//     const name = req.name
+//     const description = req.description
+//     const stars = req.stars
+//     const city  = req.localisation[0]
+//     const country  = req.localisation[1]
+//     const user_id  = req.user_id
+
+
+
+//     const newHotel = new hotelproprietair({
+//       name: name,
+//       description: description,
+//       stars: stars,
+//       localisation: {city,country},
+//       user_id:user_id
+
+
+//     })
+    
+//     const saveHotel =  newHotel.save()
+//     console.log("🚀 ~ file: HotelproprietaiController.js ~ line 39 ~ addhotelproprietair ~ newHotel", newHotel)
+//     res.status(201).json({ success: true, data: saveHotel })
+//   } catch (error) {
+   
+//     console.log(req.file);
+//         res.status(404).json({ success: false, data: [], error: error })
+//   }
+  
+    
+  
+// };
 
 const updatehotelproprietair = async (req,res)=> {
     const idhotels=req.params.hotelid;
@@ -50,6 +97,7 @@ const delethotelproprietair = async (req,res)=> {
 module.exports = {
     addhotelproprietair,
     updatehotelproprietair,
-    delethotelproprietair
+    delethotelproprietair,
+    gethotelproprietair
     
     };
