@@ -48,8 +48,9 @@
     flex-basis: auto;
     justify-content: space-between;
 }
-.nav-admin{
+.nav-admin {
   display: flex;
+  list-style: none;
 }
 #stars-hotel{
   width: 25px;
@@ -66,16 +67,50 @@
 .admin-dashb{
   display: flex;
   flex-direction: column;
-  background: aliceblue;
+  background: #92badd;
   width: 500px;
   height: 1000px;
   justify-content: space-around;
+  align-items: center;
+}
+#navbar{
+  background-color: #92badd;
+  
 }
 #nav-admin{
   display: flex;
   flex-direction: column;
     list-style: none;
     height: 200px;
-    border: solid;
+  
     justify-content: space-around;
 } 
+.nav-admin li{
+  width: 300px;
+  border: solid 1px;
+  border-radius: 100px 40px 110px 40px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.nav-admin li a {
+color: #1b1b1e;
+font-size: 20px;
+
+}
+.afficher-hotel{
+  width: 50%;
+  border: solid 1px;
+  border-radius: 50px 77px 50px 77px;
+}
+
+/*                  owner        */
+
+.main-owner{
+display: flex;
+justify-content: space-between;
+}
+.information-owner{
+  width: 1900px;
+    border: solid 1px;
+    background-image: url(./compenent/home/img-hotel/pexels-konstantinos-eleftheriadis-2034335.jpg);
+    background-size: 100%;
+}

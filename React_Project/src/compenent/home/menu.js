@@ -32,7 +32,7 @@ function menu() {
   }
  
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-secondary ">
+    <nav className="navbar navbar-expand-lg navbar-light " id='navbar'>
     <div className="container-fluid">
       {/* <a className="navbar-brand" href="">Booking</a> */}
       <button
@@ -86,7 +86,7 @@ function menu() {
               {isAuthenticated()   && (
               <ul className='nav-admin'>
  <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/dashboard">Dashboard</Link>
+          <Link className="nav-link active" aria-current="page" to="#">Dashboard</Link>
         </li> 
           <li className="nav-item">
 
