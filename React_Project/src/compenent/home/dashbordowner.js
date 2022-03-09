@@ -55,7 +55,10 @@ function Home() {
     <div className='information-owner'>
     {}
       <h1 >Information owner</h1>
+      <div>
+      </div>
       <input value={owner.name} ></input>
+
 
     </div>
     </div>

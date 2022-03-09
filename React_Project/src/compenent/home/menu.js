@@ -32,7 +32,7 @@ function menu() {
   }
  
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-secondary ">
+    <nav className="navbar navbar-expand-lg navbar-light " id='navbar'>
     <div className="container-fluid">
       {/* <a className="navbar-brand" href="">Booking</a> */}
       <button
