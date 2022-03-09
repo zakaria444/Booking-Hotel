@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, } from "react";
 import Axios from "axios"
 import jwtdecode from "jwt-decode";
 import {Link} from"react-router-dom";
@@ -25,6 +25,7 @@ function CreateHotel() {
     image:"",
     user_id:JWT1.user_id
   });
+  
  
   // const [errors,setErrors]=useState({});
   // const handelChange =(event)=>{
@@ -33,21 +34,35 @@ function CreateHotel() {
   //         [event.target.name]:event.target.value,
   //     })
   // };
-  const submit = (e) => {
+  const submit = async (e) => {
+   
+
     e.preventDefault();
- 
-    Axios.post(url, {
+    // const formData = new FormData();
+    // formData.append("file", file);
+    // formData.append("fileName", fileName); 
+  
+
+
+    let data = {
       name: values.name,
       description: values.description,
       stars: values.stars,
       localisation: [values.city , values.country] ,
       image_cover:values.image,
       user_id:values.user_id
+    };
 
+    console.log(data);
+
+    await Axios.post(url, data,{
+      headers: {
+        'Authorization': `Bearer ${jwt}` 
+      }
       
     }).then((res) => {
         
-      window.location="/admin/afficherhotel"
+      window.location="/ownerDashbord/afficherhotel"
 
     });
   };
@@ -65,7 +80,7 @@ function CreateHotel() {
   //   setfiles(newfile);
   // const filebrowser = newfile.image[0];
 
-    console.log(newdata);
+  
     // console.log(filebrowser);
 
 
@@ -75,11 +90,11 @@ function CreateHotel() {
   };
 
   return (
-
-    <section className="vh-100 gradient-custom" >
+  <section className="vh-100 gradient-custom" >
      
+   
     
-    <Link className="nav-link active" aria-current="page" to="/dashbordadmin">Back</Link>
+    <Link className="nav-link active" aria-current="page" to="/ownerDashbord/afficherhotel">Back</Link>
 
 
       <div className="container py-5 h-100">
@@ -87,7 +102,7 @@ function CreateHotel() {
           <div className="col-12 col-lg-9 col-xl-7">
             <div className="card shadow-2-strong card-registration" id="form">
               <div className="card-body p-4 p-md-5">
-                <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Ajouter Hotel</h3>
+                <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Ajouter Hotel OWNER</h3>
                 <form onSubmit={submit}>
                   <div className="row">
                         <div className="col-md-6 mb-4">
@@ -185,7 +200,7 @@ function CreateHotel() {
                         <input
                           type="file"
                         id="image"
-                          onChange={(event) => handle(event)}
+                        onChange={(event) => handle(event)}
                           // name="image"
                           className="form-control form-control-lg"
                         />
@@ -228,6 +243,7 @@ function CreateHotel() {
         </div>
       </div>
     </section>
+   
   );
 }
 

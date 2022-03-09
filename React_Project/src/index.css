@@ -109,8 +109,10 @@ display: flex;
 justify-content: space-between;
 }
 .information-owner{
-  width: 1900px;
+  width: 100%;
     border: solid 1px;
     background-image: url(./compenent/home/img-hotel/pexels-konstantinos-eleftheriadis-2034335.jpg);
     background-size: 100%;
+    background-repeat: no-repeat;
+   
 }

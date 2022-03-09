@@ -31,9 +31,10 @@ function AfficherHotel() {
   Axios.get(url).then((res) => {
     
     sethotels(res.data.data) ;
-    console.log("🚀 ~ file: AfficherHotel.js ~ line 33 ~ Axios.get ~ res.data.data", res.data.data)
+    console.log("🚀 ~ file: AfficherHotelOwner.js ~ line 34 ~ Axios.get ~ res.data.data", res.data.data)
 
-    })})
+    })},[])
+  
     const handleUpdate = (id) => {
     //   const url="http://localhost:5000/api/hotel/"+id
     //   Axios.get(url)
@@ -61,8 +62,9 @@ function AfficherHotel() {
     })};
 
     const handleDelet = (id) => {
-      const url="http://localhost:5000/api/delethotelproprietair/"+id
-  Axios.delete(url).then((res) => {
+      
+      const url="http://localhost:5000/api/hotelproprietai/delethotelproprietair/"+id
+  Axios.post(url).then((res) => {
 
     window.location="/ownerDashbord/AfficherHotel";
     })
@@ -117,11 +119,11 @@ function AfficherHotel() {
 <tr>
     <th>Name</th>
     <th>description</th>
-    {/* <th ><img id='stars-hotel' src={cityLogo} alt="BigCo Inc. logo"/> city</th>
+    <th ><img id='stars-hotel' src={cityLogo} alt="BigCo Inc. logo"/> city</th>
     <th><img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo"/> country</th>
-    <th ><img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/> stars </th> */}
+    <th ><img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/> stars </th>
    
-    <th>Action</th>
+   
     <th>Action</th>
 
   
@@ -136,12 +138,15 @@ function AfficherHotel() {
 {/* {console.log(ListHotel)} */}
   <td>  {ListHotel.name}</td>
   <td>  {ListHotel.description}</td>
-  
+  <td>  {ListHotel.localisation.city} <img id='stars-hotel' src={cityLogo} alt="BigCo Inc. logo"/></td>
+  <td>  {ListHotel.localisation.country} <img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo"/></td>
+
+    
   
 
     <td>  {ListHotel.stars} <img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/></td>
     {/* <td> <button onClick={() => handleUpdate(ListHotel._id)}>Update</button></td> */}
-    <td> <button  onClick={() => handleDelet(ListHotel._id)}>delete</button></td>
+    <td> <button className='btn btn-danger' onClick={() => handleDelet(ListHotel._id)}>delete</button></td>
     <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Update</button></td>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div className="col-12 col-lg-9 col-xl-7">

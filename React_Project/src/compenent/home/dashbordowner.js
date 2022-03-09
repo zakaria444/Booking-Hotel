@@ -40,14 +40,14 @@ function Home() {
           <Link className="nav-link active" aria-current="page" to="/owner/create">Ajouter Chambre</Link>
  </li> 
   <li className="nav-item">
-  <Link className="nav-link active" aria-current="page" to="/admin/createhotel">Ajouter Hotel</Link>
+  <Link className="nav-link active" aria-current="page" to="/ownerDashbord/createhotel">Ajouter Hotel</Link>
 </li> 
 </ul>
 
 <h1 className='afficher-hotel'>Hotel</h1>
       <ul className='nav-admin' id='nav-admin'>
        <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/admin/afficherhotel">Afficher Hotel</Link>
+                <Link className="nav-link active" aria-current="page" to="/ownerDashbord/afficherhotel">Afficher Hotel</Link>
        </li> </ul>
       
 

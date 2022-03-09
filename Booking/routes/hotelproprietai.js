@@ -7,12 +7,18 @@ const {
     addhotelproprietair,
     updatehotelproprietair,
     delethotelproprietair,
-    gethotelproprietair
+    gethotelproprietair,
+    getOnehotelproprietair
   } = require("../controllers/HotelproprietaiController");
 
   router.get('/gethotelproprietair', async(req,res)=>{
     await gethotelproprietair(req,res);
 });
+
+router.get('/getonehotelproprietair/:hotelid', (req,res)=>{
+   getOnehotelproprietair(req,res);
+});
+
 
   router.post('/addhotelproprietair', async(req,res)=>{
     await addhotelproprietair(req.body,res);
