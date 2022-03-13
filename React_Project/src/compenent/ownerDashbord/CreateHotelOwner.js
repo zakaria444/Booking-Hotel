@@ -15,7 +15,7 @@ function CreateHotel() {
   //   imagee:"",
   
   // });
-  // console.log('jwt parse',JWT1.user_id);
+  // console.log('jwt parse',JWT1.user_id); 
   const [values, setvalues] = useState({
     name: "",
     description: "",

@@ -19,6 +19,7 @@ const getHotel = async (req, res) => {
 }
 
 const creatHotel = async (req, res) => {
+console.log("🚀 ~ file: hotelController.js ~ line 22 ~ creatHotel ~ req", req)
 
   
 
