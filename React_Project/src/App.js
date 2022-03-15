@@ -42,10 +42,8 @@ import UpdateHotel from "./compenent/admin/UpdateHotel"
 
 
 
-//DashboardAdmin
-import CreateOwnerHotel from"./compenent/ownerDashbord/CreateHotel"
-import AfficherownerHotel from"./compenent/ownerDashbord/AfficherHotelOwner"
-import UpdateownerHotel from "./compenent/ownerDashbord/UpdateHotel"
+
+
 
 
 
@@ -97,9 +95,7 @@ function App() {
 
 {/* Route pour admin  Zakaria*/}
 
-<Route path='/ownerDashbord/createhotel' element={<CreateOwnerHotel/> } />
-<Route path='/ownerDashbord/afficherhotel' element={<AfficherownerHotel/> } />
-<Route path='/ownerDashbord/updatehotel/:id' element={<UpdateownerHotel/> } />
+
 <Route path='/ownerDashbord/fileupload' element={<FileUpload/> } />
 
 
