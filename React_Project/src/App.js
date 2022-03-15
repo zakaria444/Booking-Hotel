@@ -24,7 +24,6 @@ import Login from"./compenent/home/login"
 import Inscription from"./compenent/home/inscription"
 import Dashbordadmin from"./compenent/home/dashbordadmin"
 import Dashborduser from"./compenent/home/dashborduser"
-import Dashbordowner from"./compenent/home/dashbordowner"
 // import UserRoute from"../src/Auth/UserRoute"
 
 // import UserRoute from"./Auth/UserRoute"
@@ -75,7 +74,6 @@ function App() {
   <Route path='/inscription' element={<Inscription/> } />
   <Route path='/dashbordadmin' element={<Dashbordadmin/> } />
   <Route path='/dashborduser' element={<Dashborduser/> } />
-  <Route path='/dashbordowner' element={<Dashbordowner/> } />
 </Routes>
 {/* Route pour admin */}
 <Routes>
