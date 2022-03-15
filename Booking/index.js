@@ -1,7 +1,6 @@
 const cors = require("cors");
 const bp = require("body-parser");
 const exp = require("express");
-const fileupload = require("express-fileupload");
 const expressValidator = require('express-validator');
 const cookieParser = require('cookie-parser')
 
@@ -16,9 +15,8 @@ const  { engine } = require('express-handlebars') ;
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
-app.use(bp.urlencoded({ extended: false }));
+app.use(bp.urlencoded({ extended: false, limit: '50mb', parameterLimit: 100000}));
 app.set('view engine', 'ejs');
-app.use(fileupload());
 app.use(exp.static("files"));
 // parse application/json
 app.use(expressValidator());
