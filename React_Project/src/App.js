@@ -92,7 +92,6 @@ function App() {
 
 {/* Route pour admin  Zakaria*/}
 
-//DashbordOwner
 <Route path='/ownerDashbord/createhotel' element={<CreateOwnerHotel/> } />
 <Route path='/ownerDashbord/afficherhotel' element={<AfficherownerHotel/> } />
 <Route path='/ownerDashbord/updatehotel/:id' element={<UpdateownerHotel/> } />
