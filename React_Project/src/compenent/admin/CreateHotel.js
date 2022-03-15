@@ -10,6 +10,7 @@ function CreateHotel() {
   const jwt =  localStorage.getItem('token');
   const JWT1 =jwtdecode(jwt);
   
+  const [file, setFiles] = useState("");
 
   const [values, setvalues] = useState({
     name: "",
@@ -17,78 +18,61 @@ function CreateHotel() {
     stars: "",
     country: "",
     city:"",
-    image_cover:"",
     user_id:JWT1.user_id,
   });
 
-  const [file, setFile] = React.useState("");
 
   // Handles file upload event and updates state
    const  handleUpload = async (event) => {
-    // setFile(event.target.files[0]);
-    // console.log('target',event.target.files[0]);
 
-    // const file = event.target.files[0];
-    // const base64 = await  convertToBase64(event.target.files[0]);
-    // console.log('base',base64);
-    // setvalues({...values,image_cover: base64});
-    // console.log('base',base64);
-
-    // Add code here to upload file to server
     // ...
   }
 
 
  
-  const submit = async (e) => {
+  const submit = (e) => {
+    e.preventDefault();
+   
+    console.log('file image',file);
+    console.log('values',values);
 
    
-    console.log('after submit',values);
-    // const ecoded=Base64.encode()
- 
-
-
-    e.preventDefault();
   
-    await Axios.post(url,{
-      name: values.name,
-      // image_cover: values.image_cover,
-      description: values.description,
-      stars: values.stars,
-      localisation: [values.city , values.country] ,
-      user_id:values.user_id
-    },{
-      headers: {
-        'Authorization': `Bearer ${jwt}` 
-      }
+    const form_data = new FormData();
+    form_data.append("image_cover",file)
+    form_data.append("name",values.name)
+    form_data.append("description",values.description)
+    form_data.append("stars",values.stars)
+    form_data.append("city",values.city)
+    form_data.append("country",values.country)
+
+    form_data.append("user_id",values.user_id)
+
+
     
+
+ 
+    Axios.post(url,form_data, {
      
+      headers: {
+        'Content-Type': 'multipart/form-data',
+    },
+
       
     }).then((res) => {
         
+      console.log(res);
+
       window.location="/admin/afficherhotel"
 
     });
   };
 
-    const convertToBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
+
 
   const handle = (event) => {
 
-    // const base64 = convertToBase64(event.target.files[0]);
-    // // console.log('base',base64);
-    // setvalues(base64);
+  
     const newdata = { ...values };
 
 
@@ -98,10 +82,11 @@ function CreateHotel() {
 
     console.log(newdata);
 
+    const fileupload=event.target.files[0];
+    setFiles(fileupload);
+  
 
 
-    // event.prevntDefault();
-    // setErrors(validation(values));
   };
 
   return (
@@ -215,13 +200,11 @@ function CreateHotel() {
                       <div className="form-outline">
                         <input
                           type="file"
-                        id="image"
-                        onChange={handleUpload} 
+                          onChange={(event) => handle(event)}
                           // name="image"
                           className="form-control form-control-lg"
                         />
                         <label className="form-label">image</label>
-                        {file && <ImageThumb image={file} />}
                       </div>
                    
                     </div>
