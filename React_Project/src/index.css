@@ -139,3 +139,11 @@ display: flex;
 justify-content: center;
 align-items: center;
 }
+.image-url{
+  width: 500px;
+  height: 300px;
+  margin-top: 10px;
+}
+.dash-admin{
+  display: flex;
+}

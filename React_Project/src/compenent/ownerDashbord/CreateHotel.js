@@ -6,72 +6,67 @@ import {Link} from"react-router-dom";
 
 
 function CreateHotel() {
-  const url = "http://localhost:5000/api/hotelproprietai/addhotelproprietair";
+  const url = "http://localhost:5000/api/hotel/add";
   const jwt =  localStorage.getItem('token');
   const JWT1 =jwtdecode(jwt);
   
-  // const [files, setfiles] = useState({
-  
-  //   imagee:"",
-  
-  // });
-  // console.log('jwt parse',JWT1.user_id);
+  const [file, setFiles] = useState("");
   const [values, setvalues] = useState({
     name: "",
     description: "",
     stars: "",
     country: "",
     city:"",
-    image:"",
     user_id:JWT1.user_id
   });
+
  
-  // const [errors,setErrors]=useState({});
-  // const handelChange =(event)=>{
-  //     setvalues({
-  //         ...values,
-  //         [event.target.name]:event.target.value,
-  //     })
-  // };
   const submit = (e) => {
     e.preventDefault();
+   
+    console.log('file image',file);
+    console.log('values',values);
+
+   
+  
+    const form_data = new FormData();
+    form_data.append("image_cover",file)
+    form_data.append("name",values.name)
+    form_data.append("description",values.description)
+    form_data.append("stars",values.stars)
+    form_data.append("city",values.city)
+    form_data.append("country",values.country)
+
+    form_data.append("user_id",values.user_id)
+
+
+    
+
  
-    Axios.post(url, {
-      name: values.name,
-      description: values.description,
-      stars: values.stars,
-      localisation: [values.city , values.country] ,
-      image_cover:values.image,
-      user_id:values.user_id
+    Axios.post(url,form_data, {
+     
+      headers: {
+        'Content-Type': 'multipart/form-data',
+    },
 
       
     }).then((res) => {
         
-      window.location="/admin/afficherhotel"
+      console.log(res.data.data.image_cover);
+
+      // window.location="/admin/afficherhotel"
 
     });
   };
 
   const handle = (event) => {
-
     const newdata = { ...values };
-    // const newfile = { files };
-
-
     newdata[event.target.id] = event.target.value;
     setvalues(newdata);
-    // newfile[event.target.id] = event.target.files;
-    
-  //   setfiles(newfile);
-  // const filebrowser = newfile.image[0];
 
-    console.log(newdata);
-    // console.log(filebrowser);
-
-
-
-    // event.prevntDefault();
-    // setErrors(validation(values));
+    const fileupload=event.target.files[0];
+    setFiles(fileupload);
+  
   };
 
   return (
@@ -89,6 +84,7 @@ function CreateHotel() {
               <div className="card-body p-4 p-md-5">
                 <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Ajouter Hotel</h3>
                 <form onSubmit={submit}>
+                  
                   <div className="row">
                         <div className="col-md-6 mb-4">
                         <div className="form-outline">
@@ -184,8 +180,8 @@ function CreateHotel() {
                       <div className="form-outline">
                         <input
                           type="file"
-                        id="image"
                           onChange={(event) => handle(event)}
+                          // onChange={handleUpload}
                           // name="image"
                           className="form-control form-control-lg"
                         />
@@ -198,19 +194,7 @@ function CreateHotel() {
                   </div>
                   
 
-                  {/* <div class="row">
-                    <div class="col-12">
-
-                    <select class="select form-control-lg">
-                        <option value="1" disabled>Choose Role</option>
-                        <option value="2">Subject 1</option>
-                        <option value="3">Subject 2</option>
-                        <option value="4">Subject 3</option>
-                    </select>
-                    <label class="form-label select-label">Choose Role</label>
-
-                    </div>
-                </div> */}
+         
 
                   <div className="mt-4 pt-2">
                     <button

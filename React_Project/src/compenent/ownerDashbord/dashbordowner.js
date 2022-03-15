@@ -9,16 +9,13 @@ function Home() {
 
   const jwt = localStorage.getItem("token");
   const JWT1 = jwtdecode(jwt);
-  // console.log('jwt parse',JWT1.role);
   const iduser = JWT1.user_id;
   const url = "http://localhost:5000/api/propreataire/Getallproprietaires/" + iduser;
 
-    if (owner.length == 0) {
+    if (owner.length === 0) {
       Axios.get(url).then((res) => {
         const responsee = res.data.data[0];
-        // console.log('info owner',responsee.name);
         setowner(responsee);
-        // const response =res.data.data[0];
       });
     }
     const submit = (e) => {
@@ -61,40 +58,9 @@ function Home() {
   
  
     };
-    const handleUpdate = (id) => {
+   
+  
 
-      //   const url="http://localhost:5000/api/hotel/"+id
-      //   Axios.get(url)
-      // .then((res)=>{
-      //   window.location="/admin/updatehotel/"+id
-      //   // console.log(res.data.data[0]);
-      // })
-    
-      
-        const url="http://localhost:5000/api/hotel/"+id
-        Axios.patch(url,{
-          name: values.name,
-          username: values.username,
-          email: values.email,
-        }).then((res) => {
-          window.location="/dashbordowner";
-          setvalues(res.data.data) ;
-          console.log(res.data.data);
-        
-  
-      
-          
-     
-      })
-    
-     
-    
-    };
-  
-  
-  // useEffect(()=>{
-
-  // });
 
   return (
     <div>
@@ -107,9 +73,9 @@ function Home() {
               <Link
                 className="nav-link active"
                 aria-current="page"
-                to="/client/create"
+                to="/ownerDashbord/fileupload"
               >
-                Edite Profile
+               FileUpload
               </Link>
             </li>
             <li className="nav-item">
@@ -125,7 +91,7 @@ function Home() {
               <Link
                 className="nav-link active"
                 aria-current="page"
-                to="/admin/createhotel"
+                to="/ownerDashbord/createhotel"
               >
                 Ajouter Hotel
               </Link>
@@ -148,7 +114,6 @@ function Home() {
           {}
           <h1>Information owner</h1>
 
-          <input value={owner._id}></input>
           <form onSubmit={submit}>
             <div className="form-complet">
               <div className="form-input">
@@ -187,7 +152,7 @@ function Home() {
 
               <div className="image-form"></div>
             </div>
-            <button type="submit" onClick={() => handleUpdate(owner._id)}>Update</button>
+            <button className="afficher-hotel" type="submit" onClick={() => submit()}>Update</button>
           </form>
           {/* <div className='form-complet'>
       <div className='form-input'>
