@@ -2,24 +2,10 @@ import React ,{ useEffect, useState } from 'react'
 import {Link} from"react-router-dom"
 import Axios from 'axios';
 
-// import countryLogo from './img/4830734.png';
-// import cityLogo from './img/1068530.png';
+
 import companyLogo from './img/1828884.png';
 
-// import jwtDecode from "jwt-decode";
 
-
-
-// export  function getCurrentUser() {
-//   try {
-//       const token = localStorage.getItem("token");
-//       console.log(token);
-
-//       return jwtDecode(token);
-//   } catch (error) {
-//       return null;
-//   }
-// }
 
 function AfficherHotel() {
 
