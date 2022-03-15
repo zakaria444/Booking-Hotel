@@ -17,58 +17,52 @@ function CreateHotel() {
     stars: "",
     country: "",
     city:"",
-    image:"",
+    image_cover:"",
     user_id:JWT1.user_id,
   });
 
-  const [file, setFile] = useState({
-    image_cover:''
-  });
-  const [fileName, setFileName] = useState("");
-  
-  const uploadFile = async (e) => {
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("fileName", fileName);
+  const [file, setFile] = React.useState("");
 
-    // try {
-    //   const res = await Axios.post(
-    //     "http://localhost:5000/upload",
-    //     formData
-    //   );
-    //   console.log(formData);
-    // } catch (ex) {
-    //   console.log(ex);
-    // }
-  };
+  // Handles file upload event and updates state
+   const  handleUpload = async (event) => {
+    // setFile(event.target.files[0]);
+    // console.log('target',event.target.files[0]);
+
+    // const file = event.target.files[0];
+    // const base64 = await  convertToBase64(event.target.files[0]);
+    // console.log('base',base64);
+    // setvalues({...values,image_cover: base64});
+    // console.log('base',base64);
+
+    // Add code here to upload file to server
+    // ...
+  }
 
 
  
-  // const [errors,setErrors]=useState({});
-  // const handelChange =(event)=>{
-  //     setvalues({
-  //         ...values,
-  //         [event.target.name]:event.target.value,
-  //     })
-  // };
   const submit = async (e) => {
-    console.log(values.description);
+
+   
+    console.log('after submit',values);
+    // const ecoded=Base64.encode()
+ 
+
 
     e.preventDefault();
-    // const formData = new FormData();
-    // formData.append("file", file);
-    // formData.append("fileName", fileName);
-    await Axios.post(url, {
+  
+    await Axios.post(url,{
       name: values.name,
+      // image_cover: values.image_cover,
       description: values.description,
       stars: values.stars,
       localisation: [values.city , values.country] ,
-      image_cover:values.image,
       user_id:values.user_id
     },{
       headers: {
         'Authorization': `Bearer ${jwt}` 
       }
+    
+     
       
     }).then((res) => {
         
@@ -76,18 +70,25 @@ function CreateHotel() {
 
     });
   };
-const saveFile = (e) => {
-    setFile(e.target.files[0]);
-    setFileName(e.target.files[0].name);
-// const fillname=e.target.files[0].name;
-const filetype=e.target.files[0];
-//     console.log(fillname);
-    console.log(filetype);
 
+    const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
   };
+
   const handle = (event) => {
 
-
+    // const base64 = convertToBase64(event.target.files[0]);
+    // // console.log('base',base64);
+    // setvalues(base64);
     const newdata = { ...values };
 
 
@@ -215,32 +216,21 @@ const filetype=e.target.files[0];
                         <input
                           type="file"
                         id="image"
-                        onChange={(event) => handle(event)}
+                        onChange={handleUpload} 
                           // name="image"
                           className="form-control form-control-lg"
                         />
                         <label className="form-label">image</label>
+                        {file && <ImageThumb image={file} />}
                       </div>
-                      {/* {errors.email && <p className='error'>{errors.email}</p>} */}
+                   
                     </div>
                     
                    
                   </div>
                   
 
-                  {/* <div class="row">
-                    <div class="col-12">
-
-                    <select class="select form-control-lg">
-                        <option value="1" disabled>Choose Role</option>
-                        <option value="2">Subject 1</option>
-                        <option value="3">Subject 2</option>
-                        <option value="4">Subject 3</option>
-                    </select>
-                    <label class="form-label select-label">Choose Role</label>
-
-                    </div>
-                </div> */}
+               
 
                   <div className="mt-4 pt-2">
                     <button
@@ -260,5 +250,8 @@ const filetype=e.target.files[0];
     </section>
   );
 }
+const ImageThumb = ({ image }) => {
+  return <img className="image-url" src={URL.createObjectURL(image)} alt={image.name} />;
+};
 
-export default CreateHotel;
+export default CreateHotel ;
