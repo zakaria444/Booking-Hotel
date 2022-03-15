@@ -7,43 +7,25 @@ import cityLogo from './img/1068530.png';
 
 
 
-// import jwtDecode from "jwt-decode";
 
-
-
-// export  function getCurrentUser() {
-//   try {
-//       const token = localStorage.getItem("token");
-//       console.log(token);
-
-//       return jwtDecode(token);
-//   } catch (error) {
-//       return null;
-//   }
-// }
 
 function AfficherHotel() {
 
+ 
+
 
   const [hotels, sethotels] = useState([]);
-  // const [hotelsid, sethotelsid] = useState([]);
 
 
   useEffect(()=>{
   const url="http://localhost:5000/api/hotel"
   Axios.get(url).then((res) => {
-    
     sethotels(res.data.data) ;
-    })})
+    console.log(res.data.data);
+    })},[])
     const handleUpdate = (id) => {
 
-    //   const url="http://localhost:5000/api/hotel/"+id
-    //   Axios.get(url)
-    // .then((res)=>{
-    //   window.location="/admin/updatehotel/"+id
-    //   // console.log(res.data.data[0]);
-    // })
-  
+   
     
       const url="http://localhost:5000/api/hotel/"+id
       Axios.patch(url,{
@@ -76,8 +58,7 @@ function AfficherHotel() {
     
     
   
-      // event.prevntDefault();
-      // setErrors(validation(values));
+ 
     };
     const [values, setvalues] = useState({
       name: "",
@@ -91,23 +72,14 @@ function AfficherHotel() {
      
 
       const newdata = { ...values };
-      // const newfile = { files };
   
   
       newdata[event.target.id] = event.target.value;
       setvalues(newdata);
-      // newfile[event.target.id] = event.target.files;
-      
-    //   setfiles(newfile);
-    // const filebrowser = newfile.image[0];
-  
-      console.log(newdata);
-      // console.log(filebrowser);
   
   
-  
-      // event.prevntDefault();
-      // setErrors(validation(values));
+      // console.log(newdata);
+     
     };
    
 
@@ -130,6 +102,7 @@ function AfficherHotel() {
    
     <th>Action</th>
     <th>Action</th>
+
 
   
 
@@ -173,6 +146,7 @@ function AfficherHotel() {
                     
                       type="text"
                       id="name"
+
                       onChange={(event) => handle(event)}
                       name="fullname"
                       className="form-control form-control-lg"
@@ -252,6 +226,7 @@ function AfficherHotel() {
                 
                
               </div>
+           
              
               
 
@@ -260,7 +235,7 @@ function AfficherHotel() {
                   className="btn btn-primary btn-lg"
                   value="Submit"
                   onClick={() => handleUpdate(ListHotel._id)}
-                  >  Submit</button>
+                  >  Update</button>
               </div>
               
           </div>
