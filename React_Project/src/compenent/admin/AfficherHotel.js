@@ -21,6 +21,7 @@ function AfficherHotel() {
   const url="http://localhost:5000/api/hotel"
   Axios.get(url).then((res) => {
     sethotels(res.data.data) ;
+    console.log(res.data.data);
 
     // const data=res.data.data[1].image_cover;
     // const data_image= data.split('/');
@@ -123,7 +124,7 @@ function AfficherHotel() {
   <td>  {ListHotel.description}</td>
   <td>  {ListHotel.localisation.city} <img id='stars-hotel' src={cityLogo} alt="BigCo Inc. logo"/></td>
   <td>  {ListHotel.localisation.country} <img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo"/></td>
-  <td>  {ListHotel.localisation.country} <img id='stars-hotel' src={"http://localhost:3000/"+ ListHotel.image_cover} alt="BigCo Inc. logo"/></td>
+  <td>  {ListHotel.localisation.country} <img id='stars-hotel' src={"http://localhost:3000/"+ListHotel.image_cover} alt="BigCo Inc. logo"/></td>
 
 
     <td>  {ListHotel.stars} <img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/></td>

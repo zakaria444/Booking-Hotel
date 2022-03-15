@@ -47,7 +47,7 @@ const creatHotel = async (req, res) => {
 
     })
       if (req.file) {
-      newHotel.image_cover = req.file.path
+      newHotel.image_cover = req.file.originalname
     }
   
     
