@@ -10,12 +10,7 @@ function CreateHotel() {
   const jwt =  localStorage.getItem('token');
   const JWT1 =jwtdecode(jwt);
   
-  // const [files, setfiles] = useState({
-  
-  //   imagee:"",
-  
-  // });
-  // console.log('jwt parse',JWT1.user_id);
+
   const [values, setvalues] = useState({
     name: "",
     description: "",
@@ -27,20 +22,13 @@ function CreateHotel() {
   });
   
  
-  // const [errors,setErrors]=useState({});
-  // const handelChange =(event)=>{
-  //     setvalues({
-  //         ...values,
-  //         [event.target.name]:event.target.value,
-  //     })
+
   // };
   const submit = async (e) => {
    
 
     e.preventDefault();
-    // const formData = new FormData();
-    // formData.append("file", file);
-    // formData.append("fileName", fileName); 
+  
   
 
 
@@ -70,23 +58,11 @@ function CreateHotel() {
   const handle = (event) => {
 
     const newdata = { ...values };
-    // const newfile = { files };
 
 
     newdata[event.target.id] = event.target.value;
     setvalues(newdata);
-    // newfile[event.target.id] = event.target.files;
-    
-  //   setfiles(newfile);
-  // const filebrowser = newfile.image[0];
-
-  
-    // console.log(filebrowser);
-
-
-
-    // event.prevntDefault();
-    // setErrors(validation(values));
+   
   };
 
   return (
