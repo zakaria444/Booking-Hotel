@@ -50,14 +50,14 @@ const creatHotel = async (req, res) => {
       newHotel.image_cover = req.file.path
     }
   
-    
+    console.log("hello");
     const saveHotel = await newHotel.save()
     res.status(201).json({ success: true, data: saveHotel })
     
 
   } catch (error) {
    
-        // console.log(error)
+        console.log(error)
         res.status(404).json({ success: false, data: [], error: error })
         // console.log('file',req);
   }

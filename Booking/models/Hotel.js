@@ -1,11 +1,6 @@
 const { Schema,model } = require('mongoose');
 const HotelSchema = new Schema   (
     {
-        _id: {
-            type: String,
-            
-        },
-
         name: {
             type: String,
             required: true,
