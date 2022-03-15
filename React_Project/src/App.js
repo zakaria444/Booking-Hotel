@@ -58,7 +58,11 @@ import UpdateOwner from"./compenent/owner/Update"
 
 
 
+    // IMPORT TYPE YAHIA
 
+import CreateType from "./compenent/type/CreateType"
+import ListType from './compenent/type/ListeType'
+import EditeType from './compenent/type/EditeType'
 
 
 
@@ -109,6 +113,9 @@ function App() {
 <Route path='/update/:id' element ={<  UpdateOwner/> } />
 
 
+<Route path='/type/create' element={<CreateType/> } />
+<Route path='/type/list' element={<ListType/> } />
+<Route path='/type/edite/:id' element={<EditeType/> } />
 
 
 

@@ -75,6 +75,9 @@ app.use("/api/client",require("./routes/clients"));
 
 app.use("/api/room", require("./routes/room"));
 
+app.use("/api/type", require("./routes/types"));
+
+
 /* zakaria */
 
 app.use("/api/filter",require("./routes/booking"));
