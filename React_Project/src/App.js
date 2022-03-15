@@ -24,6 +24,7 @@ import Login from"./compenent/home/login"
 import Inscription from"./compenent/home/inscription"
 import Dashbordadmin from"./compenent/home/dashbordadmin"
 import Dashborduser from"./compenent/home/dashborduser"
+import Dashbordowner from"./compenent/home/dashbordowner"
 // import UserRoute from"../src/Auth/UserRoute"
 
 // import UserRoute from"./Auth/UserRoute"
@@ -43,7 +44,7 @@ import UpdateHotel from "./compenent/admin/UpdateHotel"
 
 //DashboardOwner
 import CreateOwnerHotel from"./compenent/ownerDashbord/CreateHotelOwner"
-import AfficherownerHotel from"./compenent/ownerDashbord/AfficherHotel"
+import AfficherownerHotel from"./compenent/ownerDashbord/AfficherHotelOwner"
 import UpdateownerHotel from "./compenent/ownerDashbord/UpdateHotelOwner"
 
 
@@ -74,6 +75,7 @@ function App() {
   <Route path='/inscription' element={<Inscription/> } />
   <Route path='/dashbordadmin' element={<Dashbordadmin/> } />
   <Route path='/dashborduser' element={<Dashborduser/> } />
+  <Route path='/dashbordowner' element={<Dashbordowner/> } />
 </Routes>
 {/* Route pour admin */}
 <Routes>
