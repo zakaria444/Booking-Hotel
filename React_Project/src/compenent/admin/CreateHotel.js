@@ -23,10 +23,7 @@ function CreateHotel() {
 
 
   // Handles file upload event and updates state
-   const  handleUpload = async (event) => {
 
-    // ...
-  }
 
 
  
@@ -61,7 +58,7 @@ function CreateHotel() {
       
     }).then((res) => {
         
-      console.log(res);
+      // console.log(res);
 
       window.location="/admin/afficherhotel"
 
