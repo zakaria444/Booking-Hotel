@@ -43,7 +43,7 @@ import UpdateHotel from "./compenent/admin/UpdateHotel"
 
 //DashboardOwner
 import CreateOwnerHotel from"./compenent/ownerDashbord/CreateHotelOwner"
-import AfficherownerHotel from"./compenent/ownerDashbord/AfficherHotelOwner"
+import AfficherownerHotel from"./compenent/ownerDashbord/AfficherHotel"
 import UpdateownerHotel from "./compenent/ownerDashbord/UpdateHotelOwner"
 
 
