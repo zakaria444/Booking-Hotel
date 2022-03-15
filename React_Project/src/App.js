@@ -57,6 +57,9 @@ import Owner from"./compenent/owner/Owner"
 import UpdateOwner from"./compenent/owner/Update"
 
 
+/*                FileUpload               */
+import FileUpload from"./compenent/ownerDashbord/FileUpload"
+
 
 
 
@@ -94,10 +97,11 @@ function App() {
 
 {/* Route pour admin  Zakaria*/}
 
-//DashbordOwner
 <Route path='/ownerDashbord/createhotel' element={<CreateOwnerHotel/> } />
 <Route path='/ownerDashbord/afficherhotel' element={<AfficherownerHotel/> } />
 <Route path='/ownerDashbord/updatehotel/:id' element={<UpdateownerHotel/> } />
+<Route path='/ownerDashbord/fileupload' element={<FileUpload/> } />
+
 
 
 
