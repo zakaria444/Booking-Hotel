@@ -20,6 +20,7 @@ function home() {
 
   
   return (
+    <div className='dash-admin'>
     <div className='admin-dashb'>
 <h1>dashbordadmin</h1>
 <ul className='nav-admin' id='nav-admin' >
@@ -42,6 +43,24 @@ function home() {
       
 
     </div>
+
+    <div className="information-owner">
+          
+          <h1>Information Admin</h1>
+
+         
+             
+            
+
+       
+    
+    
+     </div>
+    
+   
+     
+     </div> 
+    
       
       
       

@@ -2,8 +2,8 @@ import React ,{ useEffect, useState } from 'react'
 import {Link} from"react-router-dom"
 import Axios from 'axios';
 
-import countryLogo from './img/4830734.png';
-import cityLogo from './img/1068530.png';
+// import countryLogo from './img/4830734.png';
+// import cityLogo from './img/1068530.png';
 import companyLogo from './img/1828884.png';
 
 // import jwtDecode from "jwt-decode";
@@ -117,6 +117,7 @@ function AfficherHotel() {
 <tr>
     <th>Name</th>
     <th>description</th>
+    
     {/* <th ><img id='stars-hotel' src={cityLogo} alt="BigCo Inc. logo"/> city</th>
     <th><img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo"/> country</th>
     <th ><img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/> stars </th> */}
