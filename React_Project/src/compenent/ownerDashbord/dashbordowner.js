@@ -103,7 +103,7 @@ function Home() {
               <Link
                 className="nav-link active"
                 aria-current="page"
-                to="/admin/afficherhotel"
+                to="/ownerDashbord/afficherhotel"
               >
                 Afficher Hotel
               </Link>
@@ -154,29 +154,7 @@ function Home() {
             </div>
             <button className="afficher-hotel" type="submit" onClick={() => submit()}>Update</button>
           </form>
-          {/* <div className='form-complet'>
-      <div className='form-input'>
-      <div class="form-group ">
-      <span>Username</span>
-      <input type="text" class="form-control" placeholder={owner.username} id="UserName"></input>
-     </div>
-     <div class="form-group ">
-       <span>Email</span>
-      <input type="text" class="form-control" placeholder={owner.email}  id="UserName"></input>
-     </div>
-     <div class="form-group ">
-     <span>Name</span>
-
-      <input type="text" class="form-control" placeholder={owner.name} id="UserName"></input>
-     </div>
-    
-     </div>
-    
-    <div className='image-form'>
-
-    </div>
      
-     </div> */}
         </div>
       </div>
     </div>
