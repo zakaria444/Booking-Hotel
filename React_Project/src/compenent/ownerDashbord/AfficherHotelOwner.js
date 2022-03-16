@@ -275,6 +275,6 @@ function AfficherHotel() {
 
     </div>
   )
-}
+}}
 
 export default AfficherOwnerHotel
