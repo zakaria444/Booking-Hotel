@@ -6,9 +6,10 @@
   background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to bottom right, #9999cc, #4e57cb )
+  background:linear-gradient(to bottom right, #9999cc, #fcf4ffd9 )
 }
 
+html, body {margin: 0; height: 100%; overflow: hidden}
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
   font-size: 1rem;
   line-height: 2.15;
@@ -33,9 +34,9 @@
 
 #form{
   border: solid;
-  background: linear-gradient(to bottom right, #9999cc, #4e57cb );
-  width: 1000px;
-  height: 1000px;
+  background: linear-gradient(to bottom right, #9999cc, #a4a7cf0f );
+  width: 660px;
+  height: 800px;
 
 }
 .nav__menu {
@@ -155,4 +156,7 @@ align-items: center;
     background-repeat: no-repeat;
    
 
+}
+.imgsize{
+  width: 300px;
 }
