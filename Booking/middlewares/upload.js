@@ -7,25 +7,15 @@ const storage = multer.diskStorage({
         cb(null, '../React_Project/public/')
     },
     filename: function (req, file, cb) {
-        let ext = path.extname(file.originalname)
-        cb(null, Date.now() + ext)
+        
+        cb(null, file.originalname)
     }
 })
 
 
 const upload = multer({
     storage: storage,
-    fileFilter: function (req, file, calback) {
-        if (file.mimetype == "image/png" || file.mimetype == "iamge/jpg") {
-            calback(null, true)
-        } else {
-            console.log("this format is not supported")
-            calback(null, false)
-        }
-    },
-    limits: {
-        fileSize: 1024 * 1024 * 2
-    }
+
 })
 
 

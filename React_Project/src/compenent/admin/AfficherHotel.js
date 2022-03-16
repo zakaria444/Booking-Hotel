@@ -21,6 +21,7 @@ function AfficherHotel() {
   const url="http://localhost:5000/api/hotel"
   Axios.get(url).then((res) => {
     sethotels(res.data.data) ;
+    console.log(res.data.data);
 
     // const data=res.data.data[1].image_cover;
     // const data_image= data.split('/');
@@ -103,10 +104,13 @@ function AfficherHotel() {
     <th>description</th>
     <th ><img id='stars-hotel' src={cityLogo} alt="BigCo Inc. logo"/> city</th>
     <th><img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo"/> country</th>
+    <th>images</th>   
     <th ><img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/> stars </th>
+    
+    
    
-    <th>Action</th>
-    <th>Action</th>
+    
+    <th >Action</th>
 
 
   
@@ -123,16 +127,17 @@ function AfficherHotel() {
   <td>  {ListHotel.description}</td>
   <td>  {ListHotel.localisation.city} <img id='stars-hotel' src={cityLogo} alt="BigCo Inc. logo"/></td>
   <td>  {ListHotel.localisation.country} <img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo"/></td>
-  <td>  {ListHotel.localisation.country} <img id='stars-hotel' src={"http://localhost:3000/"+ ListHotel.image_cover} alt="BigCo Inc. logo"/></td>
+  <td > <img id='stars-hotel'  style={{"height" : "80px", "width" : "140px"}} src={"http://localhost:3000/"+ListHotel.image_cover} alt="BigCo Inc. logo"/></td>
 
 
     <td>  {ListHotel.stars} <img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/></td>
+    
     {/* <td> <button onClick={() => handleUpdate(ListHotel._id)}>Update</button></td> */}
-    <td> <button  onClick={() => handleDelet(ListHotel._id)}>delete</button></td>
+    <td> <button className='btn btn-danger '  onClick={() => handleDelet(ListHotel._id)}>delete</button></td>
     <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onClick={() => handleupdatid(ListHotel._id)}>Update</button></td>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade mx-auto" style={{  ' padding-left': '181px' }} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    
-    <div className="col-12 col-lg-9 col-xl-7">
+    <div className="col-12 col-lg-9 col-xl-7 mx-auto ">
         <div className="card shadow-2-strong card-registration" id="form">
           <div className="card-body p-4 p-md-5">
           <div class="modal-dialog" role="document">
