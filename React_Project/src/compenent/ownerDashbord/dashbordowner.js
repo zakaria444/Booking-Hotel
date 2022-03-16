@@ -96,6 +96,15 @@ function Home() {
                 Ajouter Hotel
               </Link>
             </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link active"
+                aria-current="page"
+                to="/ownerDashbord/createhotel"
+              >
+                Ajouter Chambre
+              </Link>
+            </li>
           </ul>
 
           <ul className="nav-admin" id="nav-admin">
