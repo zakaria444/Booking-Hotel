@@ -48,6 +48,7 @@ import UpdateHotel from "./compenent/admin/UpdateHotel"
 import CreateOwnerHotel from"./compenent/ownerDashbord/CreateHotelOwner"
 import AfficherownerHotel from"./compenent/ownerDashbord/AfficherHotelOwner"
 import UpdateownerHotel from "./compenent/ownerDashbord/UpdateHotelOwner"
+import CreateBookingOwner from "./compenent/ownerDashbord/CreateBookingOwner"
 
 
 
@@ -70,9 +71,11 @@ import CreateType from "./compenent/type/CreateType"
 import ListType from './compenent/type/ListeType'
 import EditeType from './compenent/type/EditeType'
 
+// IMPORT ROOM YAHIA
 
+import CreateRoom from './compenent/room/CreateRoom'
 
-
+import ListRoom from './compenent/room/ListeRoom'
 
 function App() {
   return (
@@ -103,6 +106,12 @@ function App() {
 <Route path='/admin/updatehotel/:id' element={<UpdateHotel/> } />
 
 
+
+
+<Route path='/room/create' element={<CreateRoom/> } />
+
+<Route path='/room/list' element={<ListRoom/> } />
+
 {/* Route pour admin  Zakaria*/}
 
 
@@ -113,6 +122,7 @@ function App() {
 <Route path='/ownerDashbord/createhotel' element={<CreateOwnerHotel/> } />
 <Route path='/ownerDashbord/afficherhotel' element={<AfficherownerHotel/> } />
 <Route path='/ownerDashbord/updatehotel/:id' element={<UpdateownerHotel/> } />
+<Route path='/ownerDashbord/createbooking' element={<CreateBookingOwner/> } />
 
 
 

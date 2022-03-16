@@ -12,7 +12,7 @@ const RoomSchema = mongoose.model(
         },
         type: {
             type: String,
-            required: false
+            required: true
         },
         price: {
             type: String,

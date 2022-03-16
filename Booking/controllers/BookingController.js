@@ -18,8 +18,7 @@ const bookingroom = require('../models/BookingRoom');
 //         message: "Hurry! now you are successfully Booking.",
 //         success: true
 //         });
-  
-    
+
 // };
 
 const bookingproprietair = async (req, res) => {

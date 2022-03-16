@@ -73,8 +73,7 @@ function Home() {
               <Link
                 className="nav-link active"
                 aria-current="page"
-                to="/ownerDashbord/fileupload"
-              >
+                to="/ownerDashbord/fileupload">
                FileUpload
               </Link>
             </li>
@@ -82,8 +81,7 @@ function Home() {
               <Link
                 className="nav-link active"
                 aria-current="page"
-                to="/owner/create"
-              >
+                to="/room/create">
                 Ajouter Chambre
               </Link>
             </li>
@@ -91,9 +89,17 @@ function Home() {
               <Link
                 className="nav-link active"
                 aria-current="page"
-                to="/ownerDashbord/createhotel"
-              >
+                to="/ownerDashbord/createhotel">
                 Ajouter Hotel
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link
+                className="nav-link active"
+                aria-current="page"
+                to="/ownerDashbord/createbooking">
+                Ajouter Booking
               </Link>
             </li>
           </ul>
@@ -103,8 +109,7 @@ function Home() {
               <Link
                 className="nav-link active"
                 aria-current="page"
-                to="/ownerDashbord/afficherhotel"
-              >
+                to="/ownerDashbord/afficherhotel">
                 Afficher Hotel
               </Link>
             </li>{" "}
@@ -114,8 +119,7 @@ function Home() {
               <Link
                 className="nav-link active"
                 aria-current="page"
-                to="/type/create"
-              >
+                to="/type/create">
                 Ajouter Type
               </Link>
             </li>{" "}
