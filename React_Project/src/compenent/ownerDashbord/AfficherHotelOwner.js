@@ -9,9 +9,11 @@ import cityLogo from './img/1068530.png';
 
 
 
+
 function AfficherOwnerHotel() {
 
  
+function AfficherHotel() {
 
 
   const [hotels, sethotels] = useState([]);

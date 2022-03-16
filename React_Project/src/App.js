@@ -24,7 +24,6 @@ import Login from"./compenent/home/login"
 import Inscription from"./compenent/home/inscription"
 import Dashbordadmin from"./compenent/home/dashbordadmin"
 import Dashborduser from"./compenent/home/dashborduser"
-import Dashbordowner from"./compenent/home/dashbordowner"
 // import UserRoute from"../src/Auth/UserRoute"
 
 // import UserRoute from"./Auth/UserRoute"
@@ -42,10 +41,12 @@ import UpdateHotel from "./compenent/admin/UpdateHotel"
 
 
 
+
 //DashboardOwner
 import CreateOwnerHotel from"./compenent/ownerDashbord/CreateHotelOwner"
 import AfficherownerHotel from"./compenent/ownerDashbord/AfficherHotelOwner"
 import UpdateownerHotel from "./compenent/ownerDashbord/UpdateHotelOwner"
+
 
 
 
@@ -57,8 +58,15 @@ import Owner from"./compenent/owner/Owner"
 import UpdateOwner from"./compenent/owner/Update"
 
 
+/*                FileUpload               */
+import FileUpload from"./compenent/ownerDashbord/FileUpload"
 
 
+    // IMPORT TYPE YAHIA
+
+import CreateType from "./compenent/type/CreateType"
+import ListType from './compenent/type/ListeType'
+import EditeType from './compenent/type/EditeType'
 
 
 
@@ -75,7 +83,6 @@ function App() {
   <Route path='/inscription' element={<Inscription/> } />
   <Route path='/dashbordadmin' element={<Dashbordadmin/> } />
   <Route path='/dashborduser' element={<Dashborduser/> } />
-  <Route path='/dashbordowner' element={<Dashbordowner/> } />
 </Routes>
 {/* Route pour admin */}
 <Routes>
@@ -94,10 +101,15 @@ function App() {
 
 {/* Route pour admin  Zakaria*/}
 
-//DashbordOwner
+
+
+<Route path='/ownerDashbord/fileupload' element={<FileUpload/> } />
+
+
 <Route path='/ownerDashbord/createhotel' element={<CreateOwnerHotel/> } />
 <Route path='/ownerDashbord/afficherhotel' element={<AfficherownerHotel/> } />
 <Route path='/ownerDashbord/updatehotel/:id' element={<UpdateownerHotel/> } />
+
 
 
 
@@ -109,6 +121,9 @@ function App() {
 <Route path='/update/:id' element ={<  UpdateOwner/> } />
 
 
+<Route path='/type/create' element={<CreateType/> } />
+<Route path='/type/list' element={<ListType/> } />
+<Route path='/type/edite/:id' element={<EditeType/> } />
 
 
 

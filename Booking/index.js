@@ -15,7 +15,7 @@ const  { engine } = require('express-handlebars') ;
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
-app.use(bp.urlencoded({ extended: false }));
+app.use(bp.urlencoded({ extended: false, limit: '50mb', parameterLimit: 100000}));
 app.set('view engine', 'ejs');
 app.use(exp.static("files"));
 // parse application/json
@@ -72,6 +72,9 @@ app.use("/api/hotel",require("./routes/hotels"));
 app.use("/api/client",require("./routes/clients"));
 
 app.use("/api/room", require("./routes/room"));
+
+app.use("/api/type", require("./routes/types"));
+
 
 /* zakaria */
 

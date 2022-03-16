@@ -7,43 +7,31 @@ import cityLogo from './img/1068530.png';
 
 
 
-// import jwtDecode from "jwt-decode";
 
-
-
-// export  function getCurrentUser() {
-//   try {
-//       const token = localStorage.getItem("token");
-//       console.log(token);
-
-//       return jwtDecode(token);
-//   } catch (error) {
-//       return null;
-//   }
-// }
 
 function AfficherHotel() {
 
+ 
+
 
   const [hotels, sethotels] = useState([]);
-  // const [hotelsid, sethotelsid] = useState([]);
 
 
   useEffect(()=>{
   const url="http://localhost:5000/api/hotel"
   Axios.get(url).then((res) => {
-    
     sethotels(res.data.data) ;
-    })})
+    console.log(res.data.data);
+
+    // const data=res.data.data[1].image_cover;
+    // const data_image= data.split('/');
+    // console.log(data_image[0]);
+    // console.log(res.data.data[1].image_cover);
+    // console.log(window.location.pathname.split('/'));
+    })},[])
     const handleUpdate = (id) => {
 
-    //   const url="http://localhost:5000/api/hotel/"+id
-    //   Axios.get(url)
-    // .then((res)=>{
-    //   window.location="/admin/updatehotel/"+id
-    //   // console.log(res.data.data[0]);
-    // })
-  
+   
     
       const url="http://localhost:5000/api/hotel/"+id
       Axios.patch(url,{
@@ -76,8 +64,7 @@ function AfficherHotel() {
     
     
   
-      // event.prevntDefault();
-      // setErrors(validation(values));
+ 
     };
     const [values, setvalues] = useState({
       name: "",
@@ -91,23 +78,14 @@ function AfficherHotel() {
      
 
       const newdata = { ...values };
-      // const newfile = { files };
   
   
       newdata[event.target.id] = event.target.value;
       setvalues(newdata);
-      // newfile[event.target.id] = event.target.files;
-      
-    //   setfiles(newfile);
-    // const filebrowser = newfile.image[0];
-  
-      console.log(newdata);
-      // console.log(filebrowser);
   
   
-  
-      // event.prevntDefault();
-      // setErrors(validation(values));
+      // console.log(newdata);
+     
     };
    
 
@@ -126,10 +104,14 @@ function AfficherHotel() {
     <th>description</th>
     <th ><img id='stars-hotel' src={cityLogo} alt="BigCo Inc. logo"/> city</th>
     <th><img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo"/> country</th>
+    <th>images</th>   
     <th ><img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/> stars </th>
+    
+    
    
-    <th>Action</th>
-    <th>Action</th>
+    
+    <th >Action</th>
+
 
   
 
@@ -145,14 +127,17 @@ function AfficherHotel() {
   <td>  {ListHotel.description}</td>
   <td>  {ListHotel.localisation.city} <img id='stars-hotel' src={cityLogo} alt="BigCo Inc. logo"/></td>
   <td>  {ListHotel.localisation.country} <img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo"/></td>
+  <td > <img id='stars-hotel'  style={{"height" : "80px", "width" : "140px"}} src={"http://localhost:3000/"+ListHotel.image_cover} alt="BigCo Inc. logo"/></td>
+
 
     <td>  {ListHotel.stars} <img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/></td>
+    
     {/* <td> <button onClick={() => handleUpdate(ListHotel._id)}>Update</button></td> */}
-    <td> <button  onClick={() => handleDelet(ListHotel._id)}>delete</button></td>
+    <td> <button className='btn btn-danger '  onClick={() => handleDelet(ListHotel._id)}>delete</button></td>
     <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onClick={() => handleupdatid(ListHotel._id)}>Update</button></td>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade mx-auto" style={{  ' padding-left': '181px' }} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    
-    <div className="col-12 col-lg-9 col-xl-7">
+    <div className="col-12 col-lg-9 col-xl-7 mx-auto ">
         <div className="card shadow-2-strong card-registration" id="form">
           <div className="card-body p-4 p-md-5">
           <div class="modal-dialog" role="document">
@@ -173,6 +158,7 @@ function AfficherHotel() {
                     
                       type="text"
                       id="name"
+
                       onChange={(event) => handle(event)}
                       name="fullname"
                       className="form-control form-control-lg"
@@ -252,6 +238,7 @@ function AfficherHotel() {
                 
                
               </div>
+           
              
               
 
@@ -260,7 +247,7 @@ function AfficherHotel() {
                   className="btn btn-primary btn-lg"
                   value="Submit"
                   onClick={() => handleUpdate(ListHotel._id)}
-                  >  Submit</button>
+                  >  Update</button>
               </div>
               
           </div>

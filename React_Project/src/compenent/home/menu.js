@@ -85,9 +85,12 @@ function menu() {
 
               {isAuthenticated()   && (
               <ul className='nav-admin'>
- <li className="nav-item">
+                <li>
+                <span className="nav-link" style={{cursor:'pointer'}}   > Bienvenue { isAuthenticated().username }</span>
+                </li>
+ {/* <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="#">Tableau de bord</Link>
-        </li> 
+        </li>  */}
           <li className="nav-item">
 
             <span className="nav-link" style={{cursor:'pointer'}}  onClick={signout} > Se déconnecter</span>
@@ -95,7 +98,7 @@ function menu() {
           </li>
         
 
-<span className="nav-link" style={{cursor:'pointer'}}   > Bienvenue { isAuthenticated().username }</span>
+
 
 
           </ul>
