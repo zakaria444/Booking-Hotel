@@ -6,9 +6,10 @@
   background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to bottom right, #9999cc, #4e57cb )
+  background:linear-gradient(to bottom right, #9999cc, #fcf4ffd9 )
 }
 
+html, body {margin: 0; height: 100%; overflow: hidden}
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
   font-size: 1rem;
   line-height: 2.15;
@@ -33,9 +34,9 @@
 
 #form{
   border: solid;
-  background: linear-gradient(to bottom right, #9999cc, #4e57cb );
-  width: 1000px;
-  height: 1000px;
+  background: linear-gradient(to bottom right, #9999cc, #a4a7cf0f );
+  width: 660px;
+  height: 800px;
 
 }
 .nav__menu {
@@ -64,10 +65,15 @@
 #stars{
   border: solid 1px;
 }
+.afficher-hotel{
+  color: #051367;
+}
 .admin-dashb{
   display: flex;
   flex-direction: column;
-  background: #92badd;
+ 
+  
+  background:#92badd ;
   width: 500px;
   height: 1000px;
   justify-content: space-around;
@@ -86,16 +92,21 @@
     justify-content: space-around;
 } 
 .nav-admin li{
+  background-color:  #013F96;
   width: 300px;
   border: solid 1px;
   border-radius: 100px 40px 110px 40px;
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  box-shadow: rgba(128, 118, 118, 0.56) 0px 22px 70px 4px;
 }
 .nav-admin li a {
 color: #1b1b1e;
 font-size: 20px;
 
 }
+.nav-admin li  :hover {
+  color: #c8c8e0;
+  
+  }
 .afficher-hotel{
   width: 50%;
   border: solid 1px;
@@ -109,10 +120,43 @@ display: flex;
 justify-content: space-between;
 }
 .information-owner{
+
+  width: 1900px;
+    border: solid 0.01px #051367;
+    background-image: url(./compenent/ownerDashbord/img-hotel/pexels-konstantinos-eleftheriadis-2034335.jpg);
+    background-size: 100%;
+}
+.form-input{
+  width: 40%;
+}
+.image-form{
+  background-image: url(./compenent/ownerDashbord/img-hotel/téléchargement.png);
+  height: 215px;
+  width: 215px;
+  border-radius: 40px;
+  margin-left: 20px;
+}
+.form-complet{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.image-url{
+  width: 500px;
+  height: 300px;
+  margin-top: 10px;
+}
+.dash-admin{
+  display: flex;
+
   width: 100%;
     border: solid 1px;
     background-image: url(./compenent/home/img-hotel/pexels-konstantinos-eleftheriadis-2034335.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
    
+
+}
+.imgsize{
+  width: 300px;
 }

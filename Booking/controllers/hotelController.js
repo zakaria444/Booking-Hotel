@@ -21,7 +21,9 @@ const getHotel = async (req, res) => {
 const creatHotel = async (req, res) => {
 console.log("🚀 ~ file: hotelController.js ~ line 22 ~ creatHotel ~ req", req)
 
-  
+  console.log('request',req.body);
+
+
 
   //  console.log(req.body.localisation.city);
   //  res.status(201).json({ success: true, data: req.body })
@@ -29,8 +31,9 @@ console.log("🚀 ~ file: hotelController.js ~ line 22 ~ creatHotel ~ req", req)
     const name = req.body.name
     const description = req.body.description
     const stars = req.body.stars
-    const city  = req.body.localisation[0]
-    const country  = req.body.localisation[1]
+    const city  = req.body.city
+    const country  = req.body.country 
+    // const image_cover = req.body.image_cover
     const user_id  = req.body.user_id
 
 
@@ -44,19 +47,22 @@ console.log("🚀 ~ file: hotelController.js ~ line 22 ~ creatHotel ~ req", req)
 
 
     })
-    if (req.body) {
-      newHotel.image_cover = req.body.image_cover
+      if (req.file) {
+      newHotel.image_cover = req.file.originalname
     }
-    console.log(req.body.user_id);
-
-    
+  
+    console.log("hello");
     const saveHotel = await newHotel.save()
     res.status(201).json({ success: true, data: saveHotel })
+    
+
   } catch (error) {
    
-    console.log(req.file);
+        console.log(error)
         res.status(404).json({ success: false, data: [], error: error })
+        // console.log('file',req);
   }
+
 }
 
 const updateHotel = async (req, res) => {

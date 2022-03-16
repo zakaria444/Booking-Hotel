@@ -11,6 +11,7 @@ function CreateHotelOwner() {
   
   const [file, setFiles] = useState("");
 
+
   const [values, setvalues] = useState({
     name: "",
     description: "",
@@ -28,11 +29,17 @@ function CreateHotelOwner() {
  
   const submit = (e) => {
     e.preventDefault();
+
+  // };
+  const submit = async (e) => {
    
     console.log('file image',file);
     console.log('values',values);
 
    
+
+    e.preventDefault();
+  
   
     const form_data = new FormData();
     form_data.append("image_cover",file)
@@ -81,6 +88,7 @@ function CreateHotelOwner() {
     const fileupload=event.target.files[0];
     setFiles(fileupload);
   
+
 
 
   };
