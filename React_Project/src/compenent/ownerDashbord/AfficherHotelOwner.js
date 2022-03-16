@@ -13,7 +13,7 @@ import cityLogo from './img/1068530.png';
 function AfficherOwnerHotel() {
 
  
-function AfficherHotel() {
+
 
 
   const [hotels, sethotels] = useState([]);
@@ -58,7 +58,7 @@ function AfficherHotel() {
 
     const handlDelet = (id, e ) => {
 
-      e.preve
+      
       const url="http://localhost:5000/api/hotelproprietai/delethotelproprietair/"+id
   Axios.delete(url).then((res) => {
 

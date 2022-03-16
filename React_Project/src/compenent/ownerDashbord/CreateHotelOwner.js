@@ -27,10 +27,7 @@ function CreateHotelOwner() {
 
 
  
-  const submit = (e) => {
-    e.preventDefault();
 
-  // };
   const submit = async (e) => {
    
     console.log('file image',file);
@@ -239,6 +236,6 @@ function CreateHotelOwner() {
 }
 const ImageThumb = ({ image }) => {
   return <img className="image-url" src={URL.createObjectURL(image)} alt={image.name} />;
-};
+}
 
 export default CreateHotelOwner ;
