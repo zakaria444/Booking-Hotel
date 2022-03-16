@@ -98,7 +98,7 @@ function AfficherOwnerHotel() {
 
   return (
     <div>
-          <Link className="nav-link active" aria-current="page" to="/dashbordadmin">Back</Link>
+          <Link className="nav-link active" aria-current="page" to="/dashbordowner">Back</Link>
 
 <h1>Tout Les Hotel</h1>
 <table className="table">
