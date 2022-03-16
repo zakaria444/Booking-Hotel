@@ -1,65 +1,75 @@
 import React ,{ useEffect, useState } from 'react'
 import {Link} from"react-router-dom"
 import Axios from 'axios';
-
+import companyLogo from './img/1828884.png';
 import countryLogo from './img/4830734.png';
 import cityLogo from './img/1068530.png';
-import companyLogo from './img/1828884.png';
 
 
 
+
+
+
+function AfficherOwnerHotel() {
+
+ 
 function AfficherHotel() {
 
 
   const [hotels, sethotels] = useState([]);
 
+
   useEffect(()=>{
   const url="http://localhost:5000/api/hotelproprietai/gethotelproprietair"
   Axios.get(url).then((res) => {
-    
     sethotels(res.data.data) ;
-    console.log("🚀 ~ file: AfficherHotelOwner.js ~ line 34 ~ Axios.get ~ res.data.data", res.data.data)
+    console.log(res.data.data);
 
+    // const data=res.data.data[1].image_cover;
+    // const data_image= data.split('/');
+    // console.log(data_image[0]);
+    // console.log(res.data.data[1].image_cover);
+    // console.log(window.location.pathname.split('/'));
     })},[])
-  
     const handleUpdate = (id) => {
-    //   const url="http://localhost:5000/api/hotel/"+id
-    //   Axios.get(url)
-    // .then((res)=>{
-    //   window.location="/admin/updatehotel/"+id
-    //   // console.log(res.data.data[0]);
-    // })
+
+   
     
-      const url="http://localhost:5000/api/hotelproprietai/updatehotelproprietair"+id
+      const url="http://localhost:5000/api/hotel/"+id
       Axios.patch(url,{
         name: values.name,
         description: values.description,
         stars: values.stars,
         localisation: [values.city , values.country] ,
       }).then((res) => {
-        window.location="/ownerDashbord/AfficherHotel";
+        window.location="/admin/afficherhotel";
         sethotels(res.data.data) ;
-     
-        // if(sethotels){
-        // window.location="/admin/afficherhotel";}
+        console.log(res.data.data);
+      
 
     
         
    
-    })};
-
-    const handleDelet = (id) => {
-      
-      const url="http://localhost:5000/api/hotelproprietai/delethotelproprietair/"+id
-  Axios.post(url).then((res) => {
-
-    window.location="/ownerDashbord/AfficherHotel";
     })
+  
    
+  
+  };
+
+    const handlDelet = (id, e ) => {
+
+      e.preve
+      const url="http://localhost:5000/api/hotelproprietai/delethotelproprietair/"+id
+  Axios.delete(url).then((res) => {
+
+    window.location="/ownerDashbord/afficherhotel";   
+
+    })};
+    const handleupdatid = (id) => {
+    
     
   
-      // event.prevntDefault();
-      // setErrors(validation(values));
+ 
     };
     const [values, setvalues] = useState({
       name: "",
@@ -73,23 +83,14 @@ function AfficherHotel() {
      
 
       const newdata = { ...values };
-      // const newfile = { files };
   
   
       newdata[event.target.id] = event.target.value;
       setvalues(newdata);
-      // newfile[event.target.id] = event.target.files;
-      
-    //   setfiles(newfile);
-    // const filebrowser = newfile.image[0];
-  
-      console.log(newdata);
-      // console.log(filebrowser);
   
   
-  
-      // event.prevntDefault();
-      // setErrors(validation(values));
+      // console.log(newdata);
+     
     };
    
 
@@ -110,8 +111,9 @@ function AfficherHotel() {
     <th><img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo"/> country</th>
     <th ><img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/> stars </th>
    
-   
     <th>Action</th>
+    <th>Action</th>
+
 
   
 
@@ -127,23 +129,29 @@ function AfficherHotel() {
   <td>  {ListHotel.description}</td>
   <td>  {ListHotel.localisation.city} <img id='stars-hotel' src={cityLogo} alt="BigCo Inc. logo"/></td>
   <td>  {ListHotel.localisation.country} <img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo"/></td>
+  <td>  {ListHotel.localisation.country} <img id='stars-hotel' src={"http://localhost:3000/"+ListHotel.image_cover} alt="BigCo Inc. logo"/></td>
 
-    
-  
 
     <td>  {ListHotel.stars} <img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/></td>
     {/* <td> <button onClick={() => handleUpdate(ListHotel._id)}>Update</button></td> */}
-    <td> <button className='btn btn-danger' onClick={() => handleDelet(ListHotel._id)}>delete</button></td>
-    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Update</button></td>
+    <td> <button  onClick={() => handlDelet(ListHotel._id)}>delete</button></td>
+    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onClick={() => handleupdatid(ListHotel._id)}>Update</button></td>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   
     <div className="col-12 col-lg-9 col-xl-7">
         <div className="card shadow-2-strong card-registration" id="form">
           <div className="card-body p-4 p-md-5">
+          <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
             <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Update Hotel</h3>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-         
+        </div>
+        </div>
+        </div>
+  
               <div className="row"> 
                     <div className="col-md-6 mb-4">
                     <div className="form-outline">
@@ -151,6 +159,7 @@ function AfficherHotel() {
                     
                       type="text"
                       id="name"
+
                       onChange={(event) => handle(event)}
                       name="fullname"
                       className="form-control form-control-lg"
@@ -230,6 +239,7 @@ function AfficherHotel() {
                 
                
               </div>
+           
              
               
 
@@ -238,11 +248,17 @@ function AfficherHotel() {
                   className="btn btn-primary btn-lg"
                   value="Submit"
                   onClick={() => handleUpdate(ListHotel._id)}
-                  >  Submit</button>
+                  >  Update</button>
               </div>
+              
           </div>
+          
         </div>
-</div></div>
+</div>
+</div>
+
+
+
 
 
     
@@ -250,6 +266,7 @@ function AfficherHotel() {
   </tr>
 
  </tbody>
+ 
  )}
 </table>
 
@@ -260,4 +277,4 @@ function AfficherHotel() {
   )
 }
 
-export default AfficherHotel
+export default AfficherOwnerHotel

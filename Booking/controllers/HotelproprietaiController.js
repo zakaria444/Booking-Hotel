@@ -1,5 +1,4 @@
 const hotelproprietair = require('../models/Hotel');
-console.log("🚀 ~ file: HotelproprietaiController.js ~ line 2 ~ hotelproprietair", hotelproprietair)
   
 const gethotelproprietair = async (hotelproprietairs, res) => {
     
@@ -28,17 +27,20 @@ const getOnehotelproprietair = async (req, res) => {
 
 };
 const addhotelproprietair = async (req, res) => {
+console.log("🚀 ~ file: HotelproprietaiController.js ~ line 31 ~ addhotelproprietair ~ req", req.file)
+
 
 
   
   // create a new booking
   try {
-    const name = req.name
-    const description = req.description
-    const stars = req.stars
-    const city  = req.localisation[0]
-    const country  = req.localisation[1]
-    const user_id  = req.user_id
+    const name = req.body.name
+    const description = req.body.description
+    const stars = req.body.stars
+    const city  = req.body.city
+    const country  = req.body.country 
+    // const image_cover = req.body.image_cover
+    const user_id  = req.body.user_id
     const newHotel = new hotelproprietair({
       name: name,
       description: description,
@@ -49,8 +51,8 @@ const addhotelproprietair = async (req, res) => {
       
     })
 
-    if (req.body) {
-      newHotel.image_cover = req.body.image_cover
+    if (req.file) {
+      newHotel.image_cover = req.file.originalname
     }
    
 
@@ -58,8 +60,6 @@ const addhotelproprietair = async (req, res) => {
     const saveHotel = await newHotel.save()
     res.status(201).json({ success: true, data: saveHotel })
   } catch (error) {
-   
-    console.log(req.file);
         res.status(404).json({ success: false, data: [], error: error })
   }
 
