@@ -56,7 +56,7 @@ function AfficherOwnerHotel() {
 
     const handlDelet = (id, e ) => {
 
-      e.preve
+   
       const url="http://localhost:5000/api/hotelproprietai/delethotelproprietair/"+id
   Axios.delete(url).then((res) => {
 
