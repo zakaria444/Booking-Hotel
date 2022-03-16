@@ -109,6 +109,17 @@ function Home() {
               </Link>
             </li>{" "}
           </ul>
+          <ul className="nav-admin" id="nav-admin">
+            <li className="nav-item">
+              <Link
+                className="nav-link active"
+                aria-current="page"
+                to="/type/create"
+              >
+                Ajouter Type
+              </Link>
+            </li>{" "}
+          </ul>
         </div>
         <div className="information-owner">
           {}
