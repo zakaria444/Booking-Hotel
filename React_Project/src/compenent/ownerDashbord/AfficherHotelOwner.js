@@ -13,7 +13,7 @@ import cityLogo from './img/1068530.png';
 function AfficherOwnerHotel() {
 
  
-function AfficherHotel() {
+
 
 
   const [hotels, sethotels] = useState([]);
@@ -35,14 +35,14 @@ function AfficherHotel() {
 
    
     
-      const url="http://localhost:5000/api/hotel/"+id
+      const url="http://localhost:5000/api/hotelproprietai/updatehotelproprietair/"+id
       Axios.patch(url,{
         name: values.name,
         description: values.description,
         stars: values.stars,
         localisation: [values.city , values.country] ,
       }).then((res) => {
-        window.location="/admin/afficherhotel";
+        window.location="/ownerDashbord/afficherhotel";  
         sethotels(res.data.data) ;
         console.log(res.data.data);
       
@@ -58,7 +58,7 @@ function AfficherHotel() {
 
     const handlDelet = (id, e ) => {
 
-   
+
       const url="http://localhost:5000/api/hotelproprietai/delethotelproprietair/"+id
   Axios.delete(url).then((res) => {
 
@@ -98,7 +98,7 @@ function AfficherHotel() {
 
   return (
     <div>
-          <Link className="nav-link active" aria-current="page" to="/dashbordadmin">Back</Link>
+          <Link className="nav-link active" aria-current="page" to="/dashbordowner">Back</Link>
 
 <h1>Tout Les Hotel</h1>
 <table className="table">
@@ -134,17 +134,17 @@ function AfficherHotel() {
 
     <td>  {ListHotel.stars} <img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo"/></td>
     {/* <td> <button onClick={() => handleUpdate(ListHotel._id)}>Update</button></td> */}
-    <td> <button  onClick={() => handlDelet(ListHotel._id)}>delete</button></td>
-    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onClick={() => handleupdatid(ListHotel._id)}>Update</button></td>
+    <td> <button className='btn btn-danger' onClick={() => handlDelet(ListHotel._id)}>delete</button></td>
+    <td><button type="button " class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onClick={() => handleupdatid(ListHotel._id)}>Update</button></td>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    
-    <div className="col-12 col-lg-9 col-xl-7">
+    <div className="col-12 col-lg-9 col-xl-7 mx-auto">
         <div className="card shadow-2-strong card-registration" id="form">
           <div className="card-body p-4 p-md-5">
           <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-            <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Update Hotel</h3>
+            <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Update Owner Hotel</h3>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -275,6 +275,6 @@ function AfficherHotel() {
 
     </div>
   )
-}}
+}
 
 export default AfficherOwnerHotel

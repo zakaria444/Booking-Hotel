@@ -27,10 +27,7 @@ function CreateHotelOwner() {
 
 
  
-  const submit = (e) => {
-    e.preventDefault();
 
-  // };
   const submit = async (e) => {
    
     console.log('file image',file);
@@ -94,17 +91,25 @@ function CreateHotelOwner() {
   };
 
   return (
+    
 
     <section className="vh-100 gradient-custom" >
      
    
+
+  
+
+   <Link className="nav-link active" aria-current="page" to="/ownerDashbord/afficherhotel">Back</Link>
+  
     
-    <Link className="nav-link active" aria-current="page" to="/ownerDashbord/afficherhotel">Back</Link>
+
 
 
       <div className="container py-5 h-100">
+        
         <div className="row justify-content-center align-items-center h-100">
           <div className="col-12 col-lg-9 col-xl-7">
+ 
             <div className="card shadow-2-strong card-registration" id="form">
               <div className="card-body p-4 p-md-5">
                 <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Ajouter owner Hotel</h3>
@@ -219,7 +224,7 @@ function CreateHotelOwner() {
 
                
 
-                  <div className="mt-4 pt-2">
+                  <div className=" ">
                     <button
                       className="btn btn-primary btn-lg"
                       value="Submit"
@@ -239,7 +244,7 @@ function CreateHotelOwner() {
 }
 const ImageThumb = ({ image }) => {
   return <img className="image-url" src={URL.createObjectURL(image)} alt={image.name} />;
-};
+
 }
 
 export default CreateHotelOwner ;
