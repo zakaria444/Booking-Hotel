@@ -192,10 +192,10 @@ align-items: center;
     border: 1px solid #dfe8ec;
 }
 .card-title{
-  margin-top: 30px;font-size:13px;    color: rgba(0,0,0,.5);
+  margin-top: 30px;font-size:25px;    color: rgba(0,0,0,.5);
 }
 .card-prix{
-  width: 60%;background-color: #459ECE;text-align: center; margin-left: 100px;margin-top: 30px;font-size: 23px;font-family: 'FuturaMediumMedium';
+  width: 90%;background-color: #459ECE;text-align: center; margin-left: 20px;margin-top: 30px;font-size: 23px;font-family: 'FuturaMediumMedium';
 }
 .card{
   border-radius: 45px;
@@ -203,4 +203,7 @@ align-items: center;
 }
 .w-40{
   max-width: 2200px !important;
+}
+.roow{
+  width: 30px;
 }
