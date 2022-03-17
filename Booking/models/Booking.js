@@ -23,7 +23,7 @@ const BookingSchema = new Schema(
         },
         user_id: 
             { 
-                type: Schema.Types.ObjectId, ref: 'users' 
+                type: Schema.Types.ObjectId, ref: 'users'
             }
         
     }, {

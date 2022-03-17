@@ -31,7 +31,7 @@ router.post("/upload", upload.single('file'),  creatHotelImages);
 
 
 
-router.post('/updatehotelproprietair/:hotelid', async(req,res)=>{
+router.patch('/updatehotelproprietair/:hotelid', async(req,res)=>{
     await updatehotelproprietair(req,res);
 });
 
