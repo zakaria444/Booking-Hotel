@@ -17,6 +17,7 @@ function AfficherOwnerHotel() {
 
 
   const [hotels, sethotels] = useState([]);
+  console.log("🚀 ~ file: AfficherHotelOwner.js ~ line 20 ~ AfficherOwnerHotel ~ hotels", hotels)
 
 
   useEffect(()=>{
@@ -268,6 +269,7 @@ function AfficherOwnerHotel() {
  </tbody>
  
  )}
+
 </table>
 
 

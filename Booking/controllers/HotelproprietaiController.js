@@ -27,7 +27,6 @@ const getOnehotelproprietair = async (req, res) => {
 
 };
 const addhotelproprietair = async (req, res) => {
-console.log("🚀 ~ file: HotelproprietaiController.js ~ line 31 ~ addhotelproprietair ~ req", req.file)
 
 
 
@@ -103,17 +102,35 @@ console.log("🚀 ~ file: HotelproprietaiController.js ~ line 31 ~ addhotelpropr
 // };
 
 const updatehotelproprietair = async (req,res)=> {
-    const idhotels=req.params.hotelid;
-    const {name}= req.body;
-    const {description}= req.body;
-    const {status}= req.body;
-    let newvalues = { $set: {name: name, description:description} };
-  let bookings = await hotelproprietair.updateOne({_id:idhotels}, newvalues);
-  return res.status(200).json({
-      ...bookings,
-      message:"Hurray ! You ar now updat hotels Par ID .",
-      success:false
+console.log("🚀 ~ file: HotelproprietaiController.js ~ line 106 ~ updatehotelproprietair ~ req", req.body)
+  const hotelId = req.params.hotelid
+  const { name } = req.body
+  const { description } = req.body
+  const { stars } = req.body
+
+  const city = req.body.localisation[0]
+  const country = req.body.localisation[1]
+
+  try {
+    const updatedHotelData = await hotelproprietair.updateOne({ _id: hotelId }, {
+      $set: {
+        name: name,
+        description: description,
+        stars: stars,
+        localisation:{city , country },
+
+        
+      }
+      
     })
+    if (req.file) {
+      newHotel.image_cover = req.file.originalname
+    }
+   
+    res.status(201).json({ success: true, data: updatedHotelData })
+  } catch (error) {
+    res.status(409).json({ success: false, data: [], error: error })
+  }
 };
 
 

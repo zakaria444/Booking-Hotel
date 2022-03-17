@@ -5,23 +5,38 @@ import Axios from "axios"
 
 function CreateRoom() {
   const url = "http://localhost:5000/api/room/add";
+  const [file, setFiles] = useState();
+  console.log("🚀 ~ file: CreateRoom.js ~ line 9 ~ CreateRoom ~ file", file)
+
   const [values, setvalues] = useState({
+
     name: "",
     description: "",
     type: "",
     price: "",
-    image_cover: ""
+  
 
   });
  
   const submit = (e) => {
+
     e.preventDefault();
-    Axios.post(url, {
-      name: values.name,
-      description: values.description,
-      type: values.type,
-      price: values.price,
-      image_cover: values.image_cover
+    const form_data = new FormData();
+  
+    for (let i = 0 ; i < file.length; i++ ){
+      form_data.append("images",file[i])
+    }
+    form_data.append("name",values.name)
+    form_data.append("description",values.description)
+    form_data.append("type",values.type)
+    form_data.append("price",values.price)
+  
+
+    form_data.append("user_id",values.user_id)
+    Axios.post(url,form_data, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+    },
     }).then((res) => {
         
       console.log(res.data);
@@ -31,10 +46,19 @@ function CreateRoom() {
   };
 
   const handle = (event) => {
+  
     const newdata = { ...values };
+
+
     newdata[event.target.id] = event.target.value;
     setvalues(newdata);
+    
+
     console.log(newdata);
+
+    const fileupload=event.target.files;
+    setFiles(fileupload);
+  
 
 
   };
@@ -100,7 +124,7 @@ function CreateRoom() {
                           type="text"
                           id="type"
                           onChange={(event) => handle(event)}
-                          name="type"
+                          name="type" multiple
                           className="form-control form-control-lg"
                         />
                         <label className="form-label">type</label>
@@ -113,10 +137,11 @@ function CreateRoom() {
                     <div className="col-md-6 mb-4">
                       <div className="form-outline">
                         <input
-                          type="text"
-                          id="image_cover"
+                          type="file"
+                          id="images"
+                          multiple
                           onChange={(event) => handle(event)}
-                          name="image_cover"
+                          name="images"
                           className="form-control form-control-lg"
                         />
                         <label className="form-label">image_cover</label>
