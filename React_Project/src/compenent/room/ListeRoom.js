@@ -19,11 +19,12 @@ window.location="/room/list";
         myArray :[]
     }
      componentDidMount(){
-         axios.get("http://localhost:5000/api/type/type/list")
+         axios.get("http://localhost:5000/api/room")
          .then(res=>{
-             console.log(res.data.data)
+         console.log("🚀 ~ file: ListeRoom.js ~ line 24 ~ ListRoom ~ componentDidMount ~ res", res)
+             console.log(res.data.rooms)
              this.setState({
-                myArray:res.data.data 
+                myArray:res.data.rooms
              })
          })
      }
@@ -32,7 +33,20 @@ window.location="/room/list";
 
     return (
       <div>
+  
          <h1>Liste Types</h1>
+       
+       {/* <div>
+        
+         {this.state.myArray.map((file, index)=>{
+            
+            {file.images.map((imgg)=>{
+           <h1>  <img src={"http://localhost:3000/"+imgg.img} height="40px" alt='hsh'/>  </h1> 
+            })}
+ 
+
+ })} 
+                      </div> */}
          <br />
          <br />
          <br />
@@ -47,10 +61,10 @@ window.location="/room/list";
                <th>Description</th>
                <th>Type</th>
                <th>Price</th>
-               <th>Image cover</th>
+               <th>Images</th>
              </tr>
            </thead>
-           {this.state.myArray.map(ListRoom =>
+           {this.state.myArray.map((ListRoom,index) =>
            <tbody>
              <tr>
 
@@ -59,13 +73,26 @@ window.location="/room/list";
                <td>  {ListRoom.description}</td>
                <td>  {ListRoom.type}</td>
                <td>  {ListRoom.price}</td>
-               <td>  {ListRoom.image_cover}</td>
+               <td> <img src={"http://localhost:3000/"+ ListRoom.images[1].img}   height="20px"/>  </td>
+
+
+
+              <td>
+
+              {ListRoom.images.map((ele, index) => {
+                return <img height="50px" src={`http://localhost:3000/${ele.img}`} />
+              })}
+
+              </td>
+
+              
                <td> <Link to={'/type/edite/'+ListRoom._id}>Update</Link></td>
                <td> <button  onClick={() => handleDelete(ListRoom._id)}>deleted</button></td>
 
              </tr>
            </tbody>
            )}
+           
          </table>
       </div>
     )
