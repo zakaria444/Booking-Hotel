@@ -1,6 +1,6 @@
 import React ,{ useEffect, useState } from 'react'
 import {Link} from"react-router-dom"
-import Axios from 'axios';
+import Axios from 'axios'
 import companyLogo from './img/1828884.png';
 import countryLogo from './img/4830734.png';
 import cityLogo from './img/1068530.png';
@@ -23,11 +23,6 @@ function AfficherHotel() {
     sethotels(res.data.data) ;
     console.log(res.data.data);
 
-    // const data=res.data.data[1].image_cover;
-    // const data_image= data.split('/');
-    // console.log(data_image[0]);
-    // console.log(res.data.data[1].image_cover);
-    // console.log(window.location.pathname.split('/'));
     })},[])
     const handleUpdate = (id) => {
 
@@ -72,7 +67,6 @@ function AfficherHotel() {
       stars: "",
       country: "",
       city:"",
-      // image:files.imagee,
     });
     const handle = (event) => {
      

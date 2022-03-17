@@ -170,23 +170,37 @@ align-items: center;
 .top-selection{
   margin-bottom: 15px; margin-left: 125px;
 }
-.row{
+.rows{
   display: flex; 
   justify-content: center;
+  flex-wrap: wrap  !important;
   margin-right:0px;
 }
 .cont{
   display:flex; 
 }
 .title{
-  background-color:#d1ecd7;
+  background-color:#92badd;
+  border-radius: 25px;
+  
+
 }
 .img-select{
-  margin-top: 30px;width: 60%; margin-left: 30px; border: 1px solid #dfe8ec;
+  margin-top: 30px;
+  width: 100%;
+
+    border: 1px solid #dfe8ec;
 }
 .card-title{
-  margin-top: 30px;margin-left: 30px;font-size:13px;    color: #7b9c36;
+  margin-top: 30px;font-size:13px;    color: rgba(0,0,0,.5);
 }
 .card-prix{
-  width: 60%;background-color: #FFF5EB;text-align: center; margin-left: 30px;margin-top: 30px;font-size: 23px;font-family: 'FuturaMediumMedium';
+  width: 60%;background-color: #459ECE;text-align: center; margin-left: 100px;margin-top: 30px;font-size: 23px;font-family: 'FuturaMediumMedium';
+}
+.card{
+  border-radius: 45px;
+    box-shadow: 5px 10px #9397bf;
+}
+.w-40{
+  max-width: 2200px !important;
 }
