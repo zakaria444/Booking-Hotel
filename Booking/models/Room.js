@@ -12,7 +12,7 @@ const RoomSchema = mongoose.model(
         },
         type: {
             type: String,
-            required: false
+            required: true
         },
         price: {
             type: String,
@@ -24,6 +24,9 @@ const RoomSchema = mongoose.model(
             type: String,
             required: false
         },
+        
+        images:[Object]
+        ,
         hotel_id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Hotel'

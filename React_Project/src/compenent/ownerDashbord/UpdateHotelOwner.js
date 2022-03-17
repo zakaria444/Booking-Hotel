@@ -28,7 +28,7 @@ const urlid=window.location.pathname.split('/');
   const [hotels, sethotels] = useState([]);
 
   useEffect(()=>{
-  const url="http://localhost:5000/api/hotel/"+urlid[3]
+  const url="http://localhost:5000/api/hotelproprietai/getonehotelproprietair/"+urlid[3]
   Axios.get(url).then((res) => {
     sethotels(res.data.data) ;
     // console.log(res.data.data);
@@ -41,7 +41,7 @@ const urlid=window.location.pathname.split('/');
 
 const submit = (e) => {
     e.preventDefault();
-    const url="http://localhost:5000/api/hotel/"+urlid[3]
+    const url="http://localhost:5000/api/hotelproprietai/updatehotelproprietair"+urlid[3]
 
     Axios.patch(url, {
       name: values.name,
@@ -54,7 +54,7 @@ const submit = (e) => {
       
     }).then((res) => {
         
-      window.location="/admin/afficherhotel"
+      window.location="/ownerDashbord/afficherhotel"
 
     });
   };
