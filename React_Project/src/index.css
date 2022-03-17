@@ -9,7 +9,7 @@
   background:linear-gradient(to bottom right, #9999cc, #fcf4ffd9 )
 }
 
-html, body {margin: 0; height: 100%; overflow: hidden}
+/* html, body {margin: 0; height: 100%; overflow: hidden} */
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
   font-size: 1rem;
   line-height: 2.15;
@@ -159,4 +159,34 @@ align-items: center;
 }
 .imgsize{
   width: 300px;
+}
+/*                            HOME PAGE                       */
+
+
+
+.jumbotron{
+  background-color: #92badd;
+}
+.top-selection{
+  margin-bottom: 15px; margin-left: 125px;
+}
+.row{
+  display: flex; 
+  justify-content: center;
+  margin-right:0px;
+}
+.cont{
+  display:flex; 
+}
+.title{
+  background-color:#d1ecd7;
+}
+.img-select{
+  margin-top: 30px;width: 60%; margin-left: 30px; border: 1px solid #dfe8ec;
+}
+.card-title{
+  margin-top: 30px;margin-left: 30px;font-size:13px;    color: #7b9c36;
+}
+.card-prix{
+  width: 60%;background-color: #FFF5EB;text-align: center; margin-left: 30px;margin-top: 30px;font-size: 23px;font-family: 'FuturaMediumMedium';
 }

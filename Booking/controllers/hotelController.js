@@ -47,6 +47,7 @@ console.log("🚀 ~ file: hotelController.js ~ line 22 ~ creatHotel ~ req", req)
 
 
     })
+    
       if (req.file) {
       newHotel.image_cover = req.file.originalname
     }
