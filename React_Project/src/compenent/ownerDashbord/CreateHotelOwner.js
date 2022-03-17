@@ -242,9 +242,11 @@ function CreateHotelOwner() {
     </section>
   );
 }
+
 const ImageThumb = ({ image }) => {
   return <img className="image-url" src={URL.createObjectURL(image)} alt={image.name} />;
 
 }
+
 
 export default CreateHotelOwner ;

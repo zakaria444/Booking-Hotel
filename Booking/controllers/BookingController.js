@@ -22,9 +22,6 @@ const bookingroom = require('../models/BookingRoom');
 // };
 
 const bookingproprietair = async (req, res) => {
-  //  console.log(req.body.localisation.city);
-  //  res.status(201).json({ success: true, data: req.body })
-
   try {
     console.log(req.body)
     const date_from = req.body.date_from
