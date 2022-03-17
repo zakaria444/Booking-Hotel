@@ -18,7 +18,7 @@ const {
 
 const upload = require('../middlewares/upload')
 
-router.post("/add", upload.single('image_cover'), creatRoom);
+router.post("/add", upload.array('images',5), creatRoom);
 
 
 

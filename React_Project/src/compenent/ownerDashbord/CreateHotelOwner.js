@@ -97,10 +97,10 @@ function CreateHotelOwner() {
      
    
 
-  
+   <div>
 
    <Link className="nav-link active" aria-current="page" to="/ownerDashbord/afficherhotel">Back</Link>
-  
+   </div>
     
 
 
@@ -208,7 +208,7 @@ function CreateHotelOwner() {
                     <div className="col-md-6 mb-4 pb-2">
                       <div className="form-outline">
                         <input
-                          type="file"
+                          type="file" 
                           onChange={(event) => handle(event)}
                           // name="image"
                           className="form-control form-control-lg"
@@ -224,7 +224,7 @@ function CreateHotelOwner() {
 
                
 
-                  <div className=" ">
+                  <div className="mt-4 pt-2">
                     <button
                       className="btn btn-primary btn-lg"
                       value="Submit"

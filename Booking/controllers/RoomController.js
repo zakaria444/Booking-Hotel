@@ -37,6 +37,9 @@ const getRoom = async (req, res) => {
 }
 
 const creatRoom = async (req, res) => {
+console.log("🚀 ~ file: RoomController.js ~ line 40 ~ creatRoom ~ reqimage", req.files)
+console.log("🚀 ~ file: RoomController.js ~ line 40 ~ creatRoom ~ reqimage", req.body)
+
     try {
         const { name } = req.body
         const { description } = req.body
@@ -52,12 +55,23 @@ const creatRoom = async (req, res) => {
             description: description,
             type: type,
             price: price,
-
-            hotel_id: hotel_id
+            images : [],
+            // hotel_id: hotel_id
         })
-        if (req.file) {
-            newRoom.image_cover = req.file.path
+        if (req.files) {
+           
+           req.files.forEach(element => {
+            const filename  =  { img : element.originalname }
+            newRoom.images.push(filename)
+           }
+            
+          
+           
+           );
+    
+          
         }
+  
 
         const saveRoom = await newRoom.save()
         res.status(201).json({ success: true, data: saveRoom })
