@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 
 function CreateHotel() {
-    const url = "http://localhost:5000/api/hotel/add";
+    const url = "http://localhost:5000/api/room/add";
     const jwt = localStorage.getItem('token');
     const JWT1 = jwtdecode(jwt);
 
@@ -39,11 +39,11 @@ function CreateHotel() {
         form_data.append("image_cover", file)
         form_data.append("name", values.name)
         form_data.append("description", values.description)
-        form_data.append("type", values.stars)
-        form_data.append("price", values.city)
-        form_data.append("hotel id", values.country)
+        form_data.append("type", values.type)
+        form_data.append("price", values.price)
+        form_data.append("hotel id", values.hotel_id)
 
-        
+
 
 
 
@@ -139,7 +139,7 @@ function CreateHotel() {
                                                 <select labelId="demo-simple-select-label" type="text"
                                                     id="stars"
                                                     onChange={(event) => handle(event)}
-                                                    name="stars"
+                                                    name="type"
                                                     className="form-control form-control-lg" label="Age" >
                                                     <option value={1}>Single</option>
                                                     <option value={2}>Double</option>
@@ -148,7 +148,7 @@ function CreateHotel() {
                                                     <option value={5}>Queen</option>
                                                     <option value={6}>Suite</option>
 
-                                                    
+
 
 
                                                 </select>
@@ -184,7 +184,7 @@ function CreateHotel() {
                                                     type="text"
                                                     id="country"
                                                     onChange={(event) => handle(event)}
-                                                    name="country"
+                                                    name="hotel_id"
                                                     className="form-control form-control-lg"
                                                 />
                                                 <label className="form-label">hotel id</label>
