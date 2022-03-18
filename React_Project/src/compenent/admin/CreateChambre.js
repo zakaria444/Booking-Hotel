@@ -11,18 +11,26 @@ function CreateHotel() {
     const JWT1 = jwtdecode(jwt);
 
     const [file, setFiles] = useState("");
+    const [Type, setType] = useState([]);
 
     const [values, setvalues] = useState({
         name: "",
         description: "",
-        stars: "",
-        country: "",
-        city: "",
+        type: "",
+        price: "",
+        hotel_id: "",
         user_id: JWT1.user_id,
     });
 
 
     // Handles file upload event and updates state
+
+    ///type/list
+
+    Axios.get("http://localhost:5000/api/type/type/list").then((response) => {
+        console.log(response.data.data);
+        setType(response.data.data);
+    })
 
 
 
@@ -130,59 +138,42 @@ function CreateHotel() {
                                             {/* {errors.username && <p className='error'>{errors.username}</p>} */}
                                         </div>
                                     </div>
-
-                                    <div className="row">
-                                        <div className="col-md-6 mb-4 pb-2">
-                                            <div className="form-outline" id="form-outline">
-                                                <label className="form-label">type
-                                                </label>
-                                                <select labelId="demo-simple-select-label" type="text"
-                                                    id="stars"
-                                                    onChange={(event) => handle(event)}
-                                                    name="type"
-                                                    className="form-control form-control-lg" label="Age" >
-                                                    <option value={1}>Single</option>
-                                                    <option value={2}>Double</option>
-                                                    <option value={3}>Triple</option>
-                                                    <option value={4}>Quad</option>
-                                                    <option value={5}>Queen</option>
-                                                    <option value={6}>Suite</option>
-
-
-
-
-                                                </select>
-                                            </div>
-                                            {/* {errors.email && <p className='error'>{errors.email}</p>} */}
-                                        </div>
+                                    
                                         <div className="row">
-                                            <div className="col-md-6 mb-4 pb-2">
-                                                <div className="form-outline">
-                                                    <input
-                                                        type="number"
-                                                        id="city"
-                                                        onChange={(event) => handle(event)}
-                                                        name="price"
-                                                        className="form-control form-control-lg"
-                                                    />
-                                                    <label className="form-label">price</label>
 
+                                            <div className="col-md-6 mb-4 pb-2">
+                                                <div className="form-outline" id="form-outline">
+                                                    <label className="form-label">type
+                                                    </label>
+                                                    <select labelId="demo-simple-select-label" type="text"
+                                                        id="type"
+                                                        onChange={(event) => handle(event)}
+                                                        name="type"
+                                                        className="form-control form-control-lg" label="Age" >
+                                                        {Type.map(types =>
+                                                        <option key={types._id} value={types._id}>{types.name}</option>
+                                                        )}
+
+
+
+
+                                                    </select>
                                                 </div>
                                                 {/* {errors.email && <p className='error'>{errors.email}</p>} */}
                                             </div>
+                                            
+
+
 
 
                                         </div>
-
-
-
-                                    </div>
+                                    
                                     <div className="row">
                                         <div className="col-md-6 mb-4 pb-2">
                                             <div className="form-outline">
                                                 <input
                                                     type="text"
-                                                    id="country"
+                                                    id="hotel_id"
                                                     onChange={(event) => handle(event)}
                                                     name="hotel_id"
                                                     className="form-control form-control-lg"
