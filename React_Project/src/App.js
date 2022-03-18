@@ -16,7 +16,7 @@ import EditeClient from "./compenent/client/EditeClient" // import edite client
 
 
 
-
+import Booking from"./compenent/client/Booking"
 
 
 
@@ -93,7 +93,6 @@ function App() {
 </Routes>
 {/* Route pour admin */}
 <Routes>
-  {/* Route pour admin  Zakaria*/}
 
 
     <Route path='/client/list' element={<ListClient/>      }/>
@@ -138,6 +137,14 @@ function App() {
 <Route path='/type/create' element={<CreateType/> } />
 <Route path='/type/list' element={<ListType/> } />
 <Route path='/type/edite/:id' element={<EditeType/> } />
+
+
+
+
+
+
+{/*                          Client                                 */}
+<Route path='/booking/:id' element={<Booking/> }/>
 
 
 

@@ -78,7 +78,6 @@ function AfficherHotel() {
       setvalues(newdata);
   
   
-      // console.log(newdata);
      
     };
    
@@ -128,7 +127,7 @@ function AfficherHotel() {
     
     {/* <td> <button onClick={() => handleUpdate(ListHotel._id)}>Update</button></td> */}
     <td> <button className='btn btn-danger '  onClick={() => handleDelet(ListHotel._id)}>delete</button></td>
-    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onClick={() => handleupdatid(ListHotel._id)}>Update</button></td>
+    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" >Update</button></td>
     <div class="modal fade mx-auto" style={{  ' padding-left': '181px' }} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    
     <div className="col-12 col-lg-9 col-xl-7 mx-auto ">

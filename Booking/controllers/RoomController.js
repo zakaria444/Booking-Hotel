@@ -8,8 +8,32 @@ const getRooms =  (req, res) => {
     let sortBy = req.query.sortBy ? req.query.sortBy : '_id';
     let order = req.query.order ? req.query.order : 'asc';
     let limit = req.query.limit ? parseInt(req.query.limit) : 6;
+    const hotelId = req.params.hotelId
 
     Room.find() 
+   
+ 
+ .sort([[sortBy, order]])
+ .populate('hotel_id')
+ .limit(limit)
+ .exec((err,rooms)=>{
+     if(err) {
+         return res.status(404).json({
+             error:"Romm not fund !"
+         })
+     }
+     res.json({
+         rooms
+     })
+ })
+}
+const getRoomsid =  (req, res) => {
+    let sortBy = req.query.sortBy ? req.query.sortBy : '_id';
+    let order = req.query.order ? req.query.order : 'asc';
+    let limit = req.query.limit ? parseInt(req.query.limit) : 6;
+    const hotelId = req.params.hotelId
+
+    Room.find({ hotel_id: hotelId }) 
    
  
  .sort([[sortBy, order]])
@@ -56,7 +80,7 @@ console.log("🚀 ~ file: RoomController.js ~ line 40 ~ creatRoom ~ reqimage", r
             type: type,
             price: price,
             images : [],
-            // hotel_id: hotel_id
+            hotel_id: hotel_id
         })
         if (req.files) {
            
@@ -162,6 +186,7 @@ module.exports = {
     getRooms,
     getRoom,
     updateRoom,
+    getRoomsid,
     deletRoom,
     searchRoom,
     

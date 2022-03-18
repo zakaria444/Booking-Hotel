@@ -14,6 +14,7 @@ function CreateRoom() {
     description: "",
     type: "",
     price: "",
+    hotel_id:"62348fc1b664a6b5e50a306f",
   
 
   });
@@ -30,6 +31,8 @@ function CreateRoom() {
     form_data.append("description",values.description)
     form_data.append("type",values.type)
     form_data.append("price",values.price)
+    form_data.append("hotel_id",values.hotel_id)
+
   
 
     form_data.append("user_id",values.user_id)
@@ -66,13 +69,12 @@ function CreateRoom() {
   return (
        
     <section className="vh-100 gradient-custom" >
-      
       <div className="container py-5 h-100">
         <div className="row justify-content-center align-items-center h-100">
           <div className="col-12 col-lg-9 col-xl-7">
             <div className="card shadow-2-strong card-registration" id="form">
               <div className="card-body p-4 p-md-5">
-                <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Create Type</h3>
+                <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Create Room</h3>
                 <form onSubmit={submit}>
                 <div className="row">
                         <div className="col-md-6 mb-4">
