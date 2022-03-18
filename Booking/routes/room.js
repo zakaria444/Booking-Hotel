@@ -19,7 +19,7 @@ const {
 
 const upload = require('../middlewares/upload')
 
-router.post("/add", upload.array('images',5), creatRoom);
+router.post("/add", upload.array('images',8), creatRoom);
 
 
 
