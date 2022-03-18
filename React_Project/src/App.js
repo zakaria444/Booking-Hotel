@@ -1,6 +1,10 @@
 import './App.css';
 
 import { PrivateRoute } from './Auth/PrivateRoute';
+import { AdminRoute } from './Auth/AdminRoute';
+import { OwnerRoute } from './Auth/OwnerRoute';
+
+
 import {Routes,Route,Navigate}from "react-router-dom"
 import Home from"./compenent/home/home"
 
@@ -87,9 +91,9 @@ function App() {
   <Route path='/login' element={<Login/> } />
   <Route path='/inscription' element={<Inscription/> } />
   
-  <Route path='/dashbordadmin' element={ <PrivateRoute> <Dashbordadmin/></PrivateRoute>   } />
+  <Route path='/dashbordadmin' element={ <AdminRoute> <Dashbordadmin/></AdminRoute>   } />
   <Route path='/dashborduser' element={ <PrivateRoute><Dashborduser/></PrivateRoute>   } />
-  <Route path='/dashbordowner' element={  <PrivateRoute><Dashbordowner/></PrivateRoute>    } />
+  <Route path='/dashbordowner' element={  <OwnerRoute><Dashbordowner/></OwnerRoute>    } />
 
 </Routes>
 {/* Route pour admin */}
