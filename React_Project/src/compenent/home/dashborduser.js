@@ -8,6 +8,15 @@ function Dashborduser() {
   
 const [hotels, sethotels] = useState([]);
 
+const handleafficher = (id)=>{
+  window.location="/booking/"+id;
+
+  const url="http://localhost:5000/api/room/"+id
+  Axios.get(url).then((res) => {
+
+    console.log(res.data);
+})}
+
 useEffect( ()=>{
     const url="http://localhost:5000/api/hotel"
     Axios.get(url).then((res) => {
@@ -37,7 +46,7 @@ useEffect( ()=>{
       </div>
       <div class="bg-light p-2 mb-3">
       </div>
-      <Link className="nav-link" class="btn btn-dark" to='/login'>More Detail</Link>
+      <button className="nav-link" class="btn btn-dark"  onClick={() => handleafficher(ListHotel._id)}>More Detail</button >
     </div>
     <div></div>
     

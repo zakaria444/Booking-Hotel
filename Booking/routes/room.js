@@ -10,6 +10,7 @@ const {
     creatRoom,
     searchRoom,
     getRoom,
+    getRoomsid,
     updateRoom,
     deletRoom,
     getRooms
@@ -26,6 +27,7 @@ router.post("/add", upload.array('images',5), creatRoom);
 
 
 router.post("/search", searchRoom);
+router.get("/getroom/:hotelId", getRoomsid);
 
 router.get("/", getRooms);
 router.get("/:hotelId",  getRoom);

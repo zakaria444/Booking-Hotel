@@ -78,7 +78,6 @@ function AfficherHotel() {
       setvalues(newdata);
   
   
-      // console.log(newdata);
      
     };
    

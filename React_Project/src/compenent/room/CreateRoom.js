@@ -14,6 +14,7 @@ function CreateRoom() {
     description: "",
     type: "",
     price: "",
+    hotel_id:"6234458958fd70ee9d78ac47",
   
 
   });
@@ -30,6 +31,8 @@ function CreateRoom() {
     form_data.append("description",values.description)
     form_data.append("type",values.type)
     form_data.append("price",values.price)
+    form_data.append("hotel_id",values.hotel_id)
+
   
 
     form_data.append("user_id",values.user_id)
