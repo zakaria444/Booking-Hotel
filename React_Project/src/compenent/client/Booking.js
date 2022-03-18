@@ -25,12 +25,15 @@ function Booking() {
   
   return (
     
-
+<div className="container d-flex justify-content-center">
+ 
      <div className="row">
-    <div className="col-md-4" >
+       
+    <div className="col-md-6" >
       <div className="card">
         <p className="rating">{hotels.hotel_id.stars}</p>
         <div className="card-body">
+        
         <div> <img src={"http://localhost:3000/"+hotels.hotel_id.image_cover} alt="" className="img-responsive image" /> </div>
 
           <h5 className="card-title">{hotels.hotel_id.name}</h5>
@@ -41,9 +44,36 @@ function Booking() {
          
         </div>
       </div>
+      
+      
     </div>
-  
+    <div className="col-md-6" >
+    <h5 className="card-title">{hotels.hotel_id.name}</h5>   
+    <h6 className="card-title">{hotels.hotel_id.description}</h6>
+ 
+    
+    
+    
+      </div>
+    
+      
+      
+    
    
+    <div className="img-room">
+     
+    {hotels.images.map(ListHotel =>
+      <div className="col-md-3" key={ListHotel._id}>
+      <div className="card">
+        <div> <img src={"http://localhost:3000/"+ListHotel.img} alt="" id="rom-img" className="img-responsive image" /> </div>
+        </div>
+      </div>
+      
+      )}
+      </div>
+  
+</div>
+
 </div>
   );
 }
