@@ -29,9 +29,32 @@ useEffect( ()=>{
     <div>
 <h1>dashborduser</h1>
 
-<div class="rows" >
-  <div className='roow'>
 
+
+<div className="container d-flex justify-content-center">
+  <div className="row">
+  {hotels.map(ListHotel =>
+    <div className="col-md-4" key={ListHotel._id}>
+      <div className="card">
+        <div> <img src={"http://localhost:3000/"+ListHotel.image_cover} alt="" className="img-responsive image" /> </div>
+        <p className="rating">{ListHotel.stars}</p>
+        <div className="card-body">
+          <h5 className="card-title">{ListHotel.name}</h5>
+          <p className="card-text"><i className="fa fa-map-marker marker" />{ListHotel.localisation.city}/{ListHotel.localisation.country}</p>
+          <button className="nav-link" class="btn btn-dark"  onClick={() => handleafficher(ListHotel._id)}>More Detail</button >
+         
+        </div>
+      </div>
+    </div>
+  
+   
+  )}
+</div>
+</div>
+
+
+{/* <div class="rows" >
+  <div className='roow'>
   </div>
   {hotels.map(ListHotel =>
   <div class="w-60 col-3" key={ListHotel._id}>
@@ -59,7 +82,7 @@ useEffect( ()=>{
 
  )}
   
-  </div>
+  </div> */}
   <footer class="text-center text-lg-start bg-light text-muted">
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
    
@@ -101,6 +124,8 @@ useEffect( ()=>{
   
 
     </div>
+   
+
   )
 }
 
