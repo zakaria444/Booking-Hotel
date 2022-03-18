@@ -27,9 +27,10 @@ const getRooms =  (req, res) => {
  })
 }
 const getRoom = async (req, res) => {
-    const roomId = req.params.roomId
+    const roomId = req.params
+    console.log("🚀 ~ file: RoomController.js ~ line 31 ~ getRoom ~ roomId", roomId.hotelId)
     try {
-        const room = await Room.find({ _id: roomId })
+        const room = await Room.find({ _id: roomId.hotelId })
         res.status(200).json({ success: true, data: room })
     } catch (error) {
         res.status(404).json({ success: false, data: [], error: error })

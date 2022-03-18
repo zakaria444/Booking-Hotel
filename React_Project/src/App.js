@@ -1,10 +1,11 @@
 import './App.css';
 
-
-import {Routes,Route}from "react-router-dom"
+import { PrivateRoute } from './Auth/PrivateRoute';
+import {Routes,Route,Navigate}from "react-router-dom"
 import Home from"./compenent/home/home"
 
 import Menu from"./compenent/home/menu"
+
 
 // ____________________________________________________________________________________
 // import dashboard ADMIN
@@ -31,7 +32,7 @@ import Dashbordowner from"./compenent/ownerDashbord/dashbordowner"
 // import UserRoute from"./Auth/UserRoute"
 
 //Iport pour Dashbor Admin
-
+  
 
 
 
@@ -49,7 +50,6 @@ import CreateOwnerHotel from"./compenent/ownerDashbord/CreateHotelOwner"
 import AfficherownerHotel from"./compenent/ownerDashbord/AfficherHotelOwner"
 import UpdateownerHotel from "./compenent/ownerDashbord/UpdateHotelOwner"
 import CreateBookingOwner from "./compenent/ownerDashbord/CreateBookingOwner"
-
 
 
 
@@ -86,9 +86,10 @@ function App() {
   <Route path='/' element={<Home/>} />
   <Route path='/login' element={<Login/> } />
   <Route path='/inscription' element={<Inscription/> } />
-  <Route path='/dashbordadmin' element={<Dashbordadmin/> } />
-  <Route path='/dashborduser' element={<Dashborduser/> } />
-  <Route path='/dashbordowner' element={<Dashbordowner/> } />
+  
+  <Route path='/dashbordadmin' element={ <PrivateRoute> <Dashbordadmin/></PrivateRoute>   } />
+  <Route path='/dashborduser' element={ <PrivateRoute><Dashborduser/></PrivateRoute>   } />
+  <Route path='/dashbordowner' element={  <PrivateRoute><Dashbordowner/></PrivateRoute>    } />
 
 </Routes>
 {/* Route pour admin */}
@@ -102,7 +103,9 @@ function App() {
     <Route path='/owner/create' element={<CreateOwner/>    }/>
 
 <Route path='/admin/createhotel' element={<CreateHotel/> } />
-<Route path='/admin/afficherhotel' element={<AfficherHotel/> } />
+<Route path='/admin/afficherhotel' element={ <PrivateRoute>
+  <AfficherHotel/>
+    </PrivateRoute> } />
 <Route path='/admin/updatehotel/:id' element={<UpdateHotel/> } />
 
 
