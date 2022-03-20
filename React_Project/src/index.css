@@ -45,7 +45,6 @@
   width: 200px;
 }
 #navbarNav{
-  display: flex!important;
     flex-basis: auto;
     justify-content: space-between;
 }
@@ -99,7 +98,7 @@
   box-shadow: rgba(128, 118, 118, 0.56) 0px 22px 70px 4px;
 }
 .nav-admin li a {
-color: #1b1b1e;
+color: #b7b7bb;
 font-size: 20px;
 
 }

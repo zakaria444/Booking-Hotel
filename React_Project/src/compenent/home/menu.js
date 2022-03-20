@@ -88,6 +88,9 @@ function menu() {
                 <li>
                 <span className="nav-link" style={{cursor:'pointer'}}   > Bienvenue { isAuthenticated().username }</span>
                 </li>
+                <li>
+                <span className="nav-link" style={{cursor:'pointer'}}   > rôle : { isAuthenticated().role }</span>
+                </li>
  {/* <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="#">Tableau de bord</Link>
         </li>  */}

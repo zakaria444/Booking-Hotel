@@ -3,6 +3,8 @@ import Axios from "axios";
 
 function Booking() {
   const [hotels, sethotels] = useState(false);
+  const [rooms, setrooms] = useState(false);
+
   const hotelid = window.location.pathname.split("/");
 
   useEffect(() => {
@@ -10,7 +12,9 @@ function Booking() {
 
     Axios.get(url).then((res) => {
       sethotels(res.data.rooms[0]);
-      console.table("set hotels : ", res.data.rooms[0]);
+      setrooms(res.data.rooms);
+
+     
     });
 
   }, []);
@@ -18,8 +22,10 @@ function Booking() {
 
 
   console.log('hotels in state : ' , hotels);
+  console.log('rooms in state : ' , rooms);
 
-  if (hotels === false) {
+
+  if (hotels === false ) {
     return <div> <div className="spinner-border text-success" role="status">
     <span className="sr-only">Loading...</span>
    
@@ -35,9 +41,20 @@ function Booking() {
     
     
   }
+  else if ( rooms ===  false){
+    return <div> <div className="spinner-border text-success" role="status">
+    <span className="sr-only">Loading...</span>
+   
+  </div>
+  <h1>loading....</h1>
+
+ 
+  
+  </div>
+  }
   
   return (
-    
+    <div>
 <div className="container d-flex justify-content-center">
  
      <div className="row">
@@ -60,6 +77,7 @@ function Booking() {
       
       
     </div>
+    
     <div className="col-md-6" >
     <h5 className="card-title">{hotels.hotel_id.name}</h5>   
     <h6 className="card-title">{hotels.hotel_id.description}</h6>
@@ -88,6 +106,45 @@ function Booking() {
    
  
   
+</div>
+</div>
+</div>
+
+<div className="container d-flex justify-content-center">
+ 
+     <div className="row">
+{ rooms.map(ListRoom =>
+<div className="col-md-6" >
+
+    <h5 className="card-title">{ListRoom.hotel_id.name}</h5>   
+    <h6 className="card-title">{ListRoom.hotel_id.description}</h6>
+    <h5 className="card-title">{ListRoom.type} / {ListRoom.price} DH</h5>   
+    <div className="img-room">
+    {ListRoom.images.map(ListHotel =>
+      <div className="col-md-6" key={ListHotel._id}>
+      <div className="card">
+        
+
+        <div> <img src={"http://localhost:3000/"+ListHotel.img} alt="" id="rom-img" className="img-responsive image" /> </div>
+       
+
+        </div>
+      </div>
+      
+      )}
+    
+    
+    
+      </div>
+    
+      
+      
+    
+   
+ 
+  
+</div>
+)}
 </div>
 </div>
 </div>
