@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import Axios from "axios"
 
 
@@ -6,7 +6,8 @@ import Axios from "axios"
 function CreateRoom() {
   const url = "http://localhost:5000/api/room/add";
   const [file, setFiles] = useState();
-  console.log("🚀 ~ file: CreateRoom.js ~ line 9 ~ CreateRoom ~ file", file)
+  const [hotels , setHotels] = useState([]);
+  console.log("🚀 ~ file: CreateRoom.js ~ line 10 ~ CreateRoom ~ hotels", hotels)
 
   const [values, setvalues] = useState({
 
@@ -14,10 +15,20 @@ function CreateRoom() {
     description: "",
     type: "",
     price: "",
-    hotel_id:"62348fc1b664a6b5e50a306f",
+    hotel_id:"",
   
 
   });
+  useEffect(()=> getHotels(),[] )
+ const getHotels = ()=>{
+    const url="http://localhost:5000/api/hotel"
+  Axios.get(url).then((res) => {
+    setHotels(res.data.data) ;
+    console.log(res.data.data);
+    
+  })
+}
+
  
   const submit = (e) => {
 
@@ -130,6 +141,26 @@ function CreateRoom() {
                           className="form-control form-control-lg"
                         />
                         <label className="form-label">type</label>
+                      </div>
+                    </div>
+                    <div className="col-md-6 mb-4">
+                      <div className="form-outline">
+                        <select
+  
+                          id="hotel_id"
+                          onChange={(event) => handle(event)}
+                          name="hotel_id" 
+                          className="form-control form-control-lg"
+                        >
+                                   <option value="0"> Select a Hotel        </option>
+                               
+                               { hotels.map(ListHotel =>   
+                                    
+                                          <option value={ListHotel._id}>{ListHotel.name}        </option>
+         
+                              )}
+                        </select>
+                        <label className="form-label">Hotels</label>
                       </div>
                     </div>
 
