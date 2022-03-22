@@ -1,35 +1,39 @@
-import React, { useState ,useEffect} from "react";
-import Axios from "axios"
 
+import React, { useState, useEffect } from "react";
+import axios from "axios"
+import { useParams } from 'react-router-dom'
 
-
-function CreateRoom() {
-  const url = "http://localhost:5000/api/room/add";
-  const [file, setFiles] = useState();
-  const [hotels , setHotels] = useState([]);
-
-  const [values, setvalues] = useState({
-
+const UpdateRoom = props => {
+ 
+  const initialRommState = {
     name: "",
     description: "",
     type: "",
     price: "",
     hotel_id:"",
+  };
+  const { id } = useParams();
+
+  const [file, setFiles] = useState("");
+
+  const [hotels , setHotels] = useState([]);
+
   
-
-  });
-  useEffect(()=> getHotels(),[] )
- const getHotels = ()=>{
-    const url="http://localhost:5000/api/hotel"
-  Axios.get(url).then((res) => {
-    setHotels(res.data.data) ;
-    console.log(res.data.data);
-    
-  })
-}
-
  
+  const [room, setRooms] = useState(initialRommState);
+  console.log("🚀 ~ file: UpdateRoom.js ~ line 20 ~ room", room)
+  useEffect(()=> getHotels(),[] )
+  const getHotels = ()=>{
+     const url="http://localhost:5000/api/hotel"
+   axios.get(url).then((res) => {
+     setHotels(res.data.data) ;
+     console.log(res.data.data);
+     
+   })
+ }
+  
   const submit = (e) => {
+    const url = `http://localhost:5000/api/room/${id}` ;
 
     e.preventDefault();
     const form_data = new FormData();
@@ -37,16 +41,17 @@ function CreateRoom() {
     for (let i = 0 ; i < file.length; i++ ){
       form_data.append("images",file[i])
     }
-    form_data.append("name",values.name)
-    form_data.append("description",values.description)
-    form_data.append("type",values.type)
-    form_data.append("price",values.price)
-    form_data.append("hotel_id",values.hotel_id)
+    form_data.append("name",room.name)
+    form_data.append("description",room.description)
+    form_data.append("type",room.type)
+    form_data.append("price",room.price)
+    form_data.append("hotel_id",room.hotel_id)
 
   
 
-    form_data.append("user_id",values.user_id)
-    Axios.post(url,form_data, {
+    form_data.append("user_id",room.user_id)
+
+    axios.patch(url,form_data, {
       headers: {
         'Content-Type': 'multipart/form-data',
     },
@@ -58,26 +63,35 @@ function CreateRoom() {
     });
   };
 
+  // const [message, setMessage] = useState("");
+  const getRoom = id => {
+      
+    axios.get(`http://localhost:5000/api/room/${id}`)
+      .then(response => {
+         const data = response.data.data
+         setRooms(data);
+        
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+  useEffect(() => {
+    getRoom(id);  
+  }, [id]);
   const handle = (event) => {
-  
-    const newdata = { ...values };
 
-
+    const newdata = { ...room };
     newdata[event.target.id] = event.target.value;
-    setvalues(newdata);
-    
-
+    setRooms(newdata);
     console.log(newdata);
-
+    
     const fileupload=event.target.files;
     setFiles(fileupload);
   
 
-
   };
-
   return (
-       
     <section className="vh-100 gradient-custom" >
       <div className="container py-5 h-100">
         <div className="row justify-content-center align-items-center h-100">
@@ -99,9 +113,6 @@ function CreateRoom() {
                         <label className="form-label">Name</label>
                       </div>
                     </div>
-
-
-
                     <div className="col-md-6 mb-4">
                       <div className="form-outline">
                         <input
@@ -193,6 +204,7 @@ function CreateRoom() {
                     >
                       Add
                     </button>
+                  
                   </div>
                 </form>
               </div>
@@ -202,6 +214,6 @@ function CreateRoom() {
       </div>
     </section>
   );
-}
+};
+export default UpdateRoom;
 
-export default CreateRoom;
