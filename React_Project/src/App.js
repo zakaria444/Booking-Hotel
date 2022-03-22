@@ -37,6 +37,8 @@ import Dashbordowner from"./compenent/ownerDashbord/dashbordowner"
 
 //Iport pour Dashbor Admin
   
+//Room
+import UpdateRoom from './compenent/room/UpdateRoom';
 
 
 
@@ -118,6 +120,9 @@ function App() {
 
 <Route path='/room/list' element={<ListRoom/> } />
 
+<Route path='/updateRoom/:id' element={<UpdateRoom/> } />
+
+
 {/* Route pour admin  Zakaria*/}
 
 
@@ -144,6 +149,7 @@ function App() {
 <Route path='/type/create' element={<CreateType/> } />
 <Route path='/type/list' element={<ListType/> } />
 <Route path='/type/edite/:id' element={<EditeType/> } />
+
 
 
 

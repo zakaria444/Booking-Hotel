@@ -31,25 +31,20 @@ router.get("/getroom/:hotelId", getRoomsid);
 
 router.get("/", getRooms);
 router.get("/:hotelId",  getRoom);
-router.patch("/:hotelId", updateRoom);
-router.delete("/:hotelId",  deletRoom);
-router.get("/", getRooms);
+
+
+
 router.get("/:roomId",  getRoom); 
-router.patch("/:roomId",  updateRoom);
-router.delete("/:roomId", deletRoom);
-
-
-
-router.get("/:roomId",  getRoom);
-router.patch("/:roomId",  updateRoom);
+router.patch("/:roomId",  upload.array('images',8), updateRoom);
 router.delete("/:roomId", deletRoom);
 
 
 
 
-router.get("/:hotelId",  getRoom);
-router.patch("/:hotelId",  updateRoom);
-router.delete("/:hotelId",  deletRoom);
+
+
+
+
 
 
 

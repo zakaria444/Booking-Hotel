@@ -52,7 +52,6 @@ const getRoomsid =  (req, res) => {
 }
 const getRoom = async (req, res) => {
     const roomId = req.params
-    console.log("🚀 ~ file: RoomController.js ~ line 31 ~ getRoom ~ roomId", roomId.hotelId)
     try {
         const room = await Room.find({ _id: roomId.hotelId })
         res.status(200).json({ success: true, data: room })
@@ -107,12 +106,14 @@ console.log("🚀 ~ file: RoomController.js ~ line 40 ~ creatRoom ~ reqimage", r
 
 
 const updateRoom = async (req, res) => {
-    const roomId = req.params.roomId
+    const roomId = req.params.roomId    
     const { name } = req.body
     const { description } = req.body
     const { type } = req.body
     const { price } = req.body
     const { hotel_id } = req.body
+ 
+
     try {
         const updatedRoomData = await Room.updateOne({ _id: roomId }, {
             $set: {
@@ -120,10 +121,27 @@ const updateRoom = async (req, res) => {
                 description: description,
                 type: type,
                 price: price,
-
+              
                 hotel_id: hotel_id
             }
+            
+            
         })
+        
+        
+        // if (req.files) {
+           
+        //     req.files.forEach(element => {
+        //      const filename  =  { img : element.originalname }
+        //      updatedRoomData.images.push(filename)
+        //     }
+             
+           
+            
+        //     );
+     
+           
+        //  }
         res.status(201).json({ success: true, data: updatedRoomData })
     } catch (error) {
         res.status(409).json({ success: false, data: [], error: error })
@@ -132,7 +150,7 @@ const updateRoom = async (req, res) => {
 
 const deletRoom = async (req, res) => {
     const roomId = req.params.roomId
-    try {
+    try {   
         await Room.remove({ _id: roomId })
         res.status(200).json({ success: true, data: deletRoom })
     } catch (error) {

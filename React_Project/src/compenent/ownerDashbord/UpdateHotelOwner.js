@@ -43,7 +43,7 @@ const submit = (e) => {
     e.preventDefault();
     const url="http://localhost:5000/api/hotelproprietai/updatehotelproprietair"+urlid[3]
 
-    Axios.patch(url, {
+    Axios.patch(url, {  
       name: values.name,
       description: values.description,
       stars: values.stars,

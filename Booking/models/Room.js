@@ -24,7 +24,7 @@ const RoomSchema = mongoose.model(
             type: String,
             required: false
         },
-        
+            
         images:[Object]
         ,
         hotel_id: {

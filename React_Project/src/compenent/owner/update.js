@@ -12,7 +12,7 @@ const Update = props => {
     name: "",
     email: "",
     username: "",
-
+    
     
   };
   const { id } = useParams();
@@ -112,15 +112,12 @@ const Update = props => {
               </div>
               <div className="col-md-6 mb-4">
                 <div className="form-outline">
-                  <input
+                  <input 
                     type="text"
                     id="username"
                     value={owner.username}
-                   
-                  
-           
                     onChange={handleInputChange}
-                    name="username"
+                    name="username" 
                     className="form-control form-control-lg"
                   />
                   <label className="form-label">Username</label>
