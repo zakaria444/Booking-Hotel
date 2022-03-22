@@ -25,7 +25,7 @@ function Booking() {
   console.log('rooms in state : ' , rooms);
 
 
-  if (hotels === false ) {
+  if (hotels === false ) {       
     return <div> <div className="spinner-border text-success" role="status">
     <span className="sr-only">Loading...</span>
    

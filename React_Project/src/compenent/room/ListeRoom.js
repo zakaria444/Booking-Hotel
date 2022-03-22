@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 const handleDelete = (id) => {
-  const url="http://localhost:5000/api/type/"+id
+  const url="http://localhost:5000/api/room/"+id
 axios.delete(url).then((res) => {
 
 window.location="/room/list";
@@ -73,7 +73,6 @@ window.location="/room/list";
                <td>  {ListRoom.description}</td>
                <td>  {ListRoom.type}</td>
                <td>  {ListRoom.price}</td>
-               <td> <img src={"http://localhost:3000/"+ ListRoom.images[1].img}   height="20px"/>  </td>
 
 
 
@@ -86,8 +85,9 @@ window.location="/room/list";
               </td>
 
               
-               <td> <Link to={'/type/edite/'+ListRoom._id}>Update</Link></td>
-               <td> <button  onClick={() => handleDelete(ListRoom._id)}>deleted</button></td>
+             
+               <td> <button  className='btn btn-danger' onClick={() => handleDelete(ListRoom._id)}>deleted</button></td>
+               <td> <button className='btn btn-warning'> <Link to={`/updateRoom/${ListRoom._id}`}>Update</Link></button></td> 
 
              </tr>
            </tbody>
