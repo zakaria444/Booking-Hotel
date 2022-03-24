@@ -6,15 +6,15 @@ import SearchIcon from "@material-ui/icons/Search";
 function SearchBar({ placeholder, data }) {
   console.log('datahotel',data);
   const [filteredData, setFilteredData] = useState([]);
-  const [wordEntered, setWordEntered] = useState("");
+  // const [wordEntered, setWordEntered] = useState("");
 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
-    setWordEntered(searchWord);
-    console.log(event.target.value);
-    // const newFilter = data.filter((value) => {
-    //   return value.title.toLowerCase().includes(searchWord.toLowerCase());
-    // });
+    // setWordEntered(searchWord);
+    const newFilter = data.filter((value) => {
+      return value.name.toLowerCase().includes(searchWord.toLowerCase());
+    });
+    setFilteredData(newFilter);
 
       // if (searchWord === "") {
       //   setFilteredData([]);
@@ -22,6 +22,12 @@ function SearchBar({ placeholder, data }) {
       //   setFilteredData(newFilter);
       // }
   };
+  const handleafficher = (id) => {
+
+
+    window.location="/booking/"+id;
+
+  }
 
   // const clearInput = () => {
   //   setFilteredData([]);
@@ -31,12 +37,9 @@ function SearchBar({ placeholder, data }) {
   return (
     <div className="search">
       <div className="searchInputs">
-     
         <input
           type="text"
           placeholder={placeholder}
-          
-          value={wordEntered}
           onChange={handleFilter}
         />
          <SearchIcon />
@@ -49,25 +52,18 @@ function SearchBar({ placeholder, data }) {
           )}
         </div> */}
       </div>
+   
       {filteredData.length != 0 && (
-      <div className="dataResult">
-        {data.map((value , key) => {
-          return <a className="dataItem" href={value.link}>{value.name }
-          </a>
-        })}
-      </div>
-      )}
-      {/* {filteredData.length != 0 && (
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <a className="dataItem" href={value.link} target="_blank">
-                <p>{value.title} </p>
+              <a className="dataItem" onClick={() => handleafficher(value._id)} target="_blank">
+                <p>{value.name} </p>
               </a>
             );
           })}
         </div>
-      )} */}
+      )}
     </div>
   );
 }
