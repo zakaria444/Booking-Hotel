@@ -17,20 +17,15 @@ function AfficherOwnerHotel() {
 
 
   const [hotels, sethotels] = useState([]);
-  console.log("🚀 ~ file: AfficherHotelOwner.js ~ line 20 ~ AfficherOwnerHotel ~ hotels", hotels)
+  console.log("🚀", hotels)
 
 
   useEffect(() => {
     const url = "http://localhost:5000/api/hotelproprietai/gethotelproprietair"
     Axios.get(url).then((res) => {
       sethotels(res.data.data);
-      console.log(res.data.data);
 
-      // const data=res.data.data[1].image_cover;
-      // const data_image= data.split('/');
-      // console.log(data_image[0]);
-      // console.log(res.data.data[1].image_cover);
-      // console.log(window.location.pathname.split('/'));
+
     })
   }, [])
   const handleUpdate = (id) => {
@@ -112,7 +107,10 @@ function AfficherOwnerHotel() {
             <th>description</th>
             <th ><img id='stars-hotel' src={cityLogo} alt="BigCo Inc. logo" /> city</th>
             <th><img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo" /> country</th>
-            <th ><img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo" /> stars </th>
+            <th ><img id='stars-hotel' alt='' /> Image cover </th>
+            <th><img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo" /> stars</th>
+
+           
 
             <th>Action</th>
             <th>Action</th>
@@ -132,7 +130,7 @@ function AfficherOwnerHotel() {
               <td>  {ListHotel.description}</td>
               <td>  {ListHotel.localisation.city} <img id='stars-hotel' src={cityLogo} alt="BigCo Inc. logo" /></td>
               <td>  {ListHotel.localisation.country} <img id='stars-hotel' src={countryLogo} alt="BigCo Inc. logo" /></td>
-              <td>  {ListHotel.localisation.country} <img id='stars-hotel' src={"http://localhost:3000/" + ListHotel.image_cover} alt="BigCo Inc. logo" /></td>
+              <td>   <img id='stars-hotel' src={"http://localhost:3000/" + ListHotel.image_cover} alt="BigCo Inc. logo" /></td>
 
 
               <td>  {ListHotel.stars} <img id='stars-hotel' src={companyLogo} alt="BigCo Inc. logo" /></td>

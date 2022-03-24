@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Axios from 'axios';
+import SearchBar from '../../search/search-bar'
+
 // import {Link} from"react-router-dom"
 
 
@@ -44,6 +46,9 @@ useEffect( ()=>{
     <div>
 <h1>dashborduser</h1>
 
+<div>
+  <SearchBar placeholder="Enter a Hotel Name..." data={hotels}  />
+</div>
 
 
 <div className="container d-flex justify-content-center">

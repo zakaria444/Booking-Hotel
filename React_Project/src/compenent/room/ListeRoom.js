@@ -57,6 +57,7 @@ window.location="/room/list";
            <thead>
              <tr>
                <th>Id</th>
+               <th>Hotel</th>
                <th>Name</th>
                <th>Description</th>
                <th>Type</th>
@@ -69,6 +70,8 @@ window.location="/room/list";
              <tr>
 
                <td>  {ListRoom._id}</td>
+               <td>  {ListRoom.hotel_id.name}</td>
+
                <td>  {ListRoom.name}</td>
                <td>  {ListRoom.description}</td>
                <td>  {ListRoom.type}</td>
@@ -79,7 +82,7 @@ window.location="/room/list";
               <td>
 
               {ListRoom.images.map((ele, index) => {
-                return <img height="50px" src={`http://localhost:3000/${ele.img}`} />
+                return <img height="50px" src={`http://localhost:3000/${ele.img}`} alt='' />
               })}
 
               </td>

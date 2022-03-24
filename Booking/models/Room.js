@@ -32,7 +32,8 @@ const RoomSchema = mongoose.model(
             ref: 'Hotel'
         },
     },
-        { timestamps: true })
+      
+        )
 );
 
 module.exports = RoomSchema;

@@ -1,5 +1,7 @@
 import React from 'react'
 import {Link} from"react-router-dom"
+import SearchBar from '../../search/search-bar'
+import AfficherOwnerHotel from '../ownerDashbord/AfficherHotelOwner'
 // import jwtDecode from "jwt-decode";
 
 
@@ -21,7 +23,9 @@ function home() {
     <div>
 <h1>BOOKING </h1>
 
-
+<div>
+  <SearchBar placeholder="Enter a Book Name..." data={AfficherOwnerHotel}  />
+</div>
 
   <div class="container">
   
