@@ -163,9 +163,7 @@ align-items: center;
 
 
 
-.jumbotron{
-  background-color: #92badd;
-}
+
 .top-selection{
   margin-bottom: 15px; margin-left: 125px;
 }
@@ -273,4 +271,12 @@ align-items: center;
 .booking{
   display: flex;
   
+}
+.checked {
+  color: orange;
+}
+.desing{
+  text-align:center;
+  background-image: url(https://cdn.pixabay.com/photo/2015/12/28/10/19/hotel-1111199_960_720.jpg);
+background-position: 0ex;
 }

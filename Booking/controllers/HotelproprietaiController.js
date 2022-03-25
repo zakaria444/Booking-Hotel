@@ -143,7 +143,41 @@ const delethotelproprietair = async (req,res)=> {
       success:false
     })
 };
-
+// search
+const searchHotels = (req,res)=>{
+  console.log("🚀 ~ file: RoomController.js ~ line 164 ~ searchRoom ~ req", req.body.body.filters)
+ 
+     let order = req.body.order ? req.body.order : "desc";
+     let sortBy = req.body.sortBy ? req.body.sortBy : "_id";
+     let limit = req.body.limit ? parseInt(req.body.limit) : 100;
+     let skip = parseInt(req.body.skip);
+     
+     
+     let findArgs = {};
+     for (let key in req.body.body.filters) {
+ 
+         if (req.body.body.filters[key].length > 0) {    
+             if (key === "price") {
+                 findArgs[key] = {
+                     $gte: req.body.body.filters[key][0],
+                     $lte: req.body.body.filters[key][1]
+                 }
+             } else {
+                 findArgs[key] = req.body.body.filters[key];
+             }
+         }
+     }
+     hotelproprietair.find(findArgs)
+     .sort([[sortBy, order]])
+   
+   
+     .exec((err, hotels) => {
+         if (err) 
+         {return res.status(400).json({ success: false, err })}
+         res.json({ hotels})
+     })
+ }
+ 
 
 
 
@@ -154,6 +188,7 @@ module.exports = {
     updatehotelproprietair,
     delethotelproprietair,
     gethotelproprietair,
+    searchHotels,
     
     
     };
