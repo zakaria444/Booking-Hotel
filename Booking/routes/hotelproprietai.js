@@ -3,7 +3,8 @@ const {
     creatHotelImages,
     getImagesByHotel,
     OwnercreatHotelImages,
-    getImage
+    getImage,
+    
   } = require("../controllers/HotelsImagesController");
 
 const upload = require('../middlewares/upload')
@@ -13,7 +14,8 @@ const {
     updatehotelproprietair,
     delethotelproprietair,
     gethotelproprietair,
-    getOnehotelproprietair
+    getOnehotelproprietair,
+    searchHotels
   } = require("../controllers/HotelproprietaiController");
 
   router.get('/gethotelproprietair', async(req,res)=>{
@@ -29,6 +31,8 @@ router.post("/addhotelproprietair" ,upload.single('image_cover'),   addhotelprop
 
 router.post("/upload", upload.single('file'),  creatHotelImages);
 
+
+router.post("/search", searchHotels);
 
 
 router.patch('/updatehotelproprietair/:hotelid',  updatehotelproprietair);
