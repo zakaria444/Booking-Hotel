@@ -44,10 +44,10 @@ useEffect( ()=>{
       }
   return (
     <div>
-<h1>dashborduser</h1>
+
 
 <div>
-  <SearchBar placeholder="Enter a Hotel Name..." data={hotels}  />
+  <SearchBar placeholder="Search Hotel Name..." data={hotels}  />
 </div>
 
 

@@ -6,21 +6,15 @@ import SearchIcon from "@material-ui/icons/Search";
 function SearchBar({ placeholder, data }) {
   console.log('datahotel',data);
   const [filteredData, setFilteredData] = useState([]);
-  // const [wordEntered, setWordEntered] = useState("");
 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
-    // setWordEntered(searchWord);
     const newFilter = data.filter((value) => {
       return value.name.toLowerCase().includes(searchWord.toLowerCase());
     });
     setFilteredData(newFilter);
 
-      // if (searchWord === "") {
-      //   setFilteredData([]);
-      // } else {
-      //   setFilteredData(newFilter);
-      // }
+   
   };
   const handleafficher = (id) => {
 
@@ -29,10 +23,7 @@ function SearchBar({ placeholder, data }) {
 
   }
 
-  // const clearInput = () => {
-  //   setFilteredData([]);
-  //   setWordEntered("");
-  // };
+
 
   return (
     <div className="search">
@@ -44,20 +35,13 @@ function SearchBar({ placeholder, data }) {
         />
          <SearchIcon />
 
-        {/* <div className="searchIcon">
-          {filteredData.length === 0 ? (
-            <SearchIcon />
-          ) : (
-            <CloseIcon id="clearBtn" onClick={clearInput} />
-          )}
-        </div> */}
       </div>
    
       {filteredData.length != 0 && (
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <a className="dataItem" onClick={() => handleafficher(value._id)} target="_blank">
+              <a className="dataItem"  onClick={() => handleafficher(value._id)} target="_blank">
                 <p>{value.name} </p>
               </a>
             );
