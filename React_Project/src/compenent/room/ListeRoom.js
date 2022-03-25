@@ -3,6 +3,7 @@ import axios from "axios"
 import { Link } from 'react-router-dom'
 
 
+
 const handleDelete = (id) => {
   const url="http://localhost:5000/api/room/"+id
 axios.delete(url).then((res) => {
@@ -67,10 +68,14 @@ window.location="/room/list";
            </thead>
            {this.state.myArray.map((ListRoom,index) =>
            <tbody>
-             <tr>
+             <tr key={index}>
+
 
                <td>  {ListRoom._id}</td>
                <td>  {ListRoom.hotel_id.name}</td>
+
+
+               <td >  {index}</td>
 
                <td>  {ListRoom.name}</td>
                <td>  {ListRoom.description}</td>

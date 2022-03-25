@@ -50,6 +50,7 @@ const updateproprietaire= async (req, res) => {
       res.status(409).json({success: false, data: [] , error: error});
     }
   }
+  
 
  
   module.exports = {
