@@ -69,14 +69,7 @@ function Home() {
         <div className="admin-dashb">
           <h1 className="afficher-hotel">Hotel</h1>
           <ul className="nav-admin" id="nav-admin">
-            <li className="nav-item">
-              <Link
-                className="nav-link active"
-                aria-current="page"
-                to="/ownerDashbord/fileupload">
-               FileUpload
-              </Link>
-            </li>
+            
             <li className="nav-item">
               <Link
                 className="nav-link active"

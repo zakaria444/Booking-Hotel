@@ -5,7 +5,7 @@ import { AdminRoute } from './Auth/AdminRoute';
 import { OwnerRoute } from './Auth/OwnerRoute';
 
 
-import {Routes,Route,Navigate}from "react-router-dom"
+import {Routes,Route}from "react-router-dom"
 import Home from"./compenent/home/home"
 
 import Menu from"./compenent/home/menu"

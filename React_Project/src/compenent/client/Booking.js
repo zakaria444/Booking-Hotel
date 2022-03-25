@@ -41,6 +41,8 @@ setMyFilter ({...MyFilter,[filterBy]:data})
  .then(res => setRoomsFiltred(res)  )
     });
 
+  },);
+
   }, [MyFilter]);
 
 
