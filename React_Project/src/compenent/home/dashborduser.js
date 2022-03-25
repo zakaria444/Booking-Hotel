@@ -14,7 +14,7 @@ const [hotels, sethotels] = useState(false);
   const [limit,setLimit] = useState(12);
   const [skip,setSkip] = useState(0);
   // const [hotelsFiltred,setHotelsFiltred] = useState([])
-const [hotels, sethotels] = useState([]);
+
 
 
 const handleafficher = (id)=>{
@@ -31,6 +31,19 @@ const [MyFilter, setMyFilter] = useState({
 
 
 });
+useEffect( ()=>{
+  const url="http://localhost:5000/api/hotel"
+  Axios.get(url).then((res) => {
+    sethotels(res.data.data) ;
+    filterHotels(skip,limit,MyFilter)
+    .then(res =>sethotels(res)  )
+    })},[MyFilter])
+    const handlefilters = (data,filterBy)=>{
+
+      setMyFilter ({...MyFilter,[filterBy]:data}) 
+      filterHotels(skip,limit,MyFilter)
+      .then(res =>sethotels(res)  )
+        }
 
 useEffect( ()=>{
     const url="http://localhost:5000/api/hotel"
@@ -65,15 +78,7 @@ useEffect( ()=>{
 </div>
 
 
-      filterHotels(skip,limit,MyFilter)
-      .then(res =>sethotels(res)  )
-      })},[MyFilter])
-      const handlefilters = (data,filterBy)=>{
-
-        setMyFilter ({...MyFilter,[filterBy]:data}) 
-        filterHotels(skip,limit,MyFilter)
-        .then(res =>sethotels(res)  )
-          }
+   
       
   
   return (
@@ -161,6 +166,7 @@ useEffect( ()=>{
 </footer>
   
 
+    </div>
     </div>
    
 
