@@ -161,7 +161,7 @@ const deletRoom = async (req, res) => {
   
 // search
  const searchRoom = (req,res)=>{
- console.log("🚀 ~ file: RoomController.js ~ line 164 ~ searchRoom ~ req", req.body.filters)
+//  console.log("🚀 ~ file: RoomController.js ~ line 164 ~ searchRoom ~ req", req.body.filters)
 
     let order = req.body.order ? req.body.order : "desc";
     let sortBy = req.body.sortBy ? req.body.sortBy : "_id";
@@ -183,8 +183,8 @@ const deletRoom = async (req, res) => {
             }
         }
     }
-    console.log(findArgs)
-    console.log("🚀 ~ file: RoomController.js ~ line 186 ~ searchRoom ~ findArgs", findArgs)
+    // console.log(findArgs)
+    // console.log("🚀 ~ file: RoomController.js ~ line 186 ~ searchRoom ~ findArgs", findArgs)
     Room.find(findArgs)
     .sort([[sortBy, order]])
   
